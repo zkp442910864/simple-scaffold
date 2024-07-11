@@ -1,0 +1,40 @@
+{
+  "name": "x-system",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "umi dev",
+    "build": "npm run eslint && npm run stylelint && umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev",
+    "gene": "node swagger.generate.ts",
+    "eslint": "umi lint --eslint-only --quiet",
+    "eslint:fix": "umi lint --eslint-only --fix",
+    "ts-check": "tsc -p tsconfig.check.json",
+    "stylelint": "umi lint --stylelint-only --quiet"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@ant-design/pro-components": "^2.7.10",
+    "@ant-design/pro-layout": "^7.19.8",
+    "antd": "^5.19.1",
+    "classnames": "^2.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "umi": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@umijs/lint": "^4.3.1",
+    "@umijs/plugins": "^4.3.1",
+    "@unocss/cli": "^0.61.3",
+    "eslint": "^9.6.0",
+    "stylelint": "^16.6.1",
+    "swagger-typescript-api": "^13.0.12",
+    "typescript": "^5.5.3",
+    "unocss": "^0.61.3",
+    "webpack-chain": "^6.5.1"
+  }
+}

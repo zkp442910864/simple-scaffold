@@ -1,0 +1,23 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "jsx": "preserve",
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "noEmit": true, // 不输出任何文件
+        "skipLibCheck": true, // 跳过库检查
+    },
+    "include": [
+        "./src",
+        "./typings.d.ts"
+    ],
+    "exclude": [
+        "dist",
+        "config",
+        "public",
+        "lib",
+        "node_modules",
+        // "**/.umi/**/*",
+        // "**/.umi-production/**/*"
+    ]
+}

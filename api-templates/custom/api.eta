@@ -1,0 +1,102 @@
+<%
+const { utils, route, config, modelTypes } = it;
+const { _, classNameCase, require } = utils;
+const apiClassName = classNameCase(route.moduleName);
+const routes = route.routes;
+const dataContracts = _.map(modelTypes, "name");
+%>
+
+<% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %>  <% } %>
+
+<% /* 类型 */ %>
+<% if (dataContracts.length) { %>
+import { <%~ dataContracts.join(", ") %> } from "./<%~ config.fileNames.dataContracts %>"
+<% } %>
+
+<% /* 请求 */ %>
+import {apiGet, apiPost, apiDel, apiPut, IAjaxOptions} from "./<%~ config.fileNames.httpClient %>";
+
+<% routes.forEach((route) => { %>
+    <% /* 定义参数 */ %>
+    <%
+        const routeDocs = includeFile("@base/route-docs", { config, route, utils });
+        const { HTTP_CLIENT, RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
+        const { requestBodyInfo, responseBodyInfo, specificArgNameResolver } = route;
+        const { parameters, path, method, payload, query, formData, security, requestParams } = route.request;
+        const { type, errorType, contentTypes } = route.response;
+        const pathParams = _.values(parameters);
+        const pathParamsNames = _.map(pathParams, "name");
+        const argToTmpl = ({ name, optional, type, defaultValue }) => `${name}${!defaultValue && optional ? '?' : ''}: ${type}${defaultValue ? ` = ${defaultValue}` : ''}`;
+        const bodyTmpl = _.get(payload, "name") || null;
+        const queryName = (query && query.name) || "query";
+
+
+        const requestConfigParam = {
+            name: "options",
+            optional: true,
+            type: "IAjaxOptions",
+            defaultValue: "{}",
+        }
+        const rawWrapperArgs = config.extractRequestParams ?
+            _.compact([
+                requestParams && {
+                name: pathParams.length ? `{ ${_.join(pathParamsNames, ", ")}, ...${queryName} }` : queryName,
+                optional: false,
+                type: getInlineParseContent(requestParams),
+                },
+                ...(!requestParams ? pathParams : []),
+                payload,
+                requestConfigParam,
+            ]) :
+            _.compact([
+                ...pathParams,
+                query,
+                payload,
+                requestConfigParam,
+            ])
+
+        const wrapperArgs = _
+            // Sort by optionality
+            .sortBy(rawWrapperArgs, [o => o.optional])
+            .map(argToTmpl)
+            .join(', ');
+
+        let methodApi = 'apiGet';
+
+        switch (_.upperCase(method)) {
+            case 'POST':
+                methodApi = 'apiPost';
+                break;
+            case 'DELLET':
+                methodApi = 'apiDel';
+                break;
+            case 'PUT':
+                methodApi = 'apiPut';
+                break;
+        }
+
+    %>
+
+    <% /* 写注释 */ %>
+    /**
+    <%~ routeDocs.description %>
+
+    * <% /* Here you can add some other JSDoc tags */ %>
+
+    <%~ routeDocs.lines %>
+
+    */
+    <% /* 输出接口 */ %>
+    export const <%~ route.routeName.usage %> = (<%~ wrapperArgs %>) => {
+        <% /* <% if (_.upperCase(method) === 'GET') { %>'apiGet'<% } %> */ %>
+        return <%~ methodApi %><<%~ type %>>(
+            '<%~ path %>',
+            <%~ bodyTmpl ? bodyTmpl : '{}' %>,
+            <%~ _.get(requestConfigParam, "name") %>
+        );
+    };
+
+
+    <% /* <%~ includeFile('./procedure-call.eta', { ...it, route }) %> */ %>
+<% }) %>
+

@@ -1,0 +1,3 @@
+import {apiGet, apiPost, apiDel, apiPut, IAjaxOptions} from '@zhcxkj/react-antd-extends';
+
+export {apiGet, apiPost, apiDel, apiPut, IAjaxOptions};
