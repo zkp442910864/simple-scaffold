@@ -6,7 +6,8 @@ import StatusPage from '@/pages/StatusPage';
 import {handlerMenuData, handlerDictionaries} from '@/utils/base/init';
 import {getMenuDataApi, getUserDataApi, getDictionariesApi} from '@/services/commonApi';
 
-console.log('app');
+// console.log('app');
+import '@/utils/ajax/init';
 
 /** https://umijs.org/zh-CN/plugins/plugin-initial-state */
 export async function getInitialState () {
