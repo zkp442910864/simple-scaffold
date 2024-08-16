@@ -1,0 +1,13 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./build",
+        // "module": "ESNext",
+        // "target": "ESNext",
+        // "importHelpers": true,
+        // "esModuleInterop": true
+    },
+    "include": [
+        "./src"
+    ]
+}

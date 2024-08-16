@@ -1,0 +1,25 @@
+{
+  "name": "@simple-scaffold-monorepo/main",
+  "version": "0.0.0",
+  "description": "主项目",
+  "author": "zkp <442910864@qq.com>",
+  "homepage": "https://github.com/zkp442910864/simple-scaffold#readme",
+  "license": "ISC",
+  "main": "build/index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkp442910864/simple-scaffold.git"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/zkp442910864/simple-scaffold/issues"
+  },
+  "dependencies": {
+    "@simple-scaffold-monorepo/core": "workspace:^"
+  }
+}

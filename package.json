@@ -1,0 +1,22 @@
+{
+  "name": "simple-scaffold-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "packageManager": "pnpm@9.6.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "turbo run build",
+    "lerna-init": "lerna init",
+    "lerna-create": "lerna create"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.3.0",
+    "lerna": "^8.1.8",
+    "turbo": "^2.0.14",
+    "typescript": "^5.5.4"
+  }
+}
