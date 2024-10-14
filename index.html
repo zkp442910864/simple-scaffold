@@ -1,13 +1,244 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="root"></div>
+    <div id="skeleton-screen">
+        <style>
+            html,
+            body,
+            p {
+                margin: 0;
+                padding: 0;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            p {
+                position: absolute;
+            }
+        </style>
+        <style>
+            @keyframes blink {
+                0% {
+                    opacity: .4;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: .4;
+                }
+            }
+
+            .blink {
+                animation-duration: 2s;
+                animation-name: blink;
+                animation-iteration-count: infinite;
+            }
+        </style>
+        <p class="blink"
+            style="z-index: 0;border-radius: 0% / 0%;background: rgb(255, 255, 255);width: 7.988%;padding-bottom: 0.24%;left: 92.012%;margin-top: 0%;">
+        </p>
+        <p class="blink"
+            style="z-index: 1;border-radius: 0% / 0%;background: rgb(255, 255, 255);width: 100%;padding-bottom: 73.393%;margin-top: 0%;">
+        </p>
+        <p class="blink"
+            style="z-index: 2;border-radius: 0% / 0%;background: rgb(255, 255, 255);width: 100%;padding-bottom: 73.393%;margin-top: 0%;">
+        </p>
+        <p class="blink"
+            style="z-index: 3;border-radius: 0% / 0%;background: rgb(250, 250, 250);width: 100%;padding-bottom: 73.393%;margin-top: 0%;">
+        </p>
+        <p class="blink"
+            style="z-index: 4;border-radius: 1.172% / 1.036%;background: rgba(255, 255, 255, 0.9);width: 61.502%;padding-bottom: 69.55%;left: 28.228%;margin-top: 3.844%;">
+        </p>
+        <p class="blink"
+            style="z-index: 5;background: #EEEEEE;width: 13.464%;padding-bottom: 1.682%;left: 33.514%;margin-top: 6.366%;">
+        </p>
+        <p class="blink"
+            style="z-index: 6;border-radius: 50%;background: rgb(239, 239, 239);width: 2.282%;padding-bottom: 2.282%;left: 30.15%;margin-top: 6.066%;">
+        </p>
+        <p class="blink"
+            style="z-index: 7;border-radius: 7.692% / 18.75%;background: rgb(255, 255, 255);width: 4.685%;padding-bottom: 1.922%;left: 83.123%;margin-top: 6.246%;">
+        </p>
+        <p class="blink"
+            style="z-index: 8;border-radius: 50%;background: rgb(239, 239, 239);width: 0.961%;padding-bottom: 0.961%;left: 83.964%;margin-top: 6.727%;">
+        </p>
+        <p class="blink"
+            style="z-index: 9;border-radius: 50%;background: rgb(239, 239, 239);width: 0.841%;padding-bottom: 0.841%;left: 42.938%;margin-top: 9.474%;">
+        </p>
+        <p class="blink"
+            style="z-index: 10;border-radius: 50% / 50%;background: rgb(239, 239, 239);width: 1.682%;padding-bottom: 1.682%;left: 33.634%;margin-top: 11.789%;">
+        </p>
+        <p class="blink"
+            style="z-index: 11;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 19.416%;">
+        </p>
+        <p class="blink"
+            style="z-index: 12;background: #EEEEEE;width: 3.604%;padding-bottom: 0.901%;left: 32.312%;margin-top: 19.369%;">
+        </p>
+        <p class="blink"
+            style="z-index: 13;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 21.578%;">
+        </p>
+        <p class="blink"
+            style="z-index: 14;background: #EEEEEE;width: 5.405%;padding-bottom: 0.901%;left: 32.312%;margin-top: 21.532%;">
+        </p>
+        <p class="blink"
+            style="z-index: 15;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 23.741%;">
+        </p>
+        <p class="blink"
+            style="z-index: 16;background: #EEEEEE;width: 3.317%;padding-bottom: 0.901%;left: 32.312%;margin-top: 23.694%;">
+        </p>
+        <p class="blink"
+            style="z-index: 17;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 25.903%;">
+        </p>
+        <p class="blink"
+            style="z-index: 18;background: #EEEEEE;width: 3.931%;padding-bottom: 0.901%;left: 32.312%;margin-top: 25.856%;">
+        </p>
+        <p class="blink"
+            style="z-index: 19;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 28.065%;">
+        </p>
+        <p class="blink"
+            style="z-index: 20;background: #EEEEEE;width: 5.282%;padding-bottom: 0.901%;left: 32.312%;margin-top: 28.018%;">
+        </p>
+        <p class="blink"
+            style="z-index: 21;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 30.227%;">
+        </p>
+        <p class="blink"
+            style="z-index: 22;background: #EEEEEE;width: 3.908%;padding-bottom: 0.901%;left: 32.312%;margin-top: 30.18%;">
+        </p>
+        <p class="blink"
+            style="z-index: 23;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 32.389%;">
+        </p>
+        <p class="blink"
+            style="z-index: 24;background: #EEEEEE;width: 3.803%;padding-bottom: 0.901%;left: 32.312%;margin-top: 32.342%;">
+        </p>
+        <p class="blink"
+            style="z-index: 25;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 34.551%;">
+        </p>
+        <p class="blink"
+            style="z-index: 26;background: #EEEEEE;width: 3.215%;padding-bottom: 0.901%;left: 32.312%;margin-top: 34.505%;">
+        </p>
+        <p class="blink"
+            style="z-index: 27;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 36.714%;">
+        </p>
+        <p class="blink"
+            style="z-index: 28;background: #EEEEEE;width: 3.766%;padding-bottom: 0.901%;left: 32.312%;margin-top: 36.667%;">
+        </p>
+        <p class="blink"
+            style="z-index: 29;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 38.876%;">
+        </p>
+        <p class="blink"
+            style="z-index: 30;background: #EEEEEE;width: 5.306%;padding-bottom: 0.901%;left: 32.312%;margin-top: 38.829%;">
+        </p>
+        <p class="blink"
+            style="z-index: 31;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 41.038%;">
+        </p>
+        <p class="blink"
+            style="z-index: 32;background: #EEEEEE;width: 5.709%;padding-bottom: 0.901%;left: 32.312%;margin-top: 40.991%;">
+        </p>
+        <p class="blink"
+            style="z-index: 33;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 43.2%;">
+        </p>
+        <p class="blink"
+            style="z-index: 34;background: #EEEEEE;width: 6.525%;padding-bottom: 0.841%;left: 80.442%;margin-top: 45.362%;">
+        </p>
+        <p class="blink"
+            style="z-index: 35;background: #EEEEEE;width: 6.306%;padding-bottom: 0.901%;left: 32.312%;margin-top: 45.315%;">
+        </p>
+        <p class="blink"
+            style="z-index: 36;border-radius: 0% / 0%;background: rgb(255, 255, 255);width: 17.958%;padding-bottom: 73.393%;margin-top: 0%;">
+        </p>
+        <p class="blink"
+            style="z-index: 37;border-radius: 0% / 0%;background: rgb(255, 255, 255);width: 17.958%;padding-bottom: 73.393%;margin-top: 0%;">
+        </p>
+        <p class="blink"
+            style="z-index: 38;background: #EEEEEE;width: 3.604%;padding-bottom: 0.721%;left: 3.003%;margin-top: 1.266%;">
+        </p>
+        <p class="blink"
+            style="z-index: 39;border-radius: 50%;background: rgb(239, 239, 239);width: 0.961%;padding-bottom: 0.961%;left: 0.961%;margin-top: 1.171%;">
+        </p>
+        <p class="blink"
+            style="z-index: 40;border-radius: 50%;background: rgb(239, 239, 239);width: 0.841%;padding-bottom: 0.841%;left: 2.042%;margin-top: 1.231%;">
+        </p>
+        <p class="blink"
+            style="z-index: 41;border-radius: 50%;background: rgb(239, 239, 239);width: 1.201%;padding-bottom: 1.441%;left: 0.841%;margin-top: 3.063%;">
+        </p>
+        <p class="blink"
+            style="z-index: 42;background: #EEEEEE;width: 7.693%;padding-bottom: 0.961%;left: 2.643%;margin-top: 3.303%;">
+        </p>
+        <p class="blink"
+            style="z-index: 43;border-radius: 50%;background: rgb(239, 239, 239);width: 0.841%;padding-bottom: 0.841%;left: 10.825%;margin-top: 3.423%;">
+        </p>
+        <p class="blink"
+            style="z-index: 44;border-radius: 50%;background: rgb(239, 239, 239);width: 0.961%;padding-bottom: 0.961%;left: 0.961%;margin-top: 11.832%;">
+        </p>
+        <p class="blink"
+            style="z-index: 45;border-radius: 50%;background: rgb(239, 239, 239);width: 0.961%;padding-bottom: 0.961%;left: 15.916%;margin-top: 11.832%;">
+        </p>
+        <p class="blink"
+            style="z-index: 46;background: #EEEEEE;width: 3.363%;padding-bottom: 0.841%;left: 2.162%;margin-top: 13.934%;">
+        </p>
+        <p class="blink"
+            style="z-index: 47;background: #EEEEEE;width: 5.045%;padding-bottom: 0.841%;left: 2.162%;margin-top: 16.096%;">
+        </p>
+        <p class="blink"
+            style="z-index: 48;background: #EEEEEE;width: 3.096%;padding-bottom: 0.841%;left: 2.162%;margin-top: 18.258%;">
+        </p>
+        <p class="blink"
+            style="z-index: 49;background: #EEEEEE;width: 3.669%;padding-bottom: 0.841%;left: 2.162%;margin-top: 20.42%;">
+        </p>
+        <p class="blink"
+            style="z-index: 50;background: #EEEEEE;width: 4.93%;padding-bottom: 0.841%;left: 2.162%;margin-top: 22.583%;">
+        </p>
+        <p class="blink"
+            style="z-index: 51;background: #EEEEEE;width: 3.648%;padding-bottom: 0.841%;left: 2.162%;margin-top: 24.745%;">
+        </p>
+        <p class="blink"
+            style="z-index: 52;background: #EEEEEE;width: 3.549%;padding-bottom: 0.841%;left: 2.162%;margin-top: 26.907%;">
+        </p>
+        <p class="blink"
+            style="z-index: 53;background: #EEEEEE;width: 3.515%;padding-bottom: 0.841%;left: 2.162%;margin-top: 31.231%;">
+        </p>
+        <p class="blink"
+            style="z-index: 54;background: #EEEEEE;width: 4.952%;padding-bottom: 0.841%;left: 2.162%;margin-top: 33.393%;">
+        </p>
+        <p class="blink"
+            style="z-index: 55;background: #EEEEEE;width: 5.328%;padding-bottom: 0.841%;left: 2.162%;margin-top: 35.556%;">
+        </p>
+        <p class="blink"
+            style="z-index: 56;background: #EEEEEE;width: 5.886%;padding-bottom: 0.841%;left: 2.162%;margin-top: 39.88%;">
+        </p>
+        <p class="blink"
+            style="z-index: 57;border-radius: 2.12% / 18.75%;background: rgb(239, 240, 240);width: 16.997%;padding-bottom: 1.922%;left: 0.48%;margin-top: 9.069%;">
+        </p>
+        <p class="blink"
+            style="z-index: 58;border-radius: 50%;background: rgb(239, 239, 239);width: 0.961%;padding-bottom: 0.961%;left: 0.961%;margin-top: 9.55%;">
+        </p>
+        <p class="blink"
+            style="z-index: 59;border-radius: 2.827% / 25%;background: rgb(244, 245, 245);width: 16.997%;padding-bottom: 1.922%;left: 0.48%;margin-top: 6.547%;">
+        </p>
+        <p class="blink"
+            style="z-index: 60;border-radius: 50%;background: rgb(239, 239, 239);width: 0.961%;padding-bottom: 0.961%;left: 0.961%;margin-top: 7.027%;">
+        </p>
+        <p class="blink"
+            style="z-index: 61;box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px 0px;border-radius: 57.143% / 18.182%;background: rgb(255, 255, 255);width: 0.841%;padding-bottom: 2.643%;left: 17.538%;margin-top: 11.892%;">
+        </p>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
+</body>
+
 </html>

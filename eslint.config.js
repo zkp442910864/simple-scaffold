@@ -7,7 +7,7 @@ import tsEslint from 'typescript-eslint';
 
 export default tsEslint.config(
     {
-        ignores: ['dist'],
+        ignores: ['dist',],
     },
     {
         extends: [
@@ -33,21 +33,30 @@ export default tsEslint.config(
             ...reactHooks.configs.recommended.rules,
             'react-refresh/only-export-components': [
                 'warn',
-                {allowConstantExport: true},
+                { allowConstantExport: true, },
             ],
             indent: ['error', 4, {
                 SwitchCase: 1,
-                ignoredNodes: ['TemplateLiteral'],
-            }],
-            '@typescript-eslint/no-unused-vars': [1],
-            semi: [2, 'always'],
-            'comma-dangle': ['error', 'always-multiline'],
+                ignoredNodes: ['TemplateLiteral',],
+            },],
+            '@typescript-eslint/no-unused-vars': [1,],
+            semi: [2, 'always',],
+            'comma-dangle': [
+                'error', {
+                    arrays: 'always',
+                    objects: 'always',
+                    imports: 'never',
+                    exports: 'never',
+                    functions: 'never',
+                },
+            ],
             'comma-spacing': 1,
             'no-trailing-spaces': 1,
-            quotes: ['error', 'single'],
-            'quote-props': [1, 'as-needed'],
+            quotes: ['error', 'single',],
+            'quote-props': [1, 'as-needed',],
             'no-multi-spaces': 1,
-            'key-spacing': [1],
+            'key-spacing': [1,],
+            'object-curly-spacing': [2, 'always',],
         },
-    },
+    }
 );
