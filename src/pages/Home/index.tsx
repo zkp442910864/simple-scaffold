@@ -1,6 +1,4 @@
 
-import svg from '@/assets/react.svg';
-import asdasd from '@/assets/asdasd.png';
 import { getDevice } from '@/utils';
 
 const Home = () => {
@@ -16,8 +14,6 @@ const Home = () => {
 
             <div style={{ border: '0.5px solid #000', marginTop: 60, }}></div>
 
-            {svg}
-            {asdasd}
             <div>innerWidth: {window.innerWidth}</div>
             <div>devicePixelRatio: {window.devicePixelRatio}</div>
             <div>getDevice: {getDevice().join()}</div>
