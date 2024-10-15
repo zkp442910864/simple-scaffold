@@ -30,6 +30,7 @@ export default tsEslint.config(
             'react-refresh': reactRefresh,
         },
         rules: {
+            // https://eslint.org/play/
             ...reactHooks.configs.recommended.rules,
             'react-refresh/only-export-components': [
                 'warn',
@@ -57,6 +58,11 @@ export default tsEslint.config(
             'no-multi-spaces': 1,
             'key-spacing': [1,],
             'object-curly-spacing': [2, 'always',],
+            'no-extra-parens': [1,],
+            'space-infix-ops': ['error', { int32Hint: false, },],
+            'space-before-blocks': [1,],
+            'keyword-spacing': 1,
+            'brace-style': [1, 'stroustrup',],
         },
     }
 );

@@ -12,4 +12,7 @@ export default defineConfig({
             { find: '@', replacement: resolve('./src'), },
         ],
     },
+    server: {
+        host: true,
+    },
 });
