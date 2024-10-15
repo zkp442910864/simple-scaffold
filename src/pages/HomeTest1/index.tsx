@@ -6,7 +6,11 @@ const HomeTest1 = () => {
 
 
     return (
-        <div onClick={updateTest}>
+        <div
+            onClick={() => {
+                updateTest();console.log(123);
+            }}
+        >
             HomeTest1 页面 {Math.random()}
         </div>
     );

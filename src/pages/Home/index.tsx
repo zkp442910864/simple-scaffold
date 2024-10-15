@@ -3,6 +3,7 @@ import { useBaseData } from '@/store';
 import { getDevice } from '@/utils';
 import HomeTest1 from '../HomeTest1';
 import { useMemo } from 'react';
+import svg from '@/assets/react.svg';
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
             </div>
 
             <div style={{ border: '0.5px solid #000', marginTop: 60, }}></div>
+            <img src={svg} />
 
             <div>testVal: {testVal}</div>
             <div>innerWidth: {window.innerWidth}</div>
