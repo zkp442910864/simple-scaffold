@@ -16,7 +16,7 @@ export const createViewport = (type: DeviceType) => {
         dom.setAttribute('name', 'viewport');
         dom.setAttribute('content', 'width=device-width, initial-scale=1.0');
 
-        setHtmlFontSize();
+        // setHtmlFontSize();
     }
 
     document.head.appendChild(dom);
