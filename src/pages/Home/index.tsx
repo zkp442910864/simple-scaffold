@@ -10,16 +10,16 @@ const Home = () => {
     const testVal = useBaseData((state) => state.test);
 
     return (
-        <div>
+        <div className="color-main!">
             Home 页面
             <div style={{ }}>测试</div>
-            <div style={{ display: 'flex', }}>
+            <div className="flex">
                 <div style={{ background: '#000', flexBasis: '3rem', }}>1</div>
                 <div style={{ background: 'gray', flex: 'auto', width: 0, }}>1</div>
             </div>
 
             <div style={{ border: '0.5px solid #000', marginTop: 60, }}></div>
-            <img src={svg} />
+            <img className="un-w500px" src={svg} />
 
             <div>testVal: {testVal}</div>
             <div>innerWidth: {window.innerWidth}</div>

@@ -9,7 +9,8 @@
     - <img src="md/QQ截图20241015103017.png" height="200" alt="window.devicePixelRatio" style="vertical-align:top;" />
 - [] 网络封装(https://github.com/zkp442910864/common-utils.git)
 - [] 提取成类库(https://github.com/zkp442910864/common-utils.git)
-- [] unocss
+- [x] unocss
+    - [资料](https://unocss.dev/integrations/vite)
 - [x] gzip，分析依赖
     - [分析依赖-资料](https://www.mulingyuer.com/archives/1033/)
     - [gzip-资料1](https://github.com/nonzzz/vite-plugin-compression)

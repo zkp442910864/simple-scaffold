@@ -3,12 +3,14 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { compression } from 'vite-plugin-compression2';
 import { analyzer } from 'vite-bundle-analyzer';
+import UnoCSS from 'unocss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, }) => ({
     base: './',
     plugins: [
         react(),
+        UnoCSS(),
         // 分析
         // analyzer(),
         ...mode === 'production'
