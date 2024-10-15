@@ -1,7 +1,12 @@
 
+import { useBaseData } from '@/store';
 import { getDevice } from '@/utils';
+import HomeTest1 from '../HomeTest1';
+import { useMemo } from 'react';
 
 const Home = () => {
+
+    const testVal = useBaseData((state) => state.test);
 
     return (
         <div>
@@ -14,9 +19,11 @@ const Home = () => {
 
             <div style={{ border: '0.5px solid #000', marginTop: 60, }}></div>
 
+            <div>testVal: {testVal}</div>
             <div>innerWidth: {window.innerWidth}</div>
             <div>devicePixelRatio: {window.devicePixelRatio}</div>
             <div>getDevice: {getDevice().join()}</div>
+            {useMemo(() => <HomeTest1 />, [])}
         </div>
     );
 };

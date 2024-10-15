@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-const Root = () => {
+export const LayoutRoot = () => {
 
     return (
         <div>
@@ -11,5 +11,3 @@ const Root = () => {
         </div>
     );
 };
-
-export default Root;

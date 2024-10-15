@@ -1,6 +1,5 @@
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom';
-import Root from '@/pages/Root';
-import { NoFindPage } from '@/layout';
+import { LayoutRoot, NoFindPage } from '@/layout';
 import { lazy, Suspense } from 'react';
 
 export class CustomRouter {
@@ -15,6 +14,7 @@ export class CustomRouter {
     }
 
     router?: ReturnType<typeof createBrowserRouter>;
+    defaultRoot = <LayoutRoot />;
 
     /** 这个变量要注意和目录保持一致 */
     localPageBasePaths = ['/src/pages/', '/index.tsx',];
@@ -58,7 +58,7 @@ export class CustomRouter {
         const [prefix, suffix,] = this.localPageBasePaths;
         const root: RouteObject = {
             path: '/',
-            element: <Root />,
+            element: this.defaultRoot,
             children: [
                 // TODO: 根基业务情况匹配
                 this.noFindPage,
@@ -72,7 +72,7 @@ export class CustomRouter {
         const [prefix, suffix,] = this.localPageBasePaths;
         const root: RouteObject = {
             path: '/',
-            element: <Root />,
+            element: this.defaultRoot,
             children: [
                 ...Object.keys(this.localPageMap).map((url) => {
 
