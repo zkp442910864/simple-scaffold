@@ -10,6 +10,13 @@ export default tsEslint.config(
         ignores: ['dist',],
     },
     {
+        files: ['**/*.ts', '**/*.tsx',],
+        extends: [
+            eslintJs.configs.recommended,
+            ...tsEslint.configs.recommendedTypeCheckedOnly,
+        ],
+    },
+    {
         extends: [
             eslintJs.configs.recommended,
             ...tsEslint.configs.recommended,
@@ -55,7 +62,7 @@ export default tsEslint.config(
             'no-trailing-spaces': 1,
             quotes: ['error', 'single',],
             'quote-props': [1, 'as-needed',],
-            'no-multi-spaces': 1,
+            'no-multi-spaces': [1,],
             'key-spacing': [1,],
             'object-curly-spacing': [2, 'always',],
             'no-extra-parens': [1,],
@@ -63,6 +70,7 @@ export default tsEslint.config(
             'space-before-blocks': [1,],
             'keyword-spacing': 1,
             'brace-style': [1, 'stroustrup',],
+            'space-before-function-paren': [1, { anonymous: 'always', named: 'never', asyncArrow: 'always', },],
         },
     }
 );

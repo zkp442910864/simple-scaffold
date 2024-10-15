@@ -4,8 +4,23 @@ import { RouterProvider } from 'react-router-dom';
 import { CustomRouter } from './router/index.tsx';
 import { createViewport, getDevice } from './utils/index.ts';
 import 'virtual:uno.css';
+import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
 
-(async () => {
+(() => {
+    SystemUpdateSPA.getInstance({
+        dialog: () => {
+            confirm('qweqe');
+            return Promise.resolve();
+        },
+        interceptError(e, updateDialog) {
+            console.log(Date.now());
+            console.log(e);
+            if (e.message.includes('Uncaught TypeError: Failed to fetch dynamically imported module')) {
+                void updateDialog();
+            }
+        },
+    });
+
     const [, dType,] = getDevice();
     createViewport(dType);
 

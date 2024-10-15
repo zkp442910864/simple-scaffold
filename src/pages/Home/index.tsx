@@ -25,7 +25,7 @@ const Home = () => {
             <div>innerWidth: {window.innerWidth}</div>
             <div>devicePixelRatio: {window.devicePixelRatio}</div>
             <div>getDevice: {getDevice().join()}</div>
-            {useMemo(() => <HomeTest1 />, [])}
+            {/* {useMemo(() => <HomeTest1 />, [])} */}
         </div>
     );
 };

@@ -21,4 +21,5 @@
     - 运营后台查看错误信息，选择错误信息对应的 sourceMap 定位错误
     - 提取sourceMap插件，上传资源插件，查看数据页面
     - 考虑怎么实现成sdk
-- [] 页面更新，刷新(https://github.com/zkp442910864/common-utils.git)
+- [x] 页面更新，刷新(https://github.com/zkp442910864/common-utils.git)
+- [] react 组件错误处理

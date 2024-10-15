@@ -42,13 +42,13 @@ export default defineConfig(({ command, mode, }) => ({
                     const base = ['/src/', '.tsx',];
                     const lastModuleId = chunkInfo.moduleIds[chunkInfo.moduleIds.length - 1];
                     const mId = chunkInfo.facadeModuleId || lastModuleId || '';
-                    const index = mId.indexOf(base[0]) ?? -1;
+                    const index = mId.indexOf(base[0]);
                     if (index > -1) {
                         const path = mId.substring(index);
                         const pathName = path
                             .replace(base[0], '')
                             .replace(base[1], '')
-                            .replace(/\/(\w)/g, (_, match1) => match1.toUpperCase());
+                            .replace(/\/(\w)/g, (_, match1: string) => match1.toUpperCase());
 
                         return `assets/${pathName}-[hash].js`;
                     }
