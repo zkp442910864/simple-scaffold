@@ -1,20 +1,13 @@
-import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom';
-import { LayoutRoot, NoFindPage } from '@/layout';
+import { createBrowserRouter, createHashRouter, Navigate, RouteObject } from 'react-router-dom';
+import { ErrorComponent, LayoutRoot, NoFindPage } from '@/layout';
 import { lazy, Suspense } from 'react';
 
 export class CustomRouter {
-    private static customRouter: CustomRouter;
-
-    static getInstance(serverData?: ServerDataModel) {
-        if (!CustomRouter.customRouter) {
-            CustomRouter.customRouter = new CustomRouter(serverData);
-        }
-
-        return CustomRouter.customRouter;
-    }
+    private static instance: CustomRouter;
 
     router?: ReturnType<typeof createBrowserRouter>;
     defaultRoot = <LayoutRoot />;
+    defaultErrorFn = (props?: Parameters<typeof ErrorComponent>[0]) => <ErrorComponent {...props} />;
 
     /** 这个变量要注意和目录保持一致 */
     localPageBasePaths = ['/src/pages/', '/index.tsx',];
@@ -24,12 +17,20 @@ export class CustomRouter {
     loadingComponent = <div>Loading...</div>;
 
     /** 匹配不到页面 */
-    noFindPage: RouteObject = { path: '*', element: <NoFindPage />, };
+    noFindPage: RouteObject = { path: '*', element: <NoFindPage />, errorElement: this.defaultErrorFn({ path: 'NoFindPage', }), };
 
     /** 需要重定向页面 */
     redirectRouter: RouteObject[] = [
         { path: '/', element: <Navigate to="/Home" />, },
     ];
+
+    static getInstance(serverData?: ServerDataModel) {
+        if (!CustomRouter.instance) {
+            CustomRouter.instance = new CustomRouter(serverData);
+        }
+
+        return CustomRouter.instance;
+    }
 
     private constructor(serverData?: ServerDataModel) {
         this.getLocalPages();
@@ -73,12 +74,14 @@ export class CustomRouter {
         const root: RouteObject = {
             path: '/',
             element: this.defaultRoot,
+            errorElement: this.defaultErrorFn(),
             children: [
                 ...Object.keys(this.localPageMap).map((url) => {
-
+                    const path = url.replace(prefix, '/').replace(suffix, '');
                     const data: RouteObject = {
                         element: this.lazyComponent(this.localPageMap[url]),
-                        path: url.replace(prefix, '/').replace(suffix, ''),
+                        path,
+                        errorElement: this.defaultErrorFn({ path, }),
                     };
                     return data;
                 }),
@@ -89,7 +92,7 @@ export class CustomRouter {
     }
 
     createRouter(root: RouteObject) {
-        this.router = createBrowserRouter([
+        this.router = createHashRouter([
             ...this.redirectRouter,
             root,
             this.noFindPage,

@@ -65,13 +65,10 @@ export class SystemUpdateSPA {
     /** 错误拦截 */
     private errorFn = (e: ErrorEvent) => {
         // TODO:
-        if (e.error) {
-            if (!this.errorSet.has(e.error as object)) {
-                this.baseData.interceptError?.(e, () => this.showUpdateDialog('error'));
-            }
-            this.errorSet.add(e.error as object);
+        if (!this.errorSet.has(e.error as object)) {
+            this.baseData.interceptError?.(e, () => this.showUpdateDialog('error'));
         }
-        return true;
+        e.error && this.errorSet.add(e.error as object);
     };
 
     /** 轮询检测版本 */

@@ -71,6 +71,7 @@ export default tsEslint.config(
             'keyword-spacing': 1,
             'brace-style': [1, 'stroustrup',],
             'space-before-function-paren': [1, { anonymous: 'always', named: 'never', asyncArrow: 'always', },],
+            '@typescript-eslint/no-unused-expressions': 0,
         },
     }
 );

@@ -22,4 +22,4 @@
     - 提取sourceMap插件，上传资源插件，查看数据页面
     - 考虑怎么实现成sdk
 - [x] 页面更新，刷新(https://github.com/zkp442910864/common-utils.git)
-- [] react 组件错误处理
+- [x] react 组件错误边界处理

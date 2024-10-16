@@ -13,9 +13,9 @@ import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
             return Promise.resolve();
         },
         interceptError(e, updateDialog) {
-            console.log(Date.now());
-            console.log(e);
-            if (e.message.includes('Uncaught TypeError: Failed to fetch dynamically imported module')) {
+            // console.log(Date.now());
+            // console.log(e);
+            if (e.target instanceof HTMLElement || e.message.includes('Uncaught TypeError: Failed to fetch dynamically imported module')) {
                 void updateDialog();
             }
         },

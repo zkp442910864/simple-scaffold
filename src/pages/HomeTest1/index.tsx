@@ -4,6 +4,8 @@ const HomeTest1 = () => {
 
     const updateTest = useBaseData((state) => state.updateTest);
 
+    throw new Error('测试错误');
+
 
     return (
         <div
