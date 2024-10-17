@@ -16,7 +16,7 @@ export class SystemUpdateSPA {
     /** 是否有弹窗正在打开 */
     private pendingDialog = false;
     /** 避免出现多次同一错误 */
-    private errorSet = new WeakSet();
+    // private errorSet = new WeakSet();
 
     static getInstance(data?: ISystemUpdateSPAData) {
         if (!SystemUpdateSPA.instance) {
@@ -57,18 +57,20 @@ export class SystemUpdateSPA {
         }
     }
 
-    /** promise 错误处理, 推到error上 */
+    /** promise 错误处理 */
     private unhandledrejectionFn = (e: PromiseRejectionEvent) => {
-        throw e.reason;
+        // TODO:
+        const data: IErrorModel = {
+            ...e,
+            error: e.reason as Error,
+        };
+        this.baseData.interceptError?.(data, () => this.showUpdateDialog(EDialogType.RUNTIME_ERROR));
     };
 
     /** 错误拦截 */
     private errorFn = (e: ErrorEvent) => {
         // TODO:
-        if (!this.errorSet.has(e.error as object)) {
-            this.baseData.interceptError?.(e, () => this.showUpdateDialog('error'));
-        }
-        e.error && this.errorSet.add(e.error as object);
+        this.baseData.interceptError?.(e, () => this.showUpdateDialog(EDialogType.RUNTIME_ERROR));
     };
 
     /** 轮询检测版本 */
@@ -76,12 +78,12 @@ export class SystemUpdateSPA {
         const checkForUpdate = async () => {
             // TODO:
             if (this.baseData.customCheckUpdateFn) {
-                this.baseData.customCheckUpdateFn(() => this.showUpdateDialog('update'));
+                this.baseData.customCheckUpdateFn(() => this.showUpdateDialog(EDialogType.SYSTEM_UPDATE));
             }
             else {
                 const newHtml = await this.fetchHtml(`?v=${Date.now()}`);
                 if (this.isActive && this.initialHtml !== newHtml) {
-                    void this.showUpdateDialog('update');
+                    void this.showUpdateDialog(EDialogType.SYSTEM_UPDATE);
                 }
             }
         };
@@ -91,7 +93,7 @@ export class SystemUpdateSPA {
     }
 
     /** 更新窗口 */
-    private showUpdateDialog = async (type: 'update' | 'error') => {
+    private showUpdateDialog = async (type: EDialogType) => {
         if (this.pendingDialog) return;
         this.pendingDialog = true;
         // TODO:
@@ -133,16 +135,28 @@ interface ISystemUpdateSPAData {
     customCheckUpdateFn?: (updateDialog: () => Promise<void>) => void;
     /**
      * 拦截全局错误，并在识别为更新时调用 `updateDialog`。
-     * @param e ErrorEvent - 错误事件
+     * @param e IErrorModel - 错误事件
      * @param updateDialog () => void - 更新对话框触发函数
      */
-    interceptError?: (e: ErrorEvent, updateDialog: () => Promise<void>) => void;
+    interceptError?: (e: IErrorModel, updateDialog: () => Promise<void>) => void;
     /**
      * 更新对话框展示函数。
-     * @param type - 错误类型，'update' 或 'error'
+     * @param type - 错误类型，EDialogType
      */
-    dialog: (type: 'update' | 'error') => Promise<void>;
+    dialog: (type: EDialogType) => Promise<void>;
     /** 轮询间隔时间（毫秒），默认为 10 分钟 */
     interval?: number;
+}
+
+interface IErrorModel extends Event {
+    error: Error;
+    message?: string;
+    filename?: string;
+}
+
+enum EDialogType {
+    SYSTEM_UPDATE = 'systemUpdate',
+    RUNTIME_ERROR = 'runtimeError',
+    PROMISE_REJECT = 'promiseReject',
 }
 

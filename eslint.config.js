@@ -27,7 +27,7 @@ export default tsEslint.config(
                 project: './tsconfig.json',
                 tsconfigRootDir: import.meta.name,
             },
-            ecmaVersion: 2020,
+            ecmaVersion: 'latest',
             globals: globals.browser,
             parser: tsEslint.parser,
         },
