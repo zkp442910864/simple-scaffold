@@ -21,7 +21,7 @@
         - [ ] 错误监控(接口错误, 白屏)
         - [ ] 性能监控
         - [ ] 用户行为监控
-    - 抽取sourceMap文件
+    - [x] 抽取sourceMap文件
     - dist, sourceMap 上传服务器
     - 运营后台查看错误信息，选择错误信息对应的 sourceMap 定位错误
     - 提取sourceMap插件，上传资源插件，查看数据页面
