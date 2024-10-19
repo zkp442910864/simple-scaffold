@@ -49,12 +49,10 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./dist
-          destination: ./_site
+          destination: ./_site/vite-react # 将内容放在 /blog 子目录下
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist/vite-react  # 将内容放在 /blog 子目录下
 
   # Deployment job
   deploy:
