@@ -2,7 +2,7 @@
 
 ### 任务列表
 
-- [demo](https://zkp442910864.github.io/simple-scaffold/vite-react/#/){target="_blank"}
+- [demo](https://zkp442910864.github.io/simple-scaffold/vite-react/#/){:target="_blank"}
 
 - [x] 状态管理
     - [资料](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand){target="_blank"}
