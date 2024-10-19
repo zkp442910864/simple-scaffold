@@ -50,8 +50,11 @@ jobs:
         with:
           source: ./dist
           destination: ./_site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/vite-react  # 将内容放在 /blog 子目录下
 
   # Deployment job
   deploy:
