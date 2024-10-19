@@ -1,6 +1,7 @@
 import { useStateExtend } from '@/hooks';
 import { useBaseData } from '@/store';
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import ErrorData from '../ErrorData';
 
 const HomeTest1 = () => {
 
@@ -77,6 +78,8 @@ const HomeTest1 = () => {
                 }}>资源加载错误</button>
                 <br/>
             </div>
+
+            {/* {useMemo(() => <ErrorData/>, [])} */}
         </div>
     );
 };

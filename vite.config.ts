@@ -10,6 +10,10 @@ import { extractSourceMap } from './config/vite-plugin-extract-source-map';
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, }) => ({
     base: './',
+    // define: {
+    //     'process.env': {}, // 模拟空的 process.env 对象
+    //     __dirname: '"' + __dirname + '"',
+    // },
     plugins: [
         Inspect(),
         react(),
@@ -33,7 +37,8 @@ export default defineConfig(({ command, mode, }) => ({
     },
     build: {
         reportCompressedSize: false,
-        sourcemap: true,
+        // sourcemap: false,
+        sourcemap: 'hidden',
         rollupOptions: {
             output: {
                 // 页面根据路径名称生成name值
@@ -64,9 +69,11 @@ function handlerFileNames(target: string, suffix: string) {
             return `${target}/common-${suffix}`;
         }
         else {
-            const base = ['/src/', '.tsx',];
             const lastModuleId = chunkInfo.moduleIds[chunkInfo.moduleIds.length - 1];
             const mId = chunkInfo.facadeModuleId || lastModuleId || '';
+
+
+            const base = ['/src/', '.tsx',];
             const index = mId.indexOf(base[0]);
             if (index > -1) {
                 const path = mId.substring(index);

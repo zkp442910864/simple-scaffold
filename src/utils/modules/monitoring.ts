@@ -11,20 +11,29 @@ export class Monitoring {
     errorMap = new WeakMap<Error, IMonitoringErrorData>();
     /** 错误数据 */
     errorData: IMonitoringErrorData[] = [];
+    /** 本地缓存key */
+    private LOCAL_STORAGE_CACHE_KEY = '__monitoring-error';
+    private configData: Required<IConfigData> = {
+        maxLimit: 50,
+        requestApi: async () => {},
+    };
 
-    static getInstance() {
+    static getInstance(config?: IConfigData) {
         if (!Monitoring.instance) {
-            Monitoring.instance = new Monitoring();
+            if (!config) throw new Error('首次创建 Monitoring 实例时需要传入有效的配置参数。');
+            Monitoring.instance = new Monitoring(config);
         }
 
         return Monitoring.instance;
     }
 
-    private constructor() {
+    private constructor(config: IConfigData) {
+        Object.assign(this.configData, config);
         this.start();
     }
 
     start() {
+        this.handlerCacheData('read');
         window.addEventListener('error', this.errorFn, true);
         window.addEventListener('unhandledrejection', this.unhandledrejectionFn, true);
     }
@@ -39,7 +48,7 @@ export class Monitoring {
         // debugger;
 
         if (e.target instanceof HTMLElement) {
-            this.reportData({
+            void this.reportData({
                 type: EMonitoringErrorType.RESOURCE_ERROR,
                 message: e.message ?? '资源加载失败',
                 time: new Date().toISOString(),
@@ -50,7 +59,7 @@ export class Monitoring {
             });
         }
         else {
-            this.reportData({
+            void this.reportData({
                 type: EMonitoringErrorType.RUNTIME_ERROR,
                 message: e.message ?? '逻辑错误',
                 stack: (e.error as Error)?.stack || '',
@@ -67,7 +76,7 @@ export class Monitoring {
     /** promise 错误拦截 */
     unhandledrejectionFn = (e: PromiseRejectionEvent) => {
         // console.log(e);
-        this.reportData({
+        void this.reportData({
             type: EMonitoringErrorType.PROMISE_REJECT,
             message: (e.reason as Error)?.message || 'Promise reject 未处理',
             stack: (e.reason as Error)?.stack || '',
@@ -95,12 +104,53 @@ export class Monitoring {
         else {
             this.errorData.push(data);
         }
-        console.log(this.errorData);
+
+        // TODO: 接口
+        if (this.errorData.length >= this.configData.maxLimit) {
+            const data = this.errorData.splice(0, this.configData.maxLimit);
+            void this.configData.requestApi(data);
+        }
+
+        this.handlerCacheData('write');
+    }
+
+    /**
+     * 处理缓存数据
+     * 应对页面关闭后，内存上的数据消失了
+     */
+    handlerCacheData(type: 'write' | 'read') {
+        if (type === 'write') {
+            window.localStorage.setItem(this.LOCAL_STORAGE_CACHE_KEY, JSON.stringify(this.errorData));
+        }
+        else {
+            try {
+                const oldErrorData = JSON.parse(window.localStorage.getItem(this.LOCAL_STORAGE_CACHE_KEY) || '[]') as IMonitoringErrorData[];
+                if (oldErrorData.length) {
+                    // TODO: 接口
+                    void this.configData.requestApi(oldErrorData);
+                    this.handlerCacheData('write');
+                }
+            }
+            catch (error) {
+                //
+            }
+        }
     }
 }
 
+/** 配置数据 */
+interface IConfigData {
+    /** 数据上报接口，达到一定量时候会触发或者页面刚进入时候检测有数据触发 */
+    requestApi: (data: IMonitoringErrorData[]) => Promise<void>;
+    /**
+     * 收集多少条数据时候触发上报
+     * @default 50
+     */
+    maxLimit?: number;
+}
+
 /** 错误监控 类型 */
-interface IMonitoringErrorData {
+export interface IMonitoringErrorData {
     type: EMonitoringErrorType;
     /** 信息 */
     message: string;
@@ -116,7 +166,7 @@ interface IMonitoringErrorData {
     nodeName?: string;
 }
 
-enum EMonitoringErrorType {
+export enum EMonitoringErrorType {
     RUNTIME_ERROR = 'runtimeError',
     RESOURCE_ERROR = 'resourceError',
     PROMISE_REJECT = 'promiseReject',

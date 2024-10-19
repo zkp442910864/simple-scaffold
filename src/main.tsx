@@ -6,9 +6,18 @@ import { createViewport, getDevice } from './utils/index.ts';
 import 'virtual:uno.css';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
 import { Monitoring } from './utils/modules/monitoring.ts';
+import { systemErrorStore } from './store/index.tsx';
+import { decodeSourceMap } from './utils/modules/decodeSourceMap.ts';
 
-(() => {
-    Monitoring.getInstance();
+void (() => {
+
+    Monitoring.getInstance({
+        maxLimit: 1,
+        requestApi: (data) => {
+            systemErrorStore.getState().updateErrorData(data);
+            return Promise.resolve();
+        },
+    });
     SystemUpdateSPA.getInstance({
         dialog: () => {
             confirm('qweqe');
@@ -22,6 +31,7 @@ import { Monitoring } from './utils/modules/monitoring.ts';
                 e.target instanceof HTMLLinkElement ||
                 e.message?.includes('Uncaught TypeError: Failed to fetch dynamically imported module')
             ) {
+                console.log(e);
                 try {
                     const source = (e.target as HTMLImageElement).src || (e.target as HTMLLinkElement).href || e.filename;
                     if (source) {
