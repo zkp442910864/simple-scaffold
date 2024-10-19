@@ -34,6 +34,7 @@ export const extractSourceMap = ({ outDir = 'dist/maps', } = {}) => {
         closeBundle: () => {
             const assetsDir = path.join( resolvedConfig.build.outDir, resolvedConfig.build.assetsDir );
             const targetDir = path.normalize(outDir);
+            let htmlContent = '';
             removeFolder(targetDir);
             mkdirFolder(targetDir);
 
@@ -41,9 +42,12 @@ export const extractSourceMap = ({ outDir = 'dist/maps', } = {}) => {
             list.forEach((val) => {
                 const fileName = val as string;
                 if (fileName.endsWith('.js.map')) {
+                    htmlContent += `<span class="name">${fileName}</span>`;
                     fs.renameSync(path.join(assetsDir, fileName), path.join(targetDir, fileName));
                 }
             });
+
+            fs.writeFileSync(path.join(targetDir, 'index.html'), `<div id="files">${htmlContent}</div>`);
         },
     };
 

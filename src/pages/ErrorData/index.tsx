@@ -52,7 +52,7 @@ const ErrorData = () => {
                                     <span>sourceMap文件:</span>
                                     <input list={`options-${index}`} id={`select-${index}`}/>
                                     <datalist id={`options-${index}`}>
-                                        <option value="http://127.0.0.1:5500/dist/maps/pagesHomeTest1Index-L_-LXr4e.js.map">测试用</option>
+                                        {/* <option value="http://127.0.0.1:5500/dist/maps/pagesHomeTest1Index-L_-LXr4e.js.map">测试用</option> */}
                                         {
                                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                             state.sourceMapList.map((mapItem: any) =>
@@ -62,7 +62,7 @@ const ErrorData = () => {
                                         }
                                     </datalist>
                                     <span>行/列号:</span>
-                                    <input placeholder="行:列" defaultValue="1:938" id={`value-${index}`} />
+                                    <input placeholder="1:938" id={`value-${index}`} />
                                     <button onClick={() => {
                                         void (async () => {
                                             const fileUrl = (document.querySelector(`#select-${index}`) as HTMLInputElement).value;
