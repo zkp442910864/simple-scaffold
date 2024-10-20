@@ -19,8 +19,7 @@
     - [gzip-资料2](https://github.com/KusStar/vite-bundle-visualizer)
 - [ ] 前端监控 sourceMap提取
     - 监控
-        - [x] 错误监控(js错误, 资源异常)
-        - [ ] 错误监控(接口错误, 白屏)
+        - [x] 错误监控(js错误, 资源异常, 接口)
         - [ ] 性能监控
         - [ ] 用户行为监控
     - [x] 抽取sourceMap文件

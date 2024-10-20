@@ -8,7 +8,10 @@ export const LayoutRoot = () => {
                 <Link to={'Home'}>Home</Link>
                 <Link to={'HomeTest1'}>test</Link>
                 <Link to={'xxxxasda'}>404测试</Link>
-                <Link to={'ErrorData'}>监控数据</Link>
+                <Link to={'ErrorData'}>监控报错</Link>
+                <Link to={'AjaxData'}>监控接口</Link>
+                {/* <Link to={'ErrorData'}>性能监控</Link> */}
+                {/* <Link to={'ErrorData'}>用户行为监控</Link> */}
             </div>
             <Outlet />
         </>

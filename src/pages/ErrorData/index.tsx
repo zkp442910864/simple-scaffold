@@ -2,6 +2,7 @@ import { useDebounceEffect } from '@/hooks';
 import { useSystemErrorStore } from '@/store';
 import { EMonitoringErrorType } from '@/utils/modules/monitoring';
 import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ErrorData = () => {
     const errorData = useSystemErrorStore((state) => state.errorData);
@@ -37,6 +38,7 @@ const ErrorData = () => {
 
     return (
         <>
+            <Link to="/HomeTest1">制造错误数据</Link>
             {
                 errorData.map((item, index) =>
                     <div className="un-border un-border-black un-border-solid m-b-20 p-4">

@@ -77,6 +77,74 @@ const HomeTest1 = () => {
                     });
                 }}>资源加载错误</button>
                 <br/>
+                <br/>
+
+                <button onClick={() => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('get', `${window.location.origin}/qweqwe.jsddd`);
+                    xhr.send();
+                }}>xhr请求</button>
+                <br/>
+
+                <button onClick={() => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://api.ipify.org?format=json');
+                    xhr.send();
+                }}>xhr请求</button>
+                <br/>
+
+                <button onClick={() => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://api.ipify.org?format=json');
+                    xhr.timeout = 10;
+                    xhr.send();
+                }}>xhr请求 超时</button>
+                <br/>
+
+                <button onClick={() => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://api.ipify.org?format=json');
+                    xhr.send();
+                    xhr.abort();
+                }}>xhr请求 中断</button>
+                <br/>
+
+                <button onClick={() => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://juejin.cn/post/7270028440036294711#heading-4');
+                    xhr.send();
+                }}>xhr请求 跨域</button>
+                <br/>
+                <br/>
+
+                <button onClick={() => {
+                    void fetch(`${window.location.origin}/qweqwe.jsddd`);
+                }}>fetch请求</button>
+                <br/>
+
+                <button onClick={() => {
+                    void fetch('https://api.ipify.org?format=json');
+                }}>fetch请求</button>
+                <br/>
+
+                <button onClick={() => {
+                    const controller = new AbortController();
+                    const request = new Request('https://api.ipify.org?format=json', {
+                        signal: controller.signal,
+                    });
+                    void fetch(request);
+                    setTimeout(() => {
+                        controller.abort(new Error('中断'));
+                    }, 10);
+                }}>fetch请求 中断/超时</button>
+                <br/>
+
+                <button onClick={() => {
+                    void fetch('https://juejin.cn/post/7270028440036294711#heading-4');
+                }}>fetch请求 跨域</button>
+                <br/>
+                <br/>
+
             </div>
 
             {/* {useMemo(() => <ErrorData/>, [])} */}

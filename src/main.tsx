@@ -5,19 +5,26 @@ import { CustomRouter } from './router/index.tsx';
 import { createViewport, getDevice } from './utils/index.ts';
 import 'virtual:uno.css';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
-import { Monitoring } from './utils/modules/monitoring.ts';
+// import { Monitoring } from './utils/modules/monitoring.ts';
+import { IMonitoringAjaxData, IMonitoringErrorData, Monitoring } from './utils/modules/monitoring/index.ts';
 import { systemErrorStore } from './store/index.tsx';
 import { decodeSourceMap } from './utils/modules/decodeSourceMap.ts';
 
 void (() => {
 
     Monitoring.getInstance({
-        maxLimit: 1,
-        requestApi: (data) => {
-            systemErrorStore.getState().updateErrorData(data);
+        maxLimit: 2,
+        requestApi: (type, data) => {
+            if (type === 'error') {
+                systemErrorStore.getState().updateErrorData(data as IMonitoringErrorData[]);
+            }
+            else if (type === 'ajax') {
+                systemErrorStore.getState().updateAjaxData(data as IMonitoringAjaxData[]);
+            }
             return Promise.resolve();
         },
     });
+
     SystemUpdateSPA.getInstance({
         dialog: () => {
             confirm('qweqe');
