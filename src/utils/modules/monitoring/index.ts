@@ -1,6 +1,7 @@
 import { IConfigData } from './monitoring.type';
 import { MonitoringAjax } from './monitoringAjax';
 import { MonitoringError } from './monitoringError';
+import { MonitoringPerformance } from './monitoringPerformance';
 export * from './monitoring.type';
 
 export class Monitoring {
@@ -8,6 +9,7 @@ export class Monitoring {
 
     monitoringError: MonitoringError;
     monitoringAjax: MonitoringAjax;
+    monitoringPerformance: MonitoringPerformance;
 
     static getInstance(config?: IConfigData) {
         if (!Monitoring.instance) {
@@ -21,6 +23,7 @@ export class Monitoring {
     private constructor(config: IConfigData) {
         this.monitoringError = new MonitoringError(config);
         this.monitoringAjax = new MonitoringAjax(config);
+        this.monitoringPerformance = new MonitoringPerformance(config);
     }
 
     start() {
@@ -32,5 +35,6 @@ export class Monitoring {
         this.monitoringError.stop();
         this.monitoringAjax.stop();
     }
+
 }
 

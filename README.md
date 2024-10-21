@@ -20,15 +20,21 @@
 - [ ] 前端监控 sourceMap提取
     - 监控
         - [x] 错误监控(js错误, 资源异常, 接口)
-        - [ ] 性能监控
+        - [x] 性能监控
         - [ ] 用户行为监控
     - [x] 抽取sourceMap文件
-    - dist, sourceMap 上传服务器
+    - ~~dist, sourceMap 上传服务器~~ 根据项目实际情况处理
     - [x] 选择错误信息对应的 sourceMap 定位错误
         - source-map 库，因为严格模型下，判断浏览器环境的代码有问题，所以用 [pnpm patch <pkg>](https://pnpm.io/zh/cli/patch) 解决
         - [source-map](https://www.npmjs.com/package/source-map)
         - [shiki 高亮](https://shiki.tmrs.site/)
-    - 考虑怎么实现成sdk
-    - [资料](https://juejin.cn/post/7270028440036294711#heading-31)
+    - 资料
+        - [资料](https://juejin.cn/post/7270028440036294711#heading-31)
+        - [参考资料](https://cdc.tencent.com/2018/09/13/frontend-exception-monitor-research/)
+        - 第三方监控库 Fundebug, Sentry
+    - 可扩展
+        - web worker(记录错误，确认崩溃)
+        - [页面快照(错误溯源)](https://juejin.cn/post/6844904019605848072)
+        - [路由监控](https://mp.weixin.qq.com/s/eLPWGqR6hOYVrwfa3OEVMA)
 - [x] 页面更新，刷新(<https://github.com/zkp442910864/common-utils.git>)
 - [x] react 组件错误边界处理

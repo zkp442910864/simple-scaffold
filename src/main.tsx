@@ -6,12 +6,11 @@ import { createViewport, getDevice } from './utils/index.ts';
 import 'virtual:uno.css';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
 // import { Monitoring } from './utils/modules/monitoring.ts';
-import { IMonitoringAjaxData, IMonitoringErrorData, Monitoring } from './utils/modules/monitoring/index.ts';
+import { IMonitoringAjaxData, IMonitoringAnalyseData, IMonitoringErrorData, Monitoring } from './utils/modules/monitoring/index.ts';
 import { systemErrorStore } from './store/index.tsx';
 import { decodeSourceMap } from './utils/modules/decodeSourceMap.ts';
 
 void (() => {
-
     Monitoring.getInstance({
         maxLimit: 2,
         requestApi: (type, data) => {
@@ -20,6 +19,9 @@ void (() => {
             }
             else if (type === 'ajax') {
                 systemErrorStore.getState().updateAjaxData(data as IMonitoringAjaxData[]);
+            }
+            else if (type === 'pageAnalyse') {
+                systemErrorStore.getState().updatePageAnalyseData(data as IMonitoringAnalyseData);
             }
             return Promise.resolve();
         },

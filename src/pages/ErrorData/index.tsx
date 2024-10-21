@@ -44,6 +44,8 @@ const ErrorData = () => {
                     <div className="un-border un-border-black un-border-solid m-b-20 p-4">
                         <div className="color-error">错误信息: {item.message}</div>
                         <div>资源: {item.source}</div>
+                        <div>设备: {item.device}</div>
+                        <div>userAgent: {item.userAgent}</div>
                         <pre className="un-whitespace-pre-wrap">
                             {item.stack}
                         </pre>

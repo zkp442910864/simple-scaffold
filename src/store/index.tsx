@@ -1,4 +1,4 @@
-import { IMonitoringAjaxData, IMonitoringErrorData } from '@/utils/modules/monitoring';
+import { IMonitoringAjaxData, IMonitoringAnalyseData, IMonitoringErrorData } from '@/utils/modules/monitoring';
 import { create } from 'zustand';
 import { createCustom } from './modules/config';
 
@@ -11,6 +11,7 @@ export const useBaseData = create<IUseBaseData>((set) => ({
 export const [systemErrorStore, useSystemErrorStore,] = createCustom<ISystemError>((cache, set) => cache({
     errorData: [],
     ajaxData: [],
+    pageAnalyseData: {},
     updateAjaxData: (newData) => set((state) => {
         state.ajaxData.push(...newData);
         return {
@@ -21,6 +22,11 @@ export const [systemErrorStore, useSystemErrorStore,] = createCustom<ISystemErro
         state.errorData.push(...newData);
         return {
             errorData: state.errorData.slice(),
+        };
+    }),
+    updatePageAnalyseData: (newData) => set((state) => {
+        return {
+            pageAnalyseData: newData,
         };
     }),
 }));
@@ -36,4 +42,6 @@ interface ISystemError {
     updateErrorData: (data: IMonitoringErrorData[]) => void;
     ajaxData: IMonitoringAjaxData[];
     updateAjaxData: (data: IMonitoringAjaxData[]) => void;
+    pageAnalyseData: Partial<IMonitoringAnalyseData>;
+    updatePageAnalyseData: (data: IMonitoringAnalyseData) => void;
 }

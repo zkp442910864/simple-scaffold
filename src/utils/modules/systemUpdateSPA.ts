@@ -81,7 +81,7 @@ export class SystemUpdateSPA {
                 this.baseData.customCheckUpdateFn(() => this.showUpdateDialog(EDialogType.SYSTEM_UPDATE));
             }
             else {
-                const newHtml = await this.fetchHtml(`?v=${Date.now()}`);
+                const newHtml = await this.fetchHtml(`?checkWantUpdate=${Date.now()}`);
                 if (this.isActive && this.initialHtml !== newHtml) {
                     void this.showUpdateDialog(EDialogType.SYSTEM_UPDATE);
                 }

@@ -1,5 +1,6 @@
 import { EMonitoringAjaxEndType, IConfigData, IMonitoringAjaxData } from './monitoring.type';
 import { restrainErrorFn } from './config';
+import { getDevice } from '../viewport';
 
 /** 监控接口 */
 export class MonitoringAjax {
@@ -9,6 +10,8 @@ export class MonitoringAjax {
     /** 原生对象 */
     RawXMLHttpRequest = window.XMLHttpRequest;
     RawFetch = window.fetch;
+    userAgent = navigator.userAgent;
+    device = getDevice()[1];
 
     /** 收集数据 */
     ajaxData: IMonitoringAjaxData[] = [];
@@ -51,6 +54,8 @@ export class MonitoringAjax {
                 time: '',
                 raw: xhr,
                 onLine: true,
+                userAgent: outThis.userAgent,
+                device: outThis.device,
             };
 
             xhr.open = function (method, url) {
@@ -116,6 +121,8 @@ export class MonitoringAjax {
                 time: new Date().toISOString(),
                 // raw: xhr,
                 onLine: true,
+                userAgent: outThis.userAgent,
+                device: outThis.device,
             };
 
             if (typeof input === 'string' || input instanceof URL) {

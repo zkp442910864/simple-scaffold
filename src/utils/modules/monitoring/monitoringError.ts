@@ -1,3 +1,4 @@
+import { getDevice } from '../viewport';
 import { restrainErrorFn } from './config';
 import { EMonitoringErrorType, IConfigData, IMonitoringErrorData } from './monitoring.type';
 
@@ -10,6 +11,8 @@ export class MonitoringError {
     errorMap = new WeakMap<Error, IMonitoringErrorData>();
     /** 错误数据 */
     errorData: IMonitoringErrorData[] = [];
+    userAgent = navigator.userAgent;
+    device = getDevice()[1];
 
     private configData: Required<IConfigData> = {
         maxLimit: 50,
@@ -45,6 +48,8 @@ export class MonitoringError {
                 source: (e.target as HTMLImageElement).src || (e.target as HTMLLinkElement).href || '',
                 rawEvent: e,
                 rawError: e.error as Error,
+                userAgent: this.userAgent,
+                device: this.device,
             });
         }
         else {
@@ -58,6 +63,8 @@ export class MonitoringError {
                 colno: e.colno,
                 rawEvent: e,
                 rawError: e.error as Error,
+                userAgent: this.userAgent,
+                device: this.device,
             });
         }
     };
@@ -73,6 +80,8 @@ export class MonitoringError {
             source: '',
             rawEvent: e,
             rawError: e.reason as Error,
+            userAgent: this.userAgent,
+            device: this.device,
         });
     };
 

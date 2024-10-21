@@ -8,7 +8,7 @@
  *
  *
  *
- * 性能监控(加载时间监控说明)
+ * 性能监控(加载时间监控说明)(内存使用情况)(操作响应)
  * window.performance
  * TTFB(首字节时间)     请求发送到接收的首个字节所花费的时间(包括网络请求事件，后端处理时间)
  * FP(首次绘制)         浏览器首次将像素绘制到屏幕上的时间点(首次渲染)(说明用户在网页上看到了内容)。
@@ -28,6 +28,14 @@
  * UV                   访问网站的不同ip地址的人数
  * 页面停留时间          每个页面停留时间
  *
+ *
+ *
+ * 页面加载优化
+ *  网络层面: gzip,dns 预解析(dns-prefetch),资源预加载,cdn加速
+ *  代码层面(spa应用): 增加首屏静态loading, 异步渲染页面内容
+ *
+ *
+ *
  */
 
 
@@ -37,6 +45,7 @@ export interface IConfigData {
     /** 数据上报接口，达到一定量时候会触发或者页面刚进入时候检测有数据触发 */
     requestApi(type: 'error', data: IMonitoringErrorData[]): Promise<void>;
     requestApi(type: 'ajax', data: IMonitoringAjaxData[]): Promise<void>;
+    requestApi(type: 'pageAnalyse', data: IMonitoringAnalyseData): Promise<void>;
     // requestApi(type: 'error' | 'ajax', data: IMonitoringErrorData[] | IMonitoringAjaxData[]): Promise<void>;
     /**
      * 收集多少条数据时候触发上报
@@ -60,6 +69,8 @@ export interface IMonitoringErrorData {
     rawError?: Error,
     /** 节点类型的字符串 */
     nodeName?: string;
+    userAgent: string;
+    device?: string;
 }
 
 /** 接口监控 类型 */
@@ -84,6 +95,20 @@ export interface IMonitoringAjaxData {
     time: string;
     message?: string;
     raw?: XMLHttpRequest | Response | Error;
+    userAgent: string;
+    device?: string;
+}
+
+export interface IMonitoringAnalyseData {
+    list: IMonitoringAnalyseItemData[];
+    userAgent: string;
+    device?: string;
+}
+
+export interface IMonitoringAnalyseItemData {
+    title: string;
+    name: string;
+    value: number;
 }
 
 export enum EMonitoringErrorType {
