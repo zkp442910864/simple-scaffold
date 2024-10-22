@@ -72,6 +72,7 @@ export default tsEslint.config(
             'brace-style': [1, 'stroustrup',],
             'space-before-function-paren': [1, { anonymous: 'always', named: 'never', asyncArrow: 'always', },],
             '@typescript-eslint/no-unused-expressions': 0,
+            'react-hooks/exhaustive-deps': 0,
         },
     }
 );

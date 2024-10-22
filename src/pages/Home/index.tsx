@@ -1,15 +1,21 @@
 
 import { useBaseData } from '@/store';
 import { getDevice } from '@/utils';
-import HomeTest1 from '../HomeTest1';
-import { useMemo, useState } from 'react';
+import { useRef, useState } from 'react';
 import svg from '@/assets/react.svg';
 
 const Home = () => {
 
+    const { current: data, } = useRef({
+        componentError: false,
+    });
     const { test, updateTest, } = useBaseData((state) => state);
     const [count, setCount,] = useState(0);
     const [, update,] = useState({});
+
+    if (data.componentError) {
+        throw new Error('组件渲染报错');
+    }
 
     return (
         <div className="color-main!">
@@ -17,7 +23,7 @@ const Home = () => {
                 setCount(count + 1);
                 // update({});
                 // updateTest();
-            }}>Home 页面 {2}-{Math.random()}</div>
+            }}>Home 页面 点我{count}-{Math.random()}</div>
             <div style={{ }}>测试</div>
             <div className="flex">
                 <div style={{ background: '#000', flexBasis: '3rem', }}>1</div>
@@ -32,6 +38,10 @@ const Home = () => {
             <div>devicePixelRatio: {window.devicePixelRatio}</div>
             <div>getDevice: {getDevice().join()}</div>
             {/* {useMemo(() => <HomeTest1 />, [])} */}
+            <button onClick={() => {
+                data.componentError = true;
+                void update({});
+            }}>组件渲染报错</button>
         </div>
     );
 };

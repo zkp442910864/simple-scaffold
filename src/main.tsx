@@ -3,27 +3,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import { CustomRouter } from './router/index.tsx';
+import { CustomRouter } from './router';
 import { createViewport, getDevice } from './utils/index.ts';
-import 'virtual:uno.css';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
-// import { Monitoring } from './utils/modules/monitoring.ts';
 import { IMonitoringAjaxData, IMonitoringAnalyseData, IMonitoringErrorData, Monitoring } from './utils/modules/monitoring/index.ts';
 import { systemErrorStore } from './store/index.tsx';
-import { decodeSourceMap } from './utils/modules/decodeSourceMap.ts';
+import 'virtual:uno.css';
 
 void (() => {
-    class Aa {
-
-        fn() {}
-
-        constructor() {
-            window.addEventListener('reset', () => this.fn());
-        }
-    }
-
-    new Aa();
-
     Monitoring.getInstance({
         maxLimit: 2,
         requestApi: (type, data) => {
