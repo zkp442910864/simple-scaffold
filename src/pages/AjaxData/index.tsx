@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const AjaxData = () => {
     const ajaxData = useSystemErrorStore((state) => state.ajaxData);
 
-    console.log(ajaxData);
+    // console.log(ajaxData);
 
     return (
         <>

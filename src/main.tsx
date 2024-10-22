@@ -1,3 +1,5 @@
+// import './wdyr.ts';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
@@ -11,6 +13,17 @@ import { systemErrorStore } from './store/index.tsx';
 import { decodeSourceMap } from './utils/modules/decodeSourceMap.ts';
 
 void (() => {
+    class Aa {
+
+        fn() {}
+
+        constructor() {
+            window.addEventListener('reset', () => this.fn());
+        }
+    }
+
+    new Aa();
+
     Monitoring.getInstance({
         maxLimit: 2,
         requestApi: (type, data) => {

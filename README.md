@@ -38,3 +38,11 @@
         - [路由监控](https://mp.weixin.qq.com/s/eLPWGqR6hOYVrwfa3OEVMA)
 - [x] 页面更新，刷新(<https://github.com/zkp442910864/common-utils.git>)
 - [x] react 组件错误边界处理
+- [ ] keep-alive
+- 资料
+    - [接入why-did-you-render](https://github.com/welldone-software/why-did-you-render)
+    - [页面内存查看](https://github.com/localvoid/perf-monitor)
+    - 内存泄露问题
+        - [前端🦠内存泄漏🦠四部曲](https://juejin.cn/post/7377247135006457890?searchId=202410220915165C4F540402B5D4DBD90F)
+        - [解决内存问题](https://developer.chrome.com/docs/devtools/memory-problems?hl=zh-cn#visualize_memory_leaks_with_timeline_recordings)
+        - [使用 Chrome Devtools 分析内存问题](https://fe.okki.com/post/62cbfea7136f570343d89416)

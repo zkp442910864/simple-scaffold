@@ -89,18 +89,20 @@ export class MonitoringPerformance {
                 // console.log(perEntries[0]);
                 fmp = perEntries[0].startTime;
 
-                fmpObserver?.disconnect();
-                fmpObserver = null;
+                // fmpObserver?.disconnect();
+                // fmpObserver = null;
             });
+            fmpObserver.observe({ entryTypes: ['element',], });
 
             let lcpObserver: PerformanceObserver | null = new PerformanceObserver((entryList) => {
                 const perEntries = entryList.getEntries();
                 // console.log(perEntries[0]);
                 lcp = perEntries[0].startTime;
 
-                lcpObserver?.disconnect();
-                lcpObserver = null;
+                // lcpObserver?.disconnect();
+                // lcpObserver = null;
             });
+            lcpObserver.observe({ entryTypes: ['largest-contentful-paint',], });
 
             let fidObserver: PerformanceObserver | null = new PerformanceObserver((entryList) => {
                 const firstInput = entryList.getEntries()[0] as PerformanceEventTiming;
@@ -122,9 +124,6 @@ export class MonitoringPerformance {
 
                 rel({ fmp, lcp, fid, });
             });
-
-            fmpObserver.observe({ entryTypes: ['element',], });
-            lcpObserver.observe({ entryTypes: ['largest-contentful-paint',], });
             fidObserver.observe({ type: 'first-input', buffered: true, });
         });
     }

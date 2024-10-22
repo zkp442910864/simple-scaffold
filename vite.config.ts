@@ -16,7 +16,9 @@ export default defineConfig(({ command, mode, }) => ({
     // },
     plugins: [
         Inspect(),
-        react(),
+        react({
+            jsxImportSource: mode === 'development' ? '@welldone-software/why-did-you-render' : 'react',
+        }),
         UnoCSS(),
         // 提取sourcemap
         extractSourceMap({
