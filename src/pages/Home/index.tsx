@@ -3,9 +3,10 @@ import { useBaseData } from '@/store';
 import { getDevice } from '@/utils';
 import { useRef, useState } from 'react';
 import svg from '@/assets/react.svg';
+import { useLifeCycle } from '@/layout';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
-
     const { current: data, } = useRef({
         componentError: false,
     });
@@ -16,6 +17,11 @@ const Home = () => {
     if (data.componentError) {
         throw new Error('组件渲染报错');
     }
+
+    useLifeCycle((type, local) => {
+        console.log(type, local);
+        // console.log(type);
+    });
 
     return (
         <div className="color-main!">

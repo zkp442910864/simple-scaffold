@@ -1,4 +1,5 @@
 import { useDebounceEffect } from '@/hooks';
+import { FC } from 'react';
 import { useLocation, useRouteError } from 'react-router-dom';
 
 /**
@@ -8,24 +9,26 @@ import { useLocation, useRouteError } from 'react-router-dom';
  *
  * React 内部组件的错误不会冒泡到 window。需要使用 Error Boundary 捕获。
  */
-export const ErrorComponent = () => {
-    const error = useRouteError() as InstanceType<typeof Error>;
+export const ErrorComponent: FC<{outError?: unknown}> = ({
+    outError,
+}) => {
+    const error = useRouteError();
+    const inlineError = (outError || error) as Error;
     const local = useLocation();
 
     useDebounceEffect(() => {
         // 生产环境时候需要，把错误向外抛出
         if (import.meta.env.PROD) {
             setTimeout(() => {
-                throw error;
+                throw inlineError;
             }, 0);
         }
-    }, [error,]);
+    }, [inlineError,]);
 
     return (
         <div className="f-col flex f-items-center">
             <div>"{local.pathname}" 组件发生错误</div>
-            {/* <div>错误信息:{error.message}</div> */}
-            <pre className="un-whitespace-pre-wrap">错误栈:{error?.stack}</pre>
+            <pre className="un-whitespace-pre-wrap">错误信息:{inlineError?.stack || JSON.stringify(inlineError)}</pre>
         </div>
     );
 };

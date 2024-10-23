@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { KeepAlive } from './KeepAlive';
+import { KeepAlive } from './keepAlive';
 
 export const KeepAliveRoot = () => {
     const { current: keepAlive, } = useRef(KeepAlive.getInstance());

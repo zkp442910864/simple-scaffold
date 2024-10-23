@@ -55,24 +55,12 @@ export class CustomRouter {
                 element: <App />,
                 children: [
                     ...this.firstRouterData,
-                    // {
-                    //     path: '/',
-                    //     // element: this.layoutRoot,
-                    //     element: <KeepAliveRoot/>,
-                    //     errorElement: this.defaultError,
-                    //     children: [
-                    //         ...pageList,
-                    //         this.noFindPage,
-                    //     ],
-                    // },
                     {
                         path: '/',
                         element: this.layoutRoot,
                         errorElement: this.defaultError,
                         children: [
                             {
-                                // TODO: 不增加这一层的话，错误会捕获不到，然后上报到 layoutRoot，从而导致页面崩溃
-                                errorElement: this.defaultError,
                                 path: '/',
                                 element: this.keepAliveRoot,
                                 children: [
@@ -139,8 +127,7 @@ export class CustomRouter {
             const data: ICustomRouteObject = {
                 path,
                 element: this.lazyComponent(this.localPagePromiseFnMap[url]),
-                // TODO: 用createPortal 创建会导致错误捕获不到，需要特殊处理
-                errorElement: this.defaultError,
+                // errorElement: this.defaultError,
                 title: `页面-${path}-${index}`,
             };
             return data;

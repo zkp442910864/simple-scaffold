@@ -2,6 +2,8 @@ import { useStateExtend } from '@/hooks';
 import { useBaseData } from '@/store';
 import { useMemo, useRef, useState } from 'react';
 import ErrorData from '../ErrorData';
+import { useLifeCycle } from '@/layout';
+import { useLocation } from 'react-router-dom';
 
 const HomeTest1 = () => {
 
@@ -16,6 +18,10 @@ const HomeTest1 = () => {
         throw new Error('组件渲染报错');
     }
 
+    useLifeCycle((type, local) => {
+        console.log(type, local);
+        // console.log(type);
+    });
 
     return (
         <div
