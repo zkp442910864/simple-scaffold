@@ -28,13 +28,14 @@ void (() => {
     });
 
     SystemUpdateSPA.getInstance({
-        dialog: () => {
+        dialog: (type) => {
             confirm('qweqe');
             return Promise.resolve();
         },
         interceptError(e, updateDialog) {
-            // console.log(Date.now());
-            // console.log(e);
+            // 开发环境不触发
+            if (import.meta.env.DEV) return;
+
             if (
                 e.target instanceof HTMLScriptElement ||
                 e.target instanceof HTMLLinkElement ||
