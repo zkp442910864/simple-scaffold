@@ -17,6 +17,8 @@ export class SystemUpdateSPA {
     private pendingDialog = false;
     /** 避免出现多次同一错误 */
     // private errorSet = new WeakSet();
+    /** 轮询时间 */
+    private interval = 1000;
 
     static getInstance(data?: ISystemUpdateSPAData) {
         if (!SystemUpdateSPA.instance) {
@@ -89,7 +91,7 @@ export class SystemUpdateSPA {
         };
 
         void checkForUpdate();
-        this.timerId = setInterval(() => void checkForUpdate(), this.baseData.interval ?? 1000 * 60 * 10);
+        this.timerId = setInterval(() => void checkForUpdate(), this.baseData.interval ?? this.interval);
     }
 
     /** 更新窗口 */

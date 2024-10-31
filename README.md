@@ -8,7 +8,7 @@
 - [x] 移动端适配设置
     - [资料](https://blog.csdn.net/weixin_57677300/article/details/129164050)
     - <img src="md/QQ截图20241015103017.png" height="200" alt="window.devicePixelRatio" style="vertical-align:top;" />
-- [ ] 网络封装(<https://github.com/zkp442910864/common-utils.git>)
+- [ ] 网络封装
 - [x] [unocss](https://unocss.dev/integrations/vite)
 - [x] gzip，分析依赖
     - [vite-bundle-analyzer(分析依赖)](https://www.mulingyuer.com/archives/1033/)
@@ -33,9 +33,24 @@
         - web worker(记录错误，确认崩溃)
         - [页面快照(错误溯源)](https://juejin.cn/post/6844904019605848072)
         - [路由监控](https://mp.weixin.qq.com/s/eLPWGqR6hOYVrwfa3OEVMA)
-- [x] 页面更新，刷新(<https://github.com/zkp442910864/common-utils.git>)
+- [x] 页面更新，刷新
 - [x] react 组件错误边界处理
 - [x] keep-alive
+- [ ] 网络安全(防范常见的安全攻击和提高网站性能)
+    - 网络安全知识和系统性能测试 Appscan(Enterprise, Source)
+    - XSS(跨站脚本攻击)
+        - [ ] XSS 攻击:
+            - 是一种代码注入攻击,攻击者通过在网站上注入恶意脚本,使之在用户的浏览器上运行,利用这些恶意脚本,攻击者可获取用户的敏感信息如 Cookie, SessionId 等,进行危害数据安全
+            - 本质上就是对用户输入的内容未做过滤，在页面上进行使用
+        - [ ] 反射性 XSS:
+        - [ ] DOM 型 XSS:
+        - [ ] 存储型 XSS:
+    - [ ] CSRF(跨站请求伪造)
+    - [ ] 点击劫持
+    - [ ] SQL 注入
+    - HTTPS 降级
+    - [ ] 安全策略(CSP)
+    - 资料
 
 - 其它资料
     - [接入why-did-you-render](https://github.com/welldone-software/why-did-you-render)
