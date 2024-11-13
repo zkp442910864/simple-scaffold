@@ -9,33 +9,41 @@ import importMaps from 'vite-plugin-shopify-import-maps';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
-    plugins: [
-        shopify(),
-        importMaps({ bareModules: true, modulePreload: true }),
-        shopifyClear(),
-        react(),
-        UnoCSS(),
+  plugins: [
+    shopify(),
+    importMaps({bareModules: true, modulePreload: true}),
+    shopifyClear(),
+    react(),
+    UnoCSS(),
+  ],
+  build: {
+    emptyOutDir: false,
+    // minify: false,
+    minify: 'terser' as any,
+    terserOptions: {
+      mangle: false, // 禁用混淆，只进行压缩
+      compress: {
+        unused: false, // 禁用移除未使用代码
+        defaults: false, // 禁用 terser 的默认压缩行为
+      },
+    },
+    rollupOptions: {
+      // 看情况是否需要开启
+      treeshake: false,
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "@/styles/variable.scss" as *;',
+        importers: [],
+      },
+    },
+  },
+  resolve: {
+    alias: [
+      {find: '@', replacement: resolve('./frontend'), },
     ],
-    build: {
-        emptyOutDir: false,
-        minify: false,
-        rollupOptions: {
-          // 看情况是否需要开启
-          treeshake: false,
-        }
-    },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: '@use "@/styles/variable.scss" as *;',
-                importers: [],
-            },
-        },
-    },
-    resolve: {
-        alias: [
-            { find: '@', replacement: resolve('./frontend'), },
-        ],
-    },
+  },
 }));
 

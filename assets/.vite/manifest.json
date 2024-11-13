@@ -1,11 +1,17 @@
 {
+  "frontend/entrypoints/constants.ts": {
+    "file": "constants-D-soq02G.js",
+    "name": "constants",
+    "src": "frontend/entrypoints/constants.ts",
+    "isEntry": true
+  },
   "frontend/entrypoints/main.scss": {
-    "file": "main-DwfDf2Qj.css",
+    "file": "main-DwG3m_-N.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
   "frontend/entrypoints/main.ts": {
-    "file": "main-C6kjkILH.js",
+    "file": "main-ChM9Rh9l.js",
     "name": "main",
     "src": "frontend/entrypoints/main.ts",
     "isEntry": true
