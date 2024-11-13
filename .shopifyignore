@@ -2,6 +2,7 @@ package.json
 tsconfig.json
 pnpm-lock.yaml
 frontend/
+vite-plugin/
 vite.config.ts
 uno.config.ts
 postcss.config.cjs

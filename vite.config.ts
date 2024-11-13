@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react';
 import {resolve} from "path";
 import UnoCSS from 'unocss/vite';
 import {defineConfig} from 'vite';
-import shopify from 'vite-plugin-shopify';
+// import shopify from 'vite-plugin-shopify';
+import shopify from './vite-plugin/vite-plugin-shopify/src';
 import importMaps from 'vite-plugin-shopify-import-maps';
 
 // https://vitejs.dev/config/
@@ -16,7 +17,12 @@ export default defineConfig(() => ({
         UnoCSS(),
     ],
     build: {
-        emptyOutDir: false
+        emptyOutDir: false,
+        minify: false,
+        rollupOptions: {
+          // 看情况是否需要开启
+          treeshake: false,
+        }
     },
     css: {
         preprocessorOptions: {

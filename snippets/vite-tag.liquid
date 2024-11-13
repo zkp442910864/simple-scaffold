@@ -3,8 +3,22 @@
   Do not attempt to modify this file directly, as any changes will be overwritten by the next build.
 {% endcomment %}
 {% assign path = vite-tag | replace: '@/', '../' | replace: '~/', '../' | replace: '@/', '../' | replace: '@/', '../' %}
-{% if path == "/frontend/entrypoints/main.scss" or path == "main.scss" %}
-  {{ 'main-DwfDf2Qj.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
+{% if path == "/frontend/entrypoints/constants.ts" or path == "constants.ts" %}
+  {% assign attr = 'type="module" crossorigin="anonymous"' %}
+  {% if defer %}
+    {% assign attr = 'defer="defer"' %}
+  {% elsif async %}
+    {% assign attr = 'async="async"' %}
+  {% endif %}
+  <script src="{{ 'constants-MqFin8pl.js' | asset_url | split: '?' | first }}" {{ attr }}></script>
+{% elsif path == "/frontend/entrypoints/main.scss" or path == "main.scss" %}
+  {{ 'main-DWEM066a.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/entrypoints/main.ts" or path == "main.ts" %}
-  <script src="{{ 'main-C6kjkILH.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
+  {% assign attr = 'type="module" crossorigin="anonymous"' %}
+  {% if defer %}
+    {% assign attr = 'defer="defer"' %}
+  {% elsif async %}
+    {% assign attr = 'async="async"' %}
+  {% endif %}
+  <script src="{{ 'main-DByHKO7r.js' | asset_url | split: '?' | first }}" {{ attr }}></script>
 {% endif %}
