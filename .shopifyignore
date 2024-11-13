@@ -13,3 +13,4 @@ postcss.config.cjs
 node_modules
 .git/
 .github/
+assets/.vite/manifest.json

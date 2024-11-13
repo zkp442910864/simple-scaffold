@@ -106,7 +106,7 @@ export default function shopifyHTML (options: Required<Options>): Plugin {
           res.statusCode = 404
 
           res.end(
-            fs.readFileSync(path.join(__dirname, 'dev-server-index.html')).toString()
+            fs.readFileSync(path.join(__dirname, '../public', 'dev-server-index.html')).toString()
           )
         }
 
