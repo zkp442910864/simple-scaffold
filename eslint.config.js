@@ -6,73 +6,75 @@ import tsEslint from 'typescript-eslint';
 
 
 export default tsEslint.config(
-    {
-        ignores: ['dist', 'index.html',],
+  // {
+  //     ignores: ['snippets', 'index.html', '**/*.liquid',],
+  // },
+  {
+    files: ['frontend/**/*.ts', 'frontend/**/*.tsx', 'uno.config.ts',],
+    extends: [
+      eslintJs.configs.recommended,
+      ...tsEslint.configs.recommendedTypeCheckedOnly,
+    ],
+  },
+  {
+    files: ['frontend/**/*.ts', 'frontend/**/*.tsx', 'vite.config.ts', 'uno.config.ts', 'eslint.config.js',],
+    extends: [
+      eslintJs.configs.recommended,
+      ...tsEslint.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        // projectService: true,
+        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.name,
+      },
+      ecmaVersion: 'latest',
+      globals: globals.browser,
+      parser: tsEslint.parser,
     },
-    {
-        files: ['**/*.ts', '**/*.tsx',],
-        extends: [
-            eslintJs.configs.recommended,
-            ...tsEslint.configs.recommendedTypeCheckedOnly,
-        ],
+    plugins: {
+      '@typescript-eslint': tsEslint.plugin,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
-    {
-        extends: [
-            eslintJs.configs.recommended,
-            ...tsEslint.configs.recommended,
-        ],
-        languageOptions: {
-            parserOptions: {
-                // projectService: true,
-                project: './tsconfig.json',
-                tsconfigRootDir: import.meta.name,
-            },
-            ecmaVersion: 'latest',
-            globals: globals.browser,
-            parser: tsEslint.parser,
+    rules: {
+      // https://eslint.org/play/
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true, },
+      ],
+      indent: ['error', 2, {
+        SwitchCase: 1,
+        ignoredNodes: ['TemplateLiteral',],
+      },],
+      '@typescript-eslint/no-unused-vars': [1,],
+      semi: [2, 'always',],
+      'comma-dangle': [
+        'error', {
+          arrays: 'always',
+          objects: 'always',
+          imports: 'never',
+          exports: 'never',
+          functions: 'never',
         },
-        plugins: {
-            '@typescript-eslint': tsEslint.plugin,
-            'react-hooks': reactHooks,
-            'react-refresh': reactRefresh,
-        },
-        rules: {
-            // https://eslint.org/play/
-            ...reactHooks.configs.recommended.rules,
-            'react-refresh/only-export-components': [
-                'warn',
-                { allowConstantExport: true, },
-            ],
-            indent: ['error', 4, {
-                SwitchCase: 1,
-                ignoredNodes: ['TemplateLiteral',],
-            },],
-            '@typescript-eslint/no-unused-vars': [1,],
-            semi: [2, 'always',],
-            'comma-dangle': [
-                'error', {
-                    arrays: 'always',
-                    objects: 'always',
-                    imports: 'never',
-                    exports: 'never',
-                    functions: 'never',
-                },
-            ],
-            'comma-spacing': 1,
-            'no-trailing-spaces': 1,
-            quotes: ['error', 'single',],
-            'quote-props': [1, 'as-needed',],
-            'no-multi-spaces': [1,],
-            'key-spacing': [1,],
-            'object-curly-spacing': [2, 'always',],
-            'no-extra-parens': [1,],
-            'space-infix-ops': ['error', { int32Hint: false, },],
-            'space-before-blocks': [1,],
-            'keyword-spacing': 1,
-            'brace-style': [1, 'stroustrup',],
-            'space-before-function-paren': [1, { anonymous: 'always', named: 'never', asyncArrow: 'always', },],
-            '@typescript-eslint/no-unused-expressions': 0,
-            'react-hooks/exhaustive-deps': 0,
-        },
-    }
+      ],
+      'comma-spacing': 1,
+      'no-trailing-spaces': 1,
+      quotes: ['error', 'single',],
+      'quote-props': [1, 'as-needed',],
+      'no-multi-spaces': [1,],
+      'key-spacing': [1,],
+      'object-curly-spacing': [2, 'always',],
+      'no-extra-parens': [1,],
+      'space-infix-ops': ['error', { int32Hint: false, },],
+      'space-before-blocks': [1,],
+      'keyword-spacing': 1,
+      'brace-style': [1, 'stroustrup',],
+      'space-before-function-paren': [1, { anonymous: 'always', named: 'never', asyncArrow: 'always', },],
+      '@typescript-eslint/no-unused-expressions': 0,
+      'react-hooks/exhaustive-deps': 0,
+      '@typescript-eslint/no-explicit-any': 1,
+    },
+  }
 );

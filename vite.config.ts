@@ -1,8 +1,8 @@
 import shopifyClear from '@by-association-only/vite-plugin-shopify-clean';
 import react from '@vitejs/plugin-react';
-import {resolve} from "path";
+import { resolve } from 'path';
 import UnoCSS from 'unocss/vite';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 // import shopify from 'vite-plugin-shopify';
 import shopify from './vite-plugin/vite-plugin-shopify/src';
 import importMaps from 'vite-plugin-shopify-import-maps';
@@ -11,7 +11,7 @@ import importMaps from 'vite-plugin-shopify-import-maps';
 export default defineConfig(() => ({
   plugins: [
     shopify(),
-    importMaps({bareModules: true, modulePreload: true}),
+    importMaps({ bareModules: true, modulePreload: true, }),
     shopifyClear(),
     react(),
     UnoCSS(),
@@ -30,7 +30,7 @@ export default defineConfig(() => ({
     rollupOptions: {
       // 看情况是否需要开启
       treeshake: false,
-    }
+    },
   },
   css: {
     preprocessorOptions: {
@@ -42,7 +42,7 @@ export default defineConfig(() => ({
   },
   resolve: {
     alias: [
-      {find: '@', replacement: resolve('./frontend'), },
+      { find: '@', replacement: resolve('./frontend'), },
     ],
   },
 }));
