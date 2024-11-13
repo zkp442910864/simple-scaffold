@@ -1,0 +1,14 @@
+package.json
+tsconfig.json
+pnpm-lock.yaml
+frontend/
+vite.config.ts
+uno.config.ts
+postcss.config.cjs
+.gitignore
+.theme-check.yml
+.vscode/
+*.md
+node_modules
+.git/
+.github/

@@ -23,7 +23,7 @@
         "noUnusedParameters": false,
         "noFallthroughCasesInSwitch": true,
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./frontend/*"]
         }
     },
     "include": [

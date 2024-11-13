@@ -148,4 +148,13 @@ export default defineConfig({
         ['align-bottom', { 'vertical-align': 'bottom', },],
         ['align-top', { 'vertical-align': 'top', },],
     ],
+    content: {
+        pipeline: {
+            include: [
+                // /\.liquid$/,
+                './**/*.{vue,js,ts,jsx,tsx,liquid}',
+            ],
+            exclude: ['node_modules'],
+        }
+    }
 });

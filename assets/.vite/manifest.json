@@ -1,0 +1,13 @@
+{
+  "frontend/entrypoints/main.scss": {
+    "file": "main-DwfDf2Qj.css",
+    "src": "frontend/entrypoints/main.scss",
+    "isEntry": true
+  },
+  "frontend/entrypoints/main.ts": {
+    "file": "main-C6kjkILH.js",
+    "name": "main",
+    "src": "frontend/entrypoints/main.ts",
+    "isEntry": true
+  }
+}
