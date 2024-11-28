@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "run-p -sr \"shopify:dev -- {@}\" \"vite:dev\" \"unocss:dev\" --",
     "deploy": "run-s \"unocss:build\" \"vite:build\" \"shopify:push -- {@}\" --",
-    "shopify:pull": "shopify theme pull --password=shptka_460641ffe14d6074c59ddb8d23ee3e20",
-    "shopify:dev": "shopify theme dev --password=shptka_460641ffe14d6074c59ddb8d23ee3e20",
-    "shopify:push": "shopify theme push --password=shptka_460641ffe14d6074c59ddb8d23ee3e20",
+    "shopify:pull": "shopify theme pull --password=xxxx",
+    "shopify:dev": "shopify theme dev --password=xxxx",
+    "shopify:push": "shopify theme push --password=xxxx",
     "unocss:dev": "unocss ./{snippets,sections,frontend}/**/* -o ./assets/uno.css -w",
     "unocss:build": "unocss ./{snippets,sections,frontend}/**/* -o ./assets/uno.css -m",
     "vite:dev": "vite",
