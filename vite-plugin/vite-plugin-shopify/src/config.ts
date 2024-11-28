@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { Plugin, UserConfig, normalizePath } from 'vite'
+import { BuildOptions, Plugin, UserConfig, normalizePath } from 'vite'
 import glob from 'fast-glob'
 import createDebugger from 'debug'
 
@@ -9,7 +9,7 @@ const debug = createDebugger('vite-plugin-shopify:config')
 
 // Plugin for setting necessary Vite config to support Shopify plugin functionality
 export default function shopifyConfig (options: Required<Options>): Plugin {
-  return {
+  const plugin: Plugin = {
     name: 'vite-plugin-shopify-config',
     config (config: UserConfig): UserConfig {
       const host = config.server?.host ?? 'localhost'
@@ -38,7 +38,23 @@ export default function shopifyConfig (options: Required<Options>): Plugin {
           assetsDir: config.build?.assetsDir ?? '',
           // Configure bundle entry points
           rollupOptions: {
-            input: config.build?.rollupOptions?.input ?? input
+            input: config.build?.rollupOptions?.input ?? input,
+            output: {
+              // 页面根据路径名称生成name值
+              entryFileNames: handlerFileNames(options, '[hash].js'),
+              chunkFileNames: handlerFileNames(options, '[hash].js'),
+              // 使用这种方式会导致生成的文件hash值不一致
+              // sourcemapFileNames: handlerFileNames('maps', '[hash].js.map'),
+              // assetFileNames: 'assets/[name]-[hash].[ext]',
+              // assetFileNames: handlerFileNames('[hash][extname]'),
+              assetFileNames: (assetInfo) => {
+                if (assetInfo.originalFileNames?.length && assetInfo.names?.length) {
+                  const name = transformName(assetInfo.originalFileNames[0], options) || '[name]';
+                  return `${name}-[hash][extname]`; // 其他资源
+                }
+                return '[name]-[hash][extname]'; // 其他资源
+              },
+            },
           },
           // Output manifest file for backend integration
           manifest: typeof config.build?.manifest === 'string' ? config.build.manifest : true
@@ -78,4 +94,37 @@ export default function shopifyConfig (options: Required<Options>): Plugin {
       return generatedConfig
     }
   }
+
+  return plugin;
+}
+
+function transformName(pathUrl: string, options: Required<Options>) {
+  const base = [options.entrypointsDir, /.tsx|.ts|.js|.scss|.css/,] as [string, RegExp];
+  const index = pathUrl.indexOf(base[0]);
+  if (index === -1) return undefined;
+
+  const path = pathUrl.substring(index);
+  const pathName = path
+        .replace(base[0], '')
+        .replace(base[1], '')
+        .replace(/(\/)/g, (_, _1, index) => index === 0 ? '' : '-');
+
+  return pathName;
+}
+
+/** 自定义输出文件名称 */
+function handlerFileNames(options: Required<Options>, suffix: string) {
+  type TFnType = Exclude<Exclude<Exclude<Exclude<BuildOptions['rollupOptions'], undefined>['output'], undefined>, object[]>['chunkFileNames'], string | undefined>
+
+  const fn: TFnType = (chunkInfo) => {
+
+    const lastModuleId = chunkInfo.moduleIds[chunkInfo.moduleIds.length - 1];
+    const mId = normalizePath(chunkInfo.facadeModuleId || lastModuleId || '');
+    const pathName = transformName(mId, options) || 'chunk-[name]';
+
+    return `${pathName}-${suffix}`;
+
+  };
+
+  return fn;
 }

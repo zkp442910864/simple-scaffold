@@ -12,6 +12,7 @@ tsconfig.tsbuildinfo
 dist
 dist-ssr
 *.local
+.vite-inspect
 
 # Editor directories and files
 .vscode/*

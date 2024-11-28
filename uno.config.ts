@@ -3,8 +3,8 @@ import { defineConfig, presetIcons, presetUno } from 'unocss';
 export default defineConfig({
   // ...UnoCSS options
   presets: [
-    presetUno({ prefix: 'un-', }),
-    // presetIcons({}),
+    presetUno({ prefix: 'un-', preflight: false, }),
+    presetIcons({ prefix: 'un-i-', }),
   ],
   variants: [
     // 支持 `!` 前缀，使规则优先级更高
@@ -92,6 +92,7 @@ export default defineConfig({
 
     // 禁止选择
     ['disabled-select', { 'user-select': 'none', },],
+    ['no-select', { 'user-select': 'none', },],
     // 禁止事件
     ['disabled-event', { 'pointer-events': 'none', },],
 

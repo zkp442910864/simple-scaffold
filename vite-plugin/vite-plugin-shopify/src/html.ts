@@ -141,26 +141,26 @@ export default function shopifyHTML (options: Required<Options>): Plugin {
         if (isEntry === true) {
           const entryName = normalizePath(path.relative(options.entrypointsDir, src))
           const entryPaths = [`/${src}`, entryName]
-          const tagsForEntry = []
+          const tagsForEntry: string[] = []
 
           if (ext.match(CSS_EXTENSIONS_REGEX) !== null) {
-            // Render style tag for CSS entry
+            // CSS条目的渲染样式标记
             tagsForEntry.push(stylesheetTag(file, options.versionNumbers))
           } else {
-            // Render script tag for JS entry
+            // JS条目的渲染脚本标记
             tagsForEntry.push(scriptTag(file, options.versionNumbers))
 
             if (typeof imports !== 'undefined' && imports.length > 0) {
               imports.forEach((importFilename: string) => {
                 const chunk = manifest[importFilename]
                 const { css } = chunk
-                // Render preload tags for JS imports
+                // 为JS导入渲染预加载标签
                 tagsForEntry.push(preloadScriptTag(chunk.file, options.versionNumbers))
 
-                // Render style tag for JS imports
+                // JS导入的渲染样式标签
                 if (typeof css !== 'undefined' && css.length > 0) {
                   css.forEach((cssFileName: string) => {
-                    // Render style tag for imported CSS file
+                    // 导入的CSS文件的渲染样式标记
                     tagsForEntry.push(stylesheetTag(cssFileName, options.versionNumbers))
                   })
                 }
@@ -169,7 +169,7 @@ export default function shopifyHTML (options: Required<Options>): Plugin {
 
             if (typeof css !== 'undefined' && css.length > 0) {
               css.forEach((cssFileName: string) => {
-                // Render style tag for imported CSS file
+                // 导入的CSS文件的渲染样式标记
                 tagsForEntry.push(stylesheetTag(cssFileName, options.versionNumbers))
               })
             }
@@ -186,7 +186,7 @@ export default function shopifyHTML (options: Required<Options>): Plugin {
 
       const viteTagSnippetContent = viteTagSnippetPrefix(config) + assetTags.join('\n') + '\n{% endif %}\n'
 
-      // Write vite-tag snippet for production build
+      // 为生产版本编写vite-tag代码段
       fs.writeFileSync(viteTagSnippetPath, viteTagSnippetContent)
     }
   }
@@ -229,13 +229,7 @@ const preloadScriptTag = (fileName: string, versionNumbers: boolean): string =>
 
 // Generate a production script tag for a script asset
 const scriptTag = (fileName: string, versionNumbers: boolean): string => {
-  return `{% assign attr = 'type="module" crossorigin="anonymous"' %}
-  {% if defer %}
-    {% assign attr = 'defer="defer"' %}
-  {% elsif async %}
-    {% assign attr = 'async="async"' %}
-  {% endif %}
-  <script src="{{ ${assetUrl(fileName, versionNumbers)} }}" {{ attr }}></script>`;
+  return `<script src="{{ ${assetUrl(fileName, versionNumbers)} }}" {% if id != blank %}id="{{ id }}"{% endif %} {% assign attr = 'type="module" crossorigin="anonymous"' %}{% if defer %} {% assign attr = 'defer="defer"' %} {% elsif async %} {% assign attr = 'async="async"' %} {% endif %}{{ attr }}></script>`;
 }
 
 // Generate a production stylesheet link tag for a style asset
@@ -266,14 +260,18 @@ const viteTagSnippetDev = (assetHost: string, entrypointsDir: string, reactPlugi
     : `
 <script src="${assetHost}/@id/__x00__vite-plugin-shopify:react-refresh" type="module"></script>`}
 <script src="${assetHost}/@vite/client" type="module"></script>
+
+{% assign script_attr = 'type="module"' %}
+{% if defer %}
+  {% assign script_attr = 'defer="defer"' %}
+{% elsif async %}
+  {% assign script_attr = 'async="async"' %}
+{% endif %}
+
 {% if is_css == true %}
   <link rel="stylesheet" href="{{ file_url }}" crossorigin="anonymous">
-{% elsif defer %}
-  <script src="{{ file_url }}" defer="defer"></script>
-{% elsif async %}
-  <script src="{{ file_url }}" async="async"></script>
 {% else %}
-  <script src="{{ file_url }}" type="module"></script>
+  <script src="{{ file_url }}" {{ script_attr }} {% if id != blank %}id="{{ id }}"{% endif %}></script>
 {% endif %}
 `
 

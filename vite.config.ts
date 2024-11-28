@@ -1,11 +1,13 @@
-import shopifyClear from '@by-association-only/vite-plugin-shopify-clean';
+// import shopifyClear from '@by-association-only/vite-plugin-shopify-clean';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vite';
 // import shopify from 'vite-plugin-shopify';
+import shopifyClear from './vite-plugin/vite-plugin-shopify-clean/src';
 import shopify from './vite-plugin/vite-plugin-shopify/src';
 import importMaps from 'vite-plugin-shopify-import-maps';
+import Inspect from 'vite-plugin-inspect';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
@@ -15,6 +17,10 @@ export default defineConfig(() => ({
     shopifyClear(),
     react(),
     UnoCSS(),
+    // Inspect({
+    //   build: true,
+    //   outputDir: '.vite-inspect',
+    // }),
   ],
   build: {
     emptyOutDir: false,
