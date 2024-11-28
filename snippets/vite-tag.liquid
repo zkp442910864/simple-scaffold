@@ -3,22 +3,10 @@
   Do not attempt to modify this file directly, as any changes will be overwritten by the next build.
 {% endcomment %}
 {% assign path = vite-tag | replace: '@/', '../' | replace: '~/', '../' | replace: '@/', '../' | replace: '@/', '../' %}
-{% if path == "/frontend/entrypoints/constants.ts" or path == "constants.ts" %}
-  {% assign attr = 'type="module" crossorigin="anonymous"' %}
-  {% if defer %}
-    {% assign attr = 'defer="defer"' %}
-  {% elsif async %}
-    {% assign attr = 'async="async"' %}
-  {% endif %}
-  <script src="{{ 'constants-D-soq02G.js' | asset_url | split: '?' | first }}" {{ attr }}></script>
-{% elsif path == "/frontend/entrypoints/main.scss" or path == "main.scss" %}
-  {{ 'main-DwG3m_-N.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
-{% elsif path == "/frontend/entrypoints/main.ts" or path == "main.ts" %}
-  {% assign attr = 'type="module" crossorigin="anonymous"' %}
-  {% if defer %}
-    {% assign attr = 'defer="defer"' %}
-  {% elsif async %}
-    {% assign attr = 'async="async"' %}
-  {% endif %}
-  <script src="{{ 'main-ChM9Rh9l.js' | asset_url | split: '?' | first }}" {{ attr }}></script>
+{% if path == "/frontend/entrypoints/common-style/index.scss" or path == "common-style/index.scss" %}
+  {{ 'common-style-index-DwG3m_-N.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
+{% elsif path == "/frontend/entrypoints/common/constants.ts" or path == "common/constants.ts" %}
+  <script src="{{ 'common-consta.ts-WBAfFRhs.js' | asset_url | split: '?' | first }}" {% if id != blank %}id="{{ id }}"{% endif %} {% assign attr = 'type="module" crossorigin="anonymous"' %}{% if defer %} {% assign attr = 'defer="defer"' %} {% elsif async %} {% assign attr = 'async="async"' %} {% endif %}{{ attr }}></script>
+{% elsif path == "/frontend/entrypoints/common/index.ts" or path == "common/index.ts" %}
+  <script src="{{ 'common-index-BrZXlwf9.js' | asset_url | split: '?' | first }}" {% if id != blank %}id="{{ id }}"{% endif %} {% assign attr = 'type="module" crossorigin="anonymous"' %}{% if defer %} {% assign attr = 'defer="defer"' %} {% elsif async %} {% assign attr = 'async="async"' %} {% endif %}{{ attr }}></script>
 {% endif %}

@@ -1,19 +1,19 @@
 {
-  "frontend/entrypoints/constants.ts": {
-    "file": "constants-D-soq02G.js",
+  "frontend/entrypoints/common-style/index.scss": {
+    "file": "common-style-index-DwG3m_-N.css",
+    "src": "frontend/entrypoints/common-style/index.scss",
+    "isEntry": true
+  },
+  "frontend/entrypoints/common/constants.ts": {
+    "file": "common-consta.ts-WBAfFRhs.js",
     "name": "constants",
-    "src": "frontend/entrypoints/constants.ts",
+    "src": "frontend/entrypoints/common/constants.ts",
     "isEntry": true
   },
-  "frontend/entrypoints/main.scss": {
-    "file": "main-DwG3m_-N.css",
-    "src": "frontend/entrypoints/main.scss",
-    "isEntry": true
-  },
-  "frontend/entrypoints/main.ts": {
-    "file": "main-ChM9Rh9l.js",
-    "name": "main",
-    "src": "frontend/entrypoints/main.ts",
+  "frontend/entrypoints/common/index.ts": {
+    "file": "common-index-BrZXlwf9.js",
+    "name": "index",
+    "src": "frontend/entrypoints/common/index.ts",
     "isEntry": true
   }
 }

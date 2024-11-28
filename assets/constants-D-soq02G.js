@@ -1,1 +1,0 @@
-const ON_CHANGE_DEBOUNCE_TIMER=300,PUB_SUB_EVENTS_cartUpdate="cart-update",PUB_SUB_EVENTS_quantityUpdate="quantity-update",PUB_SUB_EVENTS_optionValueSelectionChange="option-value-selection-change",PUB_SUB_EVENTS_variantChange="variant-change",PUB_SUB_EVENTS_cartError="cart-error";
