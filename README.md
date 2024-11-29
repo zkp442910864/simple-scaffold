@@ -26,6 +26,28 @@
 - 具名标签(语义化)(`header`, `search`, `nav`, `main`, `footer`...)
 - `js` `css` 优化(压缩,预加载,`script`异步属性)
 - `白帽SEO` `黑帽SEO` `外链` `内链`
+- 资源/页面预加载(注意兼容性)
+  - `link`标签, 增加`rel`属性,指定值 `prefetch` `prerender` `subresource` `preload` `dns-prefetch` `preconnect`
+    - <https://alienzhou.github.io/fe-performance-journey/7-preload/>
+  - `script`标签,增加`type`属性,指定值`speculationrules`
+    - 相比较与`link`的方式(磁盘缓存),该方案是直接缓存到内存中,从而更快的加载出页面
+    - <https://neilning-xc.github.io/%E5%AD%A6%E4%B9%A0/%E4%BD%BF%E7%94%A8%E9%A2%84%E6%B8%B2%E6%9F%93-Prerender-%E6%8A%80%E6%9C%AF%E5%8A%A0%E9%80%9F%E9%A1%B5%E9%9D%A2%E5%AF%BC%E8%88%AA.html>
+    ```html
+      <script type="speculationrules">
+        {
+          "prerender": [
+            {
+              "source": "list",
+              "urls": ["one.html"]
+            },
+            {
+              "source": "list",
+              "urls": ["two.html"]
+            }
+          ]
+        }
+      </script>
+    ```
 
 #### 网站内容
 
