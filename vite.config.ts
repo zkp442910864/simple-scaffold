@@ -15,7 +15,7 @@ export default defineConfig(({ command, mode, }) => ({
     //     __dirname: '"' + __dirname + '"',
     // },
     plugins: [
-        Inspect(),
+        // Inspect(),
         react({
             jsxImportSource: mode === 'development' ? '@welldone-software/why-did-you-render' : 'react',
         }),
@@ -27,7 +27,7 @@ export default defineConfig(({ command, mode, }) => ({
         // 分析
         // analyzer(),
         // gzip压缩
-        // compression(),
+        compression(),
     ],
     resolve: {
         alias: [
