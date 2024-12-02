@@ -1,4 +1,4 @@
-import { NonIndexRouteObject } from 'react-router-dom';
+import { NonIndexRouteObject } from 'react-router';
 
 export type ServerDataModel = unknown;
 

@@ -3,7 +3,7 @@ import { useBaseData } from '@/store';
 import { useMemo, useRef, useState } from 'react';
 import ErrorData from '../ErrorData';
 import { useLifeCycle } from '@/layout';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 const HomeTest1 = () => {
 

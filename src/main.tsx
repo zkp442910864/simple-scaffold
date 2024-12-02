@@ -2,7 +2,7 @@
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router';
 import { CustomRouter } from './router';
 import { createViewport, getDevice } from './utils/index.ts';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';

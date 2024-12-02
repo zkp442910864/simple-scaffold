@@ -1,6 +1,6 @@
 import { useDebounceEffect } from '@/hooks';
 import { FC } from 'react';
-import { useLocation, useRouteError } from 'react-router-dom';
+import { useLocation, useRouteError } from 'react-router';
 
 /**
  * 生产环境时候需要，把错误向外抛出

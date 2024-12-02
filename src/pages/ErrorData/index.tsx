@@ -2,7 +2,7 @@ import { useDebounceEffect } from '@/hooks';
 import { useSystemErrorStore } from '@/store';
 import { EMonitoringErrorType } from '@/utils/modules/monitoring';
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const ErrorData = () => {
     const errorData = useSystemErrorStore((state) => state.errorData);

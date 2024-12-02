@@ -1,5 +1,5 @@
 import { useSystemErrorStore } from '@/store';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const AjaxData = () => {
     const ajaxData = useSystemErrorStore((state) => state.ajaxData);

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { ICustomRouteObject } from '../index.type';
 import { CustomRouter } from '../modules/customRouter';
 

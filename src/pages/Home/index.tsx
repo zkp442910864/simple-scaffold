@@ -4,7 +4,7 @@ import { getDevice } from '@/utils';
 import { useRef, useState } from 'react';
 import svg from '@/assets/react.svg';
 import { useLifeCycle } from '@/layout';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 const Home = () => {
     const { current: data, } = useRef({

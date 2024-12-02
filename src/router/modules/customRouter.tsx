@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, Navigate } from 'react-router';
 import { ErrorComponent, KeepAliveRoot, LayoutRoot, Loading, NoFindPage } from '@/layout';
 import { lazy, Suspense } from 'react';
 import App from '@/App';

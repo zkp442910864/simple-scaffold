@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { Outlet, useRouteError } from 'react-router-dom';
+import { Outlet, useRouteError } from 'react-router';
 import { useRouter } from './router';
 
 const App = () => {

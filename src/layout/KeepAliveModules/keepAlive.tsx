@@ -1,7 +1,7 @@
 
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { useRouter } from '@/router';
 import { NoFindPage } from '../modules/NoFindPage';
 import { ErrorBoundary } from 'react-error-boundary';
