@@ -14,6 +14,18 @@
     - [vite-bundle-analyzer(分析依赖)](https://www.mulingyuer.com/archives/1033/)
     - [vite-bundle-visualizer(分析依赖)](https://github.com/KusStar/vite-bundle-visualizer)
     - [vite-plugin-compression2(gzip)](https://github.com/nonzzz/vite-plugin-compression)
+- [ ] 实现抽离公共库
+    - 理想状态是多项目打包生成的`dist`上传服务器,然后通过对`common`目录内的资源进行引用,来达成依赖共享
+    - 输出结构
+
+    ```bash
+        -- dist
+        ------ common
+        ---------- 第三方依赖资源
+        ------ [项目名(获取package.json中name)]
+        ---------- 资源
+    ```
+
 - [ ] 前端监控 sourceMap提取
     - 监控
         - [x] 错误监控(js错误, 资源异常, 接口)
