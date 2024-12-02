@@ -9,7 +9,7 @@
 ### 专业词
 
 - PV: 是浏览量
-- UV: 独立访客数
+- UV: 独立访客数(访问网站的不同ip地址的人数)
 - 外链: 外链是指从其他网站指向你的网站的链接，也被称为反向链接、入站链接或链接到网站的链接。
 - 内链: 网站内部的路由跳转, 多个入口链接到同一页面, 可以提高页面排名
 - 白帽SEO: 遵守主流搜索引擎（如谷歌和百度）规定的优化方针
@@ -24,30 +24,49 @@
   - `description`
   - `keyword`
 - 具名标签(语义化)(`header`, `search`, `nav`, `main`, `footer`...)
-- `js` `css` 优化(压缩,预加载,`script`异步属性)
 - `白帽SEO` `黑帽SEO` `外链` `内链`
-- 资源/页面预加载(注意兼容性)
-  - `link`标签, 增加`rel`属性,指定值 `prefetch` `prerender` `subresource` `preload` `dns-prefetch` `preconnect`
-    - <https://alienzhou.github.io/fe-performance-journey/7-preload/>
-  - `script`标签,增加`type`属性,指定值`speculationrules`
-    - 相比较与`link`的方式(磁盘缓存),该方案是直接缓存到内存中,从而更快的加载出页面
-    - <https://neilning-xc.github.io/%E5%AD%A6%E4%B9%A0/%E4%BD%BF%E7%94%A8%E9%A2%84%E6%B8%B2%E6%9F%93-Prerender-%E6%8A%80%E6%9C%AF%E5%8A%A0%E9%80%9F%E9%A1%B5%E9%9D%A2%E5%AF%BC%E8%88%AA.html>
-    ```html
-      <script type="speculationrules">
-        {
-          "prerender": [
-            {
-              "source": "list",
-              "urls": ["one.html"]
-            },
-            {
-              "source": "list",
-              "urls": ["two.html"]
-            }
-          ]
-        }
-      </script>
-    ```
+
+##### 页面优化
+
+- 网络层面: `gzip` `cdn加速` `缓存(协商缓存,强制缓存)` `https2`
+- 代码层面: `script异步属性` `预解析/预加载` `增加首屏静态loading` `异步渲染页面内容(取决与是否处理SEO)` `代码压缩` `PWA`
+  - 资源/页面预加载(注意兼容性)
+    - `link`标签, 增加`rel`属性,指定值 `prefetch` `prerender` `subresource` `preload` `dns-prefetch` `preconnect`
+      - <https://alienzhou.github.io/fe-performance-journey/7-preload/>
+    - `script`标签,增加`type`属性,指定值`speculationrules`
+      - 相比较与`link`的方式(磁盘缓存),该方案是直接缓存到内存中,从而更快的加载出页面
+      - <https://neilning-xc.github.io/%E5%AD%A6%E4%B9%A0/%E4%BD%BF%E7%94%A8%E9%A2%84%E6%B8%B2%E6%9F%93-Prerender-%E6%8A%80%E6%9C%AF%E5%8A%A0%E9%80%9F%E9%A1%B5%E9%9D%A2%E5%AF%BC%E8%88%AA.html>
+      ```html
+        <script type="speculationrules">
+          {
+            "prerender": [
+              {
+                "source": "list",
+                "urls": ["one.html"]
+              },
+              {
+                "source": "list",
+                "urls": ["two.html"]
+              }
+            ]
+          }
+        </script>
+      ```
+
+##### 性能指标
+
+- TTFB(首字节时间): 请求发送到接收的首个字节所花费的时间(包括网络请求事件，后端处理时间)
+- FP(首次绘制): 浏览器首次将像素绘制到屏幕上的时间点(首次渲染)(说明用户在网页上看到了内容)。FP表示首次绘制了至少一个像素，并给显示在用户屏幕上
+- FCP(首次内容绘制): 首次将dom渲染到屏幕上的事件(可以是任何东西)。
+- FMP(首次有意义绘制): 理解可进行操作了的事件?
+- LCP(最大内容渲染)
+- DCL(加载完成 DOMContentLoaded)
+- L(onLoad)
+- TTI(可交互时间)
+- FID(首次输入延迟): 用户首次 和 页面交互 到页面响应 的交互的时间
+
+- 卡顿: 超过 50ms 的长任务
+- 内存使用情况(操作响应)
 
 #### 网站内容
 
