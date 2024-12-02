@@ -1,0 +1,30 @@
+# https://www.electron.build/configuration
+appId: com.electron.timer # 包名
+productName: timer # 项目名 这也是生成的exe文件的前缀名
+directories:
+  buildResources: build
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+asarUnpack:
+  - resources/**
+nsis:
+  # https://www.electron.build/app-builder-lib.interface.nsisoptions
+  oneClick: false # 是否一键安装
+  allowToChangeInstallationDirectory: true # 允许修改安装目录
+  createStartMenuShortcut: false # 创建开始菜单图标
+  deleteAppDataOnUninstall: true # 卸载时删除用户数据
+  # installerIcon: resources/logo-ico.ico # 安装图标
+  # installerHeaderIcon: resources/logo-ico.ico # 安装时头部图标
+  perMachine: true # 是否开启安装时权限限制（此电脑或当前用户）
+  createDesktopShortcut: true # 创建桌面图标
+  shortcutName: timer # 图标名称
+win:
+  artifactName: ${name}-${version}-setup.${ext}
+  executableName: timer
+electronLanguages:
+  - 'zh-CN'

@@ -1,0 +1,51 @@
+{
+    "name": "vite-electron",
+    "private": true,
+    "version": "0.0.3",
+    "type": "module",
+    "main": "./out/main/index.js",
+    "scripts": {
+        "dev": "electron-vite dev -w",
+        "start": "electron-vite preview",
+        "build": "tsc -b && electron-vite build",
+        "postinstall": "electron-builder install-app-deps",
+        "build:unpack": "npm run build && electron-builder --dir",
+        "build:win": "npm run build && electron-builder --win",
+        "build:mac": "electron-vite build && electron-builder --mac",
+        "build:linux": "electron-vite build && electron-builder --linux"
+    },
+    "dependencies": {
+        "@electron-toolkit/preload": "^3.0.1",
+        "@electron-toolkit/utils": "^3.0.0",
+        "@unocss/reset": "^0.64.1",
+        "child_process": "^1.0.2",
+        "dayjs": "^1.11.13",
+        "electron-store": "^10.0.0",
+        "js-yaml": "^4.1.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^7.0.1",
+        "tree-kill": "^1.2.2",
+        "zustand": "^5.0.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.11.1",
+        "@types/js-yaml": "^4.0.9",
+        "@types/node": "^22.10.1",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react": "^4.3.4",
+        "electron": "^33.2.1",
+        "electron-builder": "^25.1.8",
+        "electron-vite": "^2.3.0",
+        "eslint": "^9.11.1",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-react-refresh": "^0.4.12",
+        "globals": "^15.13.0",
+        "path": "^0.12.7",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.11.0",
+        "unocss": "^0.64.1",
+        "vite": "^6.0.1"
+    }
+}
