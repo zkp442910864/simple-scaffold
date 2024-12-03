@@ -2,7 +2,7 @@
     "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
     "productName": "vite-tauri",
     "version": "0.1.0",
-    "identifier": "com.tauri.dev",
+    "identifier": "com.tauri.vite-tauri",
     "build": {
         "frontendDist": "../build",
         "devUrl": "http://localhost:5173",
@@ -20,7 +20,10 @@
             }
         ],
         "security": {
-            "csp": null
+            "csp": null,
+            "pattern": {
+                "use": "brownfield"
+            }
         }
     },
     "bundle": {
