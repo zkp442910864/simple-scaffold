@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "tauri:dev": "tauri dev",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,12 +15,11 @@
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.1.2",
     "react-router": "^7.0.1",
-    "shiki": "^1.24.0",
-    "source-map": "^0.7.4",
     "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
+    "@tauri-apps/cli": "^2.1.0",
     "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
@@ -28,16 +28,10 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.13.0",
-    "oxlint": "^0.14.0",
     "path": "^0.12.7",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.17.0",
     "unocss": "^0.65.0",
     "vite": "^6.0.2"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "source-map@0.7.4": "patches/source-map@0.7.4.patch"
-    }
   }
 }
