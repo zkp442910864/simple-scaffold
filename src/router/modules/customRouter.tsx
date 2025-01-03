@@ -1,6 +1,6 @@
 import { createBrowserRouter, createHashRouter, Navigate } from 'react-router';
 import { ErrorComponent, KeepAliveRoot, LayoutRoot, Loading, NoFindPage } from '@/layout';
-import { lazy, Suspense } from 'react';
+import { lazy, ReactNode, Suspense } from 'react';
 import App from '@/App';
 import { ICustomRouteObject, ServerDataModel } from '../index.type';
 
@@ -15,7 +15,7 @@ export class CustomRouter {
 
     /** 这个变量要注意和目录保持一致 */
     localPageBasePaths = ['/src/pages/', '/index.tsx',];
-    localPagePromiseFnMap: Record<string, () => Promise<{default: () => JSX.Element}>> = {};
+    localPagePromiseFnMap: Record<string, () => Promise<{default: () => ReactNode}>> = {};
 
     /** 加载过渡 */
     loadingComponent = <Loading/>;

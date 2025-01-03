@@ -3,6 +3,8 @@ import { useSystemErrorStore } from '@/store';
 import { EMonitoringErrorType } from '@/utils/modules/monitoring';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router';
+import './errorData.css';
+import commonStyles from '@/assets/common.module.css';
 
 const ErrorData = () => {
     const errorData = useSystemErrorStore((state) => state.errorData);
@@ -41,9 +43,9 @@ const ErrorData = () => {
             <Link to="/HomeTest1">制造错误数据</Link>
             {
                 errorData.map((item, index) =>
-                    <div className="un-border un-border-black un-border-solid m-b-20 p-4">
+                    <div className="un-border un-border-black un-border-solid m-b-20 p-4 error-data">
                         <div className="color-error">错误信息: {item.message}</div>
-                        <div>资源: {item.source}</div>
+                        <div className={commonStyles['common']}>资源: {item.source}</div>
                         <div>设备: {item.device}</div>
                         <div>userAgent: {item.userAgent}</div>
                         <pre className="un-whitespace-pre-wrap">

@@ -1,10 +1,10 @@
 import react from '@vitejs/plugin-react';
-import { BuildOptions, defineConfig, UserConfig } from 'vite';
+import { BuildOptions, defineConfig, normalizePath, UserConfig } from 'vite';
 import { resolve } from 'path';
 import { compression } from 'vite-plugin-compression2';
 import { analyzer } from 'vite-bundle-analyzer';
 import UnoCSS from 'unocss/vite';
-import Inspect from 'vite-plugin-inspect';
+// import Inspect from 'vite-plugin-inspect';
 import { extractSourceMap } from './config/vite-plugin-extract-source-map';
 
 // https://vitejs.dev/config/
@@ -48,11 +48,13 @@ export default defineConfig(({ command, mode, }) => ({
                 chunkFileNames: handlerFileNames('assets', '[hash].js'),
                 // 使用这种方式会导致生成的文件hash值不一致
                 // sourcemapFileNames: handlerFileNames('maps', '[hash].js.map'),
-                // assetFileNames: 'assets/[name]-[hash].[ext]',
                 assetFileNames: (assetInfo) => {
-                    if (assetInfo.names?.join('').endsWith('.map')) {
-                        return 'maps/[name]-[hash][extname]'; // map 文件放入 maps 目录
+                    if (assetInfo.originalFileNames?.length && assetInfo.name && assetInfo.name.endsWith('.css')) {
+                        const flag = assetInfo.originalFileNames[0].startsWith('/');
+                        const name = transformName(`${flag ? '' : '/'}${assetInfo.originalFileNames[0]}`) || '[name]';
+                        return `assets/${name}-[hash][extname]`;
                     }
+
                     return 'assets/[name]-[hash][extname]'; // 其他资源
                 },
             },
@@ -60,6 +62,20 @@ export default defineConfig(({ command, mode, }) => ({
     },
 }));
 
+function transformName(pathUrl: string) {
+    const base = ['/src/', '.tsx',];
+    const index = pathUrl.indexOf(base[0]);
+    if (index === -1) return undefined;
+
+    const path = pathUrl.substring(index);
+    const pathName = path
+        .replace(base[0], '')
+        .replace(base[1], '')
+        .replace(/\//g, '-');
+        // .replace(/\/(\w)/g, (_, match1: string) => match1.toUpperCase());
+
+    return pathName;
+}
 
 /** 自定义输出文件名称 */
 function handlerFileNames(target: string, suffix: string) {
@@ -72,22 +88,10 @@ function handlerFileNames(target: string, suffix: string) {
         }
         else {
             const lastModuleId = chunkInfo.moduleIds[chunkInfo.moduleIds.length - 1];
-            const mId = chunkInfo.facadeModuleId || lastModuleId || '';
+            const mId = normalizePath(chunkInfo.facadeModuleId || lastModuleId || '');
+            const pathName = transformName(mId) || 'chunk-[name]';
 
-
-            const base = ['/src/', '.tsx',];
-            const index = mId.indexOf(base[0]);
-            if (index > -1) {
-                const path = mId.substring(index);
-                const pathName = path
-                    .replace(base[0], '')
-                    .replace(base[1], '')
-                    .replace(/\/(\w)/g, (_, match1: string) => match1.toUpperCase());
-
-                return `${target}/${pathName}-${suffix}`;
-            }
-
-            return `${target}/chunk-[name]-${suffix}`;
+            return `${target}/${pathName}-${suffix}`;
         }
 
     };

@@ -5,6 +5,8 @@ import { useRef, useState } from 'react';
 import svg from '@/assets/react.svg';
 import { useLifeCycle } from '@/layout';
 import { useLocation } from 'react-router';
+import styles from './index.module.css';
+import commonStyles from '@/assets/common.module.css';
 
 const Home = () => {
     const { current: data, } = useRef({
@@ -25,7 +27,7 @@ const Home = () => {
 
     return (
         <div className="color-main!">
-            <div onClick={() => {
+            <div className={`abc ${styles.www} ${commonStyles.common}`} onClick={() => {
                 setCount(count + 1);
                 // update({});
                 // updateTest();
