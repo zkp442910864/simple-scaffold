@@ -6,6 +6,7 @@ import { analyzer } from 'vite-bundle-analyzer';
 import UnoCSS from 'unocss/vite';
 // import Inspect from 'vite-plugin-inspect';
 import { extractSourceMap } from './config/vite-plugin-extract-source-map';
+import { microLib } from './config/vite-plugin-micro-lib';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, }) => ({
@@ -24,6 +25,17 @@ export default defineConfig(({ command, mode, }) => ({
         extractSourceMap({
             outDir: 'dist/maps',
         }),
+        microLib({
+            externalData: {
+                // [包名]: {treeshake = true,},
+                react: {},
+                'react/jsx-runtime': {},
+                'react-dom': {},
+                'react-dom/client': {},
+                'react-router': { lib: true, },
+                zustand: { lib: true, },
+            },
+        }),
         // 分析
         // analyzer(),
         // gzip压缩
@@ -38,6 +50,7 @@ export default defineConfig(({ command, mode, }) => ({
         host: true,
     },
     build: {
+        // minify: false,
         reportCompressedSize: false,
         // sourcemap: false,
         sourcemap: 'hidden',
