@@ -17,7 +17,7 @@
 - [x] 实现抽离公共库(`vite-plugin-micro-lib`)
     - 理想状态是多项目打包生成的`dist`上传服务器,然后通过对`common`目录内的资源进行引用,来达成依赖共享
     - 输出结构
-    - [ ] 封装成插件发布npm
+    - [x] [封装成插件发布npm](https://www.npmjs.com/package/@zzzz-/vite-plugin-micro-lib?activeTab=readme)
 
     ```bash
         -- dist

@@ -6,7 +6,7 @@ import { analyzer } from 'vite-bundle-analyzer';
 import UnoCSS from 'unocss/vite';
 // import Inspect from 'vite-plugin-inspect';
 import { extractSourceMap } from './config/vite-plugin-extract-source-map';
-import { microLib } from './config/vite-plugin-micro-lib';
+import { microLib } from '@zzzz-/vite-plugin-micro-lib';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, }) => ({
@@ -44,6 +44,7 @@ export default defineConfig(({ command, mode, }) => ({
     resolve: {
         alias: [
             { find: '@', replacement: resolve('./src'), },
+            // { find: 'vite', replacement: resolve('./node_modules/vite'), },
         ],
     },
     server: {
