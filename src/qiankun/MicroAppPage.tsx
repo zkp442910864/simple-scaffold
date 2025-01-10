@@ -1,9 +1,11 @@
 import { useDebounceEffect, useStateData } from '@/hooks';
 import { FC } from 'react';
 import { loadMicroApp } from 'qiankun';
+import { TMicroAppConfigConfig } from './master';
 
 export const MicroAppPage: FC<IProps> = ({
     pathname,
+    config,
 }) => {
     const { state, update, } = useStateData(() => ({
         divId: 'micro-app' + Date.now(),
@@ -11,27 +13,18 @@ export const MicroAppPage: FC<IProps> = ({
 
     useDebounceEffect(() => {
         void update().then(() => {
-            // registerMicroApps([
-            //     {
-            //         name: 'child1',
-            //         entry: '//localhost:7100',
-            //         container: '#' + state.divId,
-            //         activeRule: '/child1/page1',
-            //     },
-            // ]);
             loadMicroApp({
-                name: 'child1-' + Date.now(),
-                entry: '//localhost:7100',
+                name: config.name + Date.now(),
+                entry: config.entry,
                 container: '#' + state.divId,
                 props: {
+                    basename: config.name,
                     pathname,
                 },
             }, {
                 autoStart: true,
             }, {
-                beforeLoad: async () => {
-                    // console.log(1);
-                },
+                beforeLoad: async () => {},
                 beforeMount: async () => {},
             });
         });
@@ -44,4 +37,5 @@ export const MicroAppPage: FC<IProps> = ({
 
 interface IProps {
     pathname: string;
+    config: TMicroAppConfigConfig;
 }
