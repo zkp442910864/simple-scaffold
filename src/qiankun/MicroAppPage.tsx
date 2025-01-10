@@ -9,11 +9,13 @@ export const MicroAppPage: FC<IProps> = ({
 }) => {
     const { state, update, } = useStateData(() => ({
         divId: 'micro-app' + Date.now(),
+        error: null as null | Error,
+        loading: true,
     }));
 
     useDebounceEffect(() => {
         void update().then(() => {
-            loadMicroApp({
+            const result = loadMicroApp({
                 name: config.name + Date.now(),
                 entry: config.entry,
                 container: '#' + state.divId,
@@ -27,11 +29,35 @@ export const MicroAppPage: FC<IProps> = ({
                 beforeLoad: async () => {},
                 beforeMount: async () => {},
             });
+            // console.log(result.loadPromise);
+            result.loadPromise.catch((err) => {
+                state.error = err as Error;
+                void update();
+                // throw err;
+            }).finally(() => {
+                state.loading = false;
+                void update();
+            });
         });
     }, []);
 
+
+    if (state.error) {
+        throw state.error;
+        // return (
+        //     <>
+        //         <div>{state.error.name}</div>
+        //         <div>{state.error.stack}</div>
+        //         <div>{state.error.message}</div>
+        //     </>
+        // );
+    }
+
     return (
-        <div id={state.divId}>MicroAppPage</div>
+        <>
+            {state.loading ? 'loading' : ''}
+            <div id={state.divId}></div>
+        </>
     );
 };
 
