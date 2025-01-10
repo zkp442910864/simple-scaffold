@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["child-app1"]
+    branches: ["child-app1", "vite-react"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -49,9 +49,35 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./dist
-          destination: ./_site/micro-app1 # 将内容放在 /blog 子目录下
-          keep_files: true
+          destination: ./_site/child-app1 # 将内容放在 /blog 子目录下
 
+      # Build job
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: vite-react
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+
+      - name: Build
+        run: |
+          npm i -g pnpm
+          pnpm install
+          pnpm build
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./dist
+          destination: ./_site/vite-react # 将内容放在 /blog 子目录下
+
+      # upload
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
@@ -66,6 +92,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          keep_files: true
-          publish_dir: ./_site/micro-app1
