@@ -1,32 +1,31 @@
-import { microAppConfig } from '@/qiankun/master';
-import { useEffect, useRef } from 'react';
+import { microAppConfig, TMicroAppConfigConfig } from '@/qiankun/master';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router';
-import { MicroAppPage } from './MicroAppPage';
-import { useStateExtend } from '@/hooks';
+import { MicroAppPage } from '@/qiankun/MicroAppPage';
+import { useStateData } from '@/hooks';
 
 
 export const NoFindPage = () => {
     const local = useLocation();
-    const [, update,] = useStateExtend({});
-    const { current: state, } = useRef({
+    const { state, update, } = useStateData(() => ({
         loading: true,
-        microApp: false,
-    });
+        microApp: null as null | undefined | TMicroAppConfigConfig,
+    }));
 
     const checkPath = (path: string) => {
-        const item = microAppConfig.find(ii => path.toLocaleLowerCase().includes(ii.name.toLocaleLowerCase()));
-        state.microApp = !!item;
+        const item = microAppConfig.find(ii => path.toLocaleLowerCase().startsWith(ii.name.toLocaleLowerCase()));
+        state.microApp = item;
     };
 
     useEffect(() => {
         checkPath(local.pathname.slice(1));
         state.loading = false;
-        void update({});
+        void update();
     }, []);
 
     if (state.loading) return <div>loading</div>;
 
-    if (state.microApp) return <MicroAppPage pathname={local.pathname} />;
+    if (state.microApp) return <MicroAppPage pathname={local.pathname} config={state.microApp} />;
 
     return (
         <>
