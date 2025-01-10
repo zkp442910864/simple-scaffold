@@ -8,9 +8,10 @@ import { createViewport, getDevice } from './utils/index.ts';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
 import { IMonitoringAjaxData, IMonitoringAnalyseData, IMonitoringErrorData, Monitoring } from './utils/modules/monitoring/index.ts';
 import { systemErrorStore } from './store/index.tsx';
+import { slaveRender } from './qiankun/slave.ts';
 import 'virtual:uno.css';
 
-void (() => {
+const render = () => {
     Monitoring.getInstance({
         maxLimit: 2,
         requestApi: (type, data) => {
@@ -28,12 +29,14 @@ void (() => {
     });
 
     SystemUpdateSPA.getInstance({
+        // 开发环境不触发
+        isDev: import.meta.env.DEV,
+        interval: 1000,
         dialog: (type) => {
-            confirm('qweqe');
+            confirm('qweqe' + type);
             return Promise.resolve();
         },
         interceptError(e, updateDialog) {
-            // 开发环境不触发
             if (import.meta.env.DEV) return;
 
             if (
@@ -67,9 +70,11 @@ void (() => {
     // 存在菜单，就先请求完成
     document.getElementById('skeleton-screen')!.remove();
 
-    createRoot(document.getElementById('root')!).render(
+    createRoot(document.getElementById('main-root')!).render(
         <StrictMode>
             <RouterProvider router={CustomRouter.getInstance().router!}/>
         </StrictMode>
     );
-})();
+};
+
+slaveRender(render);
