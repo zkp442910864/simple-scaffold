@@ -1,6 +1,6 @@
 import { useStateData } from '@/hooks';
 
-const Page1 = () => {
+const Page2 = () => {
 
     const { state, update, } = useStateData(() => ({
         count: 0,
@@ -8,7 +8,7 @@ const Page1 = () => {
 
     return (
         <>
-            页面1
+            页面2
             <button onClick={() => {
                 state.count++;void update();
             }}>count: {state.count}</button>
@@ -16,4 +16,4 @@ const Page1 = () => {
     );
 };
 
-export default Page1;
+export default Page2;
