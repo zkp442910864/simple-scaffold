@@ -11,6 +11,9 @@ export const LayoutRoot = () => {
                 <Link to={'ErrorData'}>监控报错</Link>
                 <Link to={'AjaxData'}>监控接口</Link>
                 <Link to={'Analyse'}>性能监控</Link>
+                <Link to={'/child1/page1'}>嵌入应用1-页面1</Link>
+                <Link to={'/child1/page2'}>嵌入应用1-页面2</Link>
+                <Link to={'/child2/page'}>嵌入应用2-页面</Link>
                 {/* <Link to={'ErrorData'}>用户行为监控</Link> */}
             </div>
             <Outlet />
