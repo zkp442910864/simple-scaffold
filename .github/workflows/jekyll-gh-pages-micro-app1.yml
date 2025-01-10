@@ -26,55 +26,46 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # Build
+      - name: Checkout child-app1
         uses: actions/checkout@v4
         with:
           ref: child-app1
+          path: child-app1
 
-      - name: Use Node.js 22.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 22.x
-
-      - name: Build
-        run: |
-          npm i -g pnpm
-          pnpm install
-          pnpm build
-        
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./dist
-          destination: ./_site/child-app1 # 将内容放在 /blog 子目录下
-
-      # Build job
-      - name: Checkout
+      - name: Checkout vite-react
         uses: actions/checkout@v4
         with:
           ref: vite-react
+          path: vite-react
 
-      - name: Use Node.js 22.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 22.x
-
-      - name: Build
+      - name: Build child-app1
         run: |
+          cd ./child-app1
           npm i -g pnpm
           pnpm install
           pnpm build
-        
+
+      - name: Build vite-react
+        run: |
+          cd ./vite-react
+          npm i -g pnpm
+          pnpm install
+          pnpm build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
-      - name: Build with Jekyll
+
+      - name: Build with Jekyll(child-app1)
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./dist
+          source: ./child-app1/dist
+          destination: ./_site/child-app1 # 将内容放在 /blog 子目录下
+
+      - name: Build with Jekyll(vite-react)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./vite-react/dist
           destination: ./_site/vite-react # 将内容放在 /blog 子目录下
 
       # upload
