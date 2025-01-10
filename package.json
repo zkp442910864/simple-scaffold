@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "qiankun": "^2.10.16",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",
@@ -25,7 +26,8 @@
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^4.3.4",
     "@welldone-software/why-did-you-render": "^8.0.3",
-    "@zzzz-/vite-plugin-micro-lib": "^0.0.4",
+    "@zzzz-/vite-plugin-micro-lib": "^0.0.6",
+    "@zzzz-/vite-plugin-qiankun": "^1.0.17",
     "chalk": "^5.4.1",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.1.0",
