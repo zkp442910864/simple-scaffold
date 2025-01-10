@@ -12,6 +12,7 @@ export class CustomRouter {
     layoutRoot = <LayoutRoot />;
     keepAliveRoot = <KeepAliveRoot/>;
     defaultError = <ErrorComponent />;
+    basename = '';
 
     /** 这个变量要注意和目录保持一致 */
     localPageBasePaths = ['/src/pages/', '/index.tsx',];
@@ -29,19 +30,20 @@ export class CustomRouter {
 
     /** 优先级高的自定义路由数据 */
     firstRouterData: ICustomRouteObject[] = [
-        { path: '/', element: <Navigate to="/Home" />, },
-        { path: '/Login', element: this.lazyComponent(() => import('@/pages/Login')), title: '登录页', },
+        this.handlePathItem({ path: '/', element: <Navigate to="/Home" />, }),
+        this.handlePathItem({ path: '/Login', element: this.lazyComponent(() => import('@/pages/Login')), title: '登录页', }),
     ];
 
-    static getInstance(serverData?: ServerDataModel) {
+    static getInstance(basename?: string, serverData?: ServerDataModel) {
         if (!CustomRouter.instance) {
-            CustomRouter.instance = new CustomRouter(serverData);
+            CustomRouter.instance = new CustomRouter(basename, serverData);
         }
 
         return CustomRouter.instance;
     }
 
-    private constructor(serverData?: ServerDataModel) {
+    private constructor(basename = '', serverData?: ServerDataModel) {
+        this.basename = basename;
         this.getLocalPages();
         const pageList = serverData ? this.generateServerRouter(serverData) : this.generateLocalRouter();
         this.createRouter(pageList);
@@ -73,7 +75,15 @@ export class CustomRouter {
                     this.noFindPage,
                 ],
             },
-        ]);
+        ], {
+            basename: this.basename,
+        });
+    }
+
+    /** 统一处理 basename */
+    handlePathItem(item: ICustomRouteObject) {
+        item.path = `${this.basename}${item.path}`;
+        return item;
     }
 
     /** 获取本地 pages 文件 */
@@ -124,13 +134,15 @@ export class CustomRouter {
 
         return Object.keys(this.localPagePromiseFnMap).map((url, index) => {
             const path = url.replace(prefix, '/').replace(suffix, '');
+            // console.log(`${this.basename}${path}`);
+
             const data: ICustomRouteObject = {
                 path,
                 element: this.lazyComponent(this.localPagePromiseFnMap[url]),
                 // errorElement: this.defaultError,
                 title: `页面-${path}-${index}`,
             };
-            return data;
+            return this.handlePathItem(data);
         });
     }
 

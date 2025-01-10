@@ -1,6 +1,17 @@
-import { Link, Outlet } from 'react-router';
+import { useRouter } from '@/router';
+import { useRef, useEffect } from 'react';
+import { Link } from 'react-router';
 
-export const LayoutRoot = () => {
+export const MenuList = () => {
+
+    const page = useRouter();
+    const { current: cache, } = useRef({
+        title: document.title,
+    });
+
+    useEffect(() => {
+        document.title = page?.title ?? cache.title;
+    }, [page,]);
 
     return (
         <>
@@ -13,7 +24,6 @@ export const LayoutRoot = () => {
                 <Link to={'Analyse'}>性能监控</Link>
                 {/* <Link to={'ErrorData'}>用户行为监控</Link> */}
             </div>
-            <Outlet />
         </>
     );
 };
