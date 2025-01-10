@@ -80,7 +80,8 @@ export class CustomRouter {
 
     /** 统一处理 basename */
     handlePathItem(item: ICustomRouteObject) {
-        item.path = `/${this.basename}/${item.path}`.replaceAll('//', '/');
+        item.path = `/${this.basename}/${item.path}`.replace(/\/+/g, '/');
+
         return item;
     }
 
