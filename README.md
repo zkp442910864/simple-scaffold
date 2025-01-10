@@ -5,15 +5,26 @@
 - [demo](https://zkp442910864.github.io/simple-scaffold/vite-react/#/)
 
 - [x] [状态管理zustand](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand)
+
 - [x] 移动端适配设置
     - [资料](https://blog.csdn.net/weixin_57677300/article/details/129164050)
     - <img src="md/QQ截图20241015103017.png" height="200" alt="window.devicePixelRatio" style="vertical-align:top;" />
+
 - [ ] 网络封装
+
+- [x] 页面更新，刷新
+
+- [x] react 组件错误边界处理
+
+- [x] keep-alive
+
 - [x] [unocss](https://unocss.dev/integrations/vite)
+
 - [x] gzip，分析依赖
     - [vite-bundle-analyzer(分析依赖)](https://www.mulingyuer.com/archives/1033/)
     - [vite-bundle-visualizer(分析依赖)](https://github.com/KusStar/vite-bundle-visualizer)
     - [vite-plugin-compression2(gzip)](https://github.com/nonzzz/vite-plugin-compression)
+
 - [x] 实现抽离公共库(`vite-plugin-micro-lib`)
     - 理想状态是多项目打包生成的`dist`上传服务器,然后通过对`common`目录内的资源进行引用,来达成依赖共享
     - 输出结构
@@ -26,6 +37,8 @@
         ------ micro-lib
         ---------- 资源
     ```
+
+- [x] 使用`qiankun`进行子应用嵌入(同时保持keep-alive有效),并结合`vite-plugin-micro-lib`对公共库进行复用
 
 - [ ] 前端监控 sourceMap提取
     - 监控
@@ -46,9 +59,7 @@
         - web worker(记录错误，确认崩溃)
         - [页面快照(错误溯源)](https://juejin.cn/post/6844904019605848072)
         - [路由监控](https://mp.weixin.qq.com/s/eLPWGqR6hOYVrwfa3OEVMA)
-- [x] 页面更新，刷新
-- [x] react 组件错误边界处理
-- [x] keep-alive
+
 - [ ] 网络安全(防范常见的安全攻击和提高网站性能)
     - 网络安全知识和系统性能测试 Appscan(Enterprise, Source)
     - XSS(跨站脚本攻击)
