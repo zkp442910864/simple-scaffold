@@ -1,7 +1,7 @@
 import { loadMicroApp } from 'qiankun';
 
 export const microAppConfig: TMicroAppConfigConfig[] =
-    import.meta.env
+    import.meta.env.DEV
         ? [
             {
                 name: 'child1',
@@ -15,7 +15,7 @@ export const microAppConfig: TMicroAppConfigConfig[] =
         : [
             {
                 name: 'child1',
-                entry: 'https://zkp442910864.github.io/simple-scaffold/child-app1',
+                entry: 'https://zkp442910864.github.io/simple-scaffold/child-app1/',
             },
             {
                 name: 'child2',
