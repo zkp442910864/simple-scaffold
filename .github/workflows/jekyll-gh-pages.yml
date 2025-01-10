@@ -50,6 +50,7 @@ jobs:
         with:
           source: ./dist
           destination: ./_site/vite-react # 将内容放在 /blog 子目录下
+          keep_files: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
