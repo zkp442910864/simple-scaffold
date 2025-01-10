@@ -68,3 +68,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           keep_files: true
+          publish_dir: ./_site/vite-react
