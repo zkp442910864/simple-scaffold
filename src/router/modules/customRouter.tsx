@@ -1,18 +1,23 @@
-import { createBrowserRouter, createHashRouter, Navigate } from 'react-router';
+import { createBrowserRouter, createHashRouter, createMemoryRouter, Navigate } from 'react-router';
 import { ErrorComponent, KeepAliveRoot, LayoutRoot, Loading, NoFindPage } from '@/layout';
 import { lazy, ReactNode, Suspense } from 'react';
 import App from '@/App';
 import { ICustomRouteObject, ServerDataModel } from '../index.type';
+import { qiankunWindow } from '@zzzz-/vite-plugin-qiankun/helper';
 
 export class CustomRouter {
     private static instance: CustomRouter;
+    private static instanceMap: Record<string, CustomRouter>;
 
     router?: ReturnType<typeof createBrowserRouter>;
     routerPageMap: Record<string, ICustomRouteObject[]> = {};
     layoutRoot = <LayoutRoot />;
-    keepAliveRoot = <KeepAliveRoot/>;
+    /** 乾坤里使用keep-alive会加载错误 */
+    // keepAliveRoot = <KeepAliveRoot/>;
+    keepAliveRoot = qiankunWindow.__POWERED_BY_QIANKUN__ ? null : <KeepAliveRoot/>;
     defaultError = <ErrorComponent />;
     basename = '';
+    defaultEntry: string;
 
     /** 这个变量要注意和目录保持一致 */
     localPageBasePaths = ['/src/pages/', '/index.tsx',];
@@ -34,16 +39,18 @@ export class CustomRouter {
         this.handlePathItem({ path: '/Login', element: this.lazyComponent(() => import('@/pages/Login')), title: '登录页', }),
     ];
 
-    static getInstance(basename?: string, serverData?: ServerDataModel) {
-        if (!CustomRouter.instance) {
-            CustomRouter.instance = new CustomRouter(basename, serverData);
+    static getInstance(config?: IConfig) {
+        // TODO: qiankun情况下, 想着是只是用一次, 所以每次都创建, 共用不了
+        if (!CustomRouter.instance || qiankunWindow.__POWERED_BY_QIANKUN__) {
+            CustomRouter.instance = new CustomRouter(config);
         }
 
         return CustomRouter.instance;
     }
 
-    private constructor(basename = '', serverData?: ServerDataModel) {
-        this.basename = basename;
+    private constructor({ basename, serverData, defaultEntry, }: IConfig = {}) {
+        this.basename = basename || '';
+        this.defaultEntry = defaultEntry || '';
         this.getLocalPages();
         const pageList = serverData ? this.generateServerRouter(serverData) : this.generateLocalRouter();
         this.createRouter(pageList);
@@ -51,7 +58,8 @@ export class CustomRouter {
     }
 
     createRouter(pageList: ICustomRouteObject[]) {
-        this.router = createHashRouter([
+        const fn = qiankunWindow.__POWERED_BY_QIANKUN__ ? createMemoryRouter : createHashRouter;
+        this.router = fn([
             {
                 path: '/',
                 element: <App />,
@@ -75,7 +83,9 @@ export class CustomRouter {
                     this.noFindPage,
                 ],
             },
-        ]);
+        ], {
+            initialEntries: this.defaultEntry ? [this.defaultEntry,] : undefined,
+        });
     }
 
     /** 统一处理 basename */
@@ -145,4 +155,11 @@ export class CustomRouter {
         });
     }
 
+}
+
+
+interface IConfig {
+    basename?: string,
+    serverData?: ServerDataModel,
+    defaultEntry?: string,
 }

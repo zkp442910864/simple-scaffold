@@ -72,9 +72,10 @@ const render = (props?: ICustomQiankunProps) => {
 
     createRoot(document.getElementById('main-root')!).render(
         <StrictMode>
-            <RouterProvider router={CustomRouter.getInstance(props?.basename).router!} />
+            <RouterProvider router={CustomRouter.getInstance({ basename: props?.basename, defaultEntry: props?.defaultEntry, }).router!} />
         </StrictMode>
     );
 };
+
 
 slaveRender(render);
