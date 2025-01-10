@@ -39,9 +39,7 @@ export default defineConfig(({ command, mode, }) => ({
         // analyzer(),
         // gzip压缩
         compression(),
-        qiankun('child1', {
-            useDevMode: true,
-        }),
+        qiankun('child1'),
     ],
     resolve: {
         alias: [

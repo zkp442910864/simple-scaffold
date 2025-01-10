@@ -60,8 +60,8 @@ importers:
         specifier: ^0.0.6
         version: 0.0.6(vite@5.4.8(@types/node@22.10.4))
       '@zzzz-/vite-plugin-qiankun':
-        specifier: ^1.0.17
-        version: 1.0.17(typescript@5.7.2)(vite@5.4.8(@types/node@22.10.4))
+        specifier: ^1.0.18
+        version: 1.0.18(typescript@5.7.2)(vite@5.4.8(@types/node@22.10.4))
       chalk:
         specifier: ^5.4.1
         version: 5.4.1
@@ -1126,8 +1126,8 @@ packages:
     peerDependencies:
       vite: '>5.4.8'
 
-  '@zzzz-/vite-plugin-qiankun@1.0.17':
-    resolution: {integrity: sha512-F5F5v3toWA7qYU9gSwzbVGxxUNxJi+wD3kJ51N2EymVQ7/FJufrMuRd3l8d+S/FDPYLJTZHwlZZj2sz1aVNSaA==}
+  '@zzzz-/vite-plugin-qiankun@1.0.18':
+    resolution: {integrity: sha512-HyvQbVz25vfmUg1jUZmws3jo4UBOJr8whAqHMN9AyQIWLa+QgPyf7rLI4Xpr32CYI9uU/nTTL/Ys3LiqSsyTPw==}
     peerDependencies:
       typescript: '>=4'
       vite: '>=2'
@@ -3124,7 +3124,7 @@ snapshots:
     dependencies:
       vite: 5.4.8(@types/node@22.10.4)
 
-  '@zzzz-/vite-plugin-qiankun@1.0.17(typescript@5.7.2)(vite@5.4.8(@types/node@22.10.4))':
+  '@zzzz-/vite-plugin-qiankun@1.0.18(typescript@5.7.2)(vite@5.4.8(@types/node@22.10.4))':
     dependencies:
       cheerio: 1.0.0
       typescript: 5.7.2
