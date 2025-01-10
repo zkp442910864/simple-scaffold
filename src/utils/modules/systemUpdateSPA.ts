@@ -18,7 +18,7 @@ export class SystemUpdateSPA {
     /** 避免出现多次同一错误 */
     // private errorSet = new WeakSet();
     /** 轮询时间 */
-    private interval = 1000;
+    private interval = 10 * 1000;
 
     static getInstance(data?: ISystemUpdateSPAData) {
         if (!SystemUpdateSPA.instance) {
@@ -32,7 +32,7 @@ export class SystemUpdateSPA {
 
     private constructor(data: ISystemUpdateSPAData) {
         this.baseData = data;
-        this.start();
+        !this.baseData.isDev && this.start();
     }
 
     /** 启动 */
@@ -148,6 +148,10 @@ interface ISystemUpdateSPAData {
     dialog: (type: EDialogType) => Promise<void>;
     /** 轮询间隔时间（毫秒），默认为 10 分钟 */
     interval?: number;
+    /**
+     * 开发环境不触发
+     */
+    isDev: boolean;
 }
 
 interface IErrorModel extends Event {
