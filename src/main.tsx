@@ -8,10 +8,10 @@ import { createViewport, getDevice } from './utils/index.ts';
 import { SystemUpdateSPA } from './utils/modules/systemUpdateSPA.ts';
 import { IMonitoringAjaxData, IMonitoringAnalyseData, IMonitoringErrorData, Monitoring } from './utils/modules/monitoring/index.ts';
 import { systemErrorStore } from './store/index.tsx';
-import { slaveRender } from './qiankun/slave.ts';
+import { ICustomQiankunProps, slaveRender } from './qiankun/slave.ts';
 import 'virtual:uno.css';
 
-const render = () => {
+const render = (props?: ICustomQiankunProps) => {
     Monitoring.getInstance({
         maxLimit: 2,
         requestApi: (type, data) => {
@@ -72,7 +72,7 @@ const render = () => {
 
     createRoot(document.getElementById('main-root')!).render(
         <StrictMode>
-            <RouterProvider router={CustomRouter.getInstance().router!} />
+            <RouterProvider router={CustomRouter.getInstance(props?.basename).router!} />
         </StrictMode>
     );
 };

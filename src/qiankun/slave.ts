@@ -2,13 +2,14 @@ import { renderWithQiankun, qiankunWindow, QiankunProps } from '@zzzz-/vite-plug
 import { ReactNode } from 'react';
 
 
-export const slaveRender = (renderFn: (props?: QiankunProps) => void) => {
+export const slaveRender = (renderFn: (props?: ICustomQiankunProps) => void) => {
 
     renderWithQiankun({
         bootstrap() {
         },
         mount(props) {
-            renderFn(props);
+            console.log(props);
+            renderFn(props as ICustomQiankunProps);
         },
         update(props) {
         },
@@ -20,4 +21,9 @@ export const slaveRender = (renderFn: (props?: QiankunProps) => void) => {
         renderFn();
     }
 };
+
+export interface ICustomQiankunProps extends QiankunProps {
+    basename: string;
+    pathname: string;
+}
 
