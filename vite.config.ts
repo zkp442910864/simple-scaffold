@@ -7,6 +7,7 @@ import UnoCSS from 'unocss/vite';
 // import Inspect from 'vite-plugin-inspect';
 import { extractSourceMap } from './config/vite-plugin-extract-source-map';
 import { microLib } from '@zzzz-/vite-plugin-micro-lib';
+import qiankun from '@zzzz-/vite-plugin-qiankun';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, }) => ({
@@ -17,9 +18,7 @@ export default defineConfig(({ command, mode, }) => ({
     // },
     plugins: [
         // Inspect(),
-        react({
-            jsxImportSource: mode === 'development' ? '@welldone-software/why-did-you-render' : 'react',
-        }),
+        react(),
         UnoCSS(),
         // 提取sourcemap
         extractSourceMap({
@@ -40,6 +39,9 @@ export default defineConfig(({ command, mode, }) => ({
         // analyzer(),
         // gzip压缩
         compression(),
+        qiankun('child1', {
+            useDevMode: true,
+        }),
     ],
     resolve: {
         alias: [
@@ -49,6 +51,8 @@ export default defineConfig(({ command, mode, }) => ({
     },
     server: {
         host: true,
+        port: 7100,
+        // middlewareMode: true,
     },
     build: {
         // minify: false,
