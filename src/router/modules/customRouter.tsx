@@ -75,14 +75,12 @@ export class CustomRouter {
                     this.noFindPage,
                 ],
             },
-        ], {
-            basename: this.basename,
-        });
+        ]);
     }
 
     /** 统一处理 basename */
     handlePathItem(item: ICustomRouteObject) {
-        item.path = `${this.basename}${item.path}`;
+        item.path = `/${this.basename}/${item.path}`.replaceAll('//', '/');
         return item;
     }
 
