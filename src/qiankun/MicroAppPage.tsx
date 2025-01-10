@@ -21,14 +21,16 @@ export const MicroAppPage: FC<IProps> = ({
                 container: '#' + state.divId,
                 props: {
                     basename: config.name,
-                    pathname,
+                    defaultEntry: pathname,
                 },
             }, {
-                autoStart: true,
+                // autoStart: false,
+                // sandbox: true,
             }, {
                 beforeLoad: async () => {},
                 beforeMount: async () => {},
             });
+
             // console.log(result.loadPromise);
             result.loadPromise.catch((err) => {
                 state.error = err as Error;

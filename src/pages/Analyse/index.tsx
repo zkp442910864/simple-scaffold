@@ -10,7 +10,7 @@ const Analyse = () => {
             <div className="p-4">用户代理: {pageAnalyseData.userAgent}</div>
             {
                 pageAnalyseData.list?.map((item, index) =>
-                    <div className="p-4">
+                    <div className="p-4" key={item.name}>
                         <div>
                             {item.name}({item.title}): {item.value === -1 ? '--' : `${item.value}ms`}
                         </div>
