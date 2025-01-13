@@ -2,7 +2,12 @@
   "name": "simple-scaffold-lib",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "dev": "cd ./example && pnpm dev",
+    "dev:docs": "cd ./docs && pnpm dev",
+    "build:lib": "cd ./lib && pnpm build",
+    "build:docs": "cd ./docs && pnpm build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
