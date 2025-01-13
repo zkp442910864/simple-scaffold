@@ -18,15 +18,23 @@ export default defineConfig(({ command, mode, }) => ({
     host: true,
   },
   build: {
-    outDir: '../build/lib',
+    outDir: 'build',
+    emptyOutDir: true,
     lib: {
-      entry: path.join(__dirname, './src/main.tsx'),
+      entry: path.join(__dirname, './src/index.ts'),
       formats: ['es', 'umd',],
       name: 'lib',
+      fileName: 'index',
     },
     rollupOptions: {
-      external: Object.keys(packageJson.peerDependencies).map(ii => new RegExp(ii)),
+      external: Object.keys(packageJson.peerDependencies).map(ii => new RegExp(`^${ii}`)),
+      // external: Object.keys(packageJson.peerDependencies).map(ii => new RegExp(`node_modules.*${ii}`)),
+      // external: [/node_modules/, ],
+      // external: (source, importer, isResolved) => {
+      //   console.log(source);
+      // },
       output: {
+        // globals: packageJson.peerDependencies,
       },
     },
   },

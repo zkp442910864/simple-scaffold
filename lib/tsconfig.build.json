@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "./build/js",
+    "declarationDir": "./build/types",
+  },
+  "include": [
+    "./src/index.ts"
+  ]
+}
