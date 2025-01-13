@@ -6,11 +6,11 @@ import { MenuList } from './MenuList';
 
 export const LayoutRoot = () => {
 
-    return (
-        <>
-            <DocumentTitle/>
-            <MenuList/>
-            <Outlet />
-        </>
-    );
+  return (
+    <>
+      <DocumentTitle/>
+      <MenuList/>
+      <Outlet />
+    </>
+  );
 };

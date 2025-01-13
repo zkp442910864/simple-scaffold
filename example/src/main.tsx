@@ -6,11 +6,11 @@ import { CustomRouter } from './router';
 import 'virtual:uno.css';
 
 const render = () => {
-    createRoot(document.getElementById('main-root')!).render(
-        <StrictMode>
-            <RouterProvider router={CustomRouter.getInstance().router!} />
-        </StrictMode>
-    );
+  createRoot(document.getElementById('main-root')!).render(
+    <StrictMode>
+      <RouterProvider router={CustomRouter.getInstance().router!} />
+    </StrictMode>
+  );
 };
 
 

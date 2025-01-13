@@ -2,11 +2,11 @@
 
 const Home = () => {
 
-    return (
-        <div>
+  return (
+    <div>
             234
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Home;

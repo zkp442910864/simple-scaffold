@@ -2,11 +2,11 @@ import { useLocation } from 'react-router';
 
 
 export const NoFindPage = () => {
-    const local = useLocation();
+  const local = useLocation();
 
-    return (
-        <>
-            <div>-404-</div>
-        </>
-    );
+  return (
+    <>
+      <div>-404-</div>
+    </>
+  );
 };
