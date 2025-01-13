@@ -1,11 +1,20 @@
 {
   "name": "inline-lib",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "types": "./build/types/index.d.ts",
-  "main": "./build/index.umd.cjs",
-  "module": "./build/index.js",
+  "exports": {
+    ".": {
+      "types": "./build/types/index.d.ts",
+      "main": "./build/index.umd.cjs",
+      "module": "./build/index.js"
+    },
+    "./test": {
+      "types": "./src/index.ts",
+      "main": "./src/index.ts",
+      "module": "./src/index.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && tsc -b ./tsconfig.build.json",

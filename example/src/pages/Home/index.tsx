@@ -1,10 +1,19 @@
+import { TestButton, useStateData } from 'inline-lib';
 
 
 const Home = () => {
 
+  const { state, update, } = useStateData(() => ({
+    count: 0,
+  }));
+
   return (
     <div>
-            234
+      <TestButton onClick={() => {
+        state.count++;
+        void update();
+      }}>{state.count}</TestButton>
+      234
     </div>
   );
 };

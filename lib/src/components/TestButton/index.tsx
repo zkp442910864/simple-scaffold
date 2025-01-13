@@ -3,8 +3,9 @@ import { ITextButtonProps } from './index.type';
 
 export const TestButton: FC<ITextButtonProps> = ({
   children,
+  ...props
 }) => {
   return (
-    <button>{children ?? '请传入children'}</button>
+    <button {...props}>{children ?? '请传入children222'}</button>
   );
 };

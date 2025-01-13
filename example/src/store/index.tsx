@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { createCustom } from './modules/config';
 
 export const useBaseData = create<IUseBaseData>((set) => ({
   init: 0,
