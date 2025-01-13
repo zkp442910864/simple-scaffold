@@ -19,8 +19,8 @@
     "build": "tsc -b && vite build && tsc -b ./tsconfig.build.json",
     "lint": "eslint . --fix",
     "preview": "vite preview",
-    "docs:dev": "storybook dev -p 6006",
-    "docs:build": "storybook build"
+    "dev:docs": "storybook dev -p 6006",
+    "build:docs": "storybook build"
   },
   "peerDependencies": {
     "react": ">=19.0.0",

@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "cd ./example && pnpm dev",
-    "dev:docs": "cd ./docs && pnpm dev",
+    "dev:docs": "cd ./lib && pnpm dev:docs",
     "build:lib": "cd ./lib && pnpm build",
-    "build:docs": "cd ./docs && pnpm build"
+    "build:docs": "cd ./lib && pnpm build:docs"
   },
   "keywords": [],
   "author": "",
