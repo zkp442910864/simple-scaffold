@@ -1,4 +1,4 @@
-import { TestButton, useStateData } from 'inline-lib';
+import { TestButton, useStateData } from '@zzzz-/test-lib';
 
 
 const Home = () => {
