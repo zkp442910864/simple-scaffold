@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <TestButton onClick={() => {
+      <TestButton className="a123" onClick={() => {
         state.count++;
         void update();
       }}>{state.count}</TestButton>

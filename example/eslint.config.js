@@ -3,6 +3,7 @@ import eslintJs from '@eslint/js';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tsEslint from 'typescript-eslint';
+import path from 'node:path';
 
 
 export default tsEslint.config(
@@ -24,7 +25,7 @@ export default tsEslint.config(
     languageOptions: {
       parserOptions: {
         // projectService: true,
-        project: './tsconfig.json',
+        project: path.join(__dirname, './tsconfig.json'),
         tsconfigRootDir: import.meta.name,
       },
       ecmaVersion: 'latest',
