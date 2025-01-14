@@ -1,0 +1,20 @@
+{
+  "$schema": "https://typedoc-plugin-markdown.org/schema.json",
+  // "entryPoints": ["src/index.ts"],
+  // "entryPoints": ["src/components/TestButton/index.tsx"],
+  // "entryPoints": ["src/components/TestButton/index.tsx"],
+  "entryPoints": [
+    "src/utils/hooks/useTest/index.ts"
+  ],
+  "outputFileStrategy": "modules",
+  "out": "./dddd",
+  "cleanOutputDir": false,
+  "readme": "none",
+  "hidePageTitle": true,
+  "hidePageHeader": true,
+  "hideGroupHeadings": true,
+  "disableSources": true,
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ]
+}

@@ -16,10 +16,12 @@
     }
   },
   "scripts": {
+    "gen": "node --loader ts-node/esm ./scripts/generateTemplate.ts",
+    "dev": "vite",
     "build": "tsc -b && vite build && tsc -b ./tsconfig.build.json",
     "lint": "eslint . --fix",
     "preview": "vite preview",
-    "dev:docs": "storybook dev -p 6006",
+    "dev:docs": "pnpm dev | storybook dev -p 6006",
     "build:docs": "storybook build"
   },
   "peerDependencies": {
@@ -34,7 +36,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.3",
-    "@eslint/js": "^9.17.0",
+    "@eslint/js": "^9.18.0",
     "@storybook/addon-essentials": "8.4.7",
     "@storybook/addon-interactions": "8.4.7",
     "@storybook/addon-onboarding": "8.4.7",
@@ -46,15 +48,19 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.17.0",
+    "enquirer": "^2.4.1",
+    "eslint": "^9.18.0",
     "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-react-refresh": "^0.4.18",
     "eslint-plugin-storybook": "^0.11.2",
     "globals": "^15.13.0",
     "path": "^0.12.7",
     "storybook": "8.4.7",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.27.6",
+    "typedoc-plugin-markdown": "^4.4.1",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.0",
+    "typescript-eslint": "^8.20.0",
     "unocss": "^0.65.3",
     "vite": "5.4.8",
     "vite-plugin-babel": "^1.3.0"

@@ -31,7 +31,9 @@
     },
   },
   "include": [
-    "./"
+    "./",
+    "./.storybook/main.ts",
+    "./.storybook/preview.ts",
   ],
   "exclude": [
     "node_modules",

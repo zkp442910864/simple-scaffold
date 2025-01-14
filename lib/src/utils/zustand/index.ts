@@ -11,7 +11,7 @@ export const createCustomStore = <T, >(fn: (cache: (data: T) => T, ...arg: Param
     }
     return cache;
   };
-    // 想要触发响应 useStore 需要优先执行
+  // 想要触发响应 useStore 需要优先执行
   const useStore = create<T>((set, arg2, arg3) => fn(cacheFn, set, arg2, arg3));
   const store = createStore<T>((set, arg2, arg3) => fn(cacheFn, set, arg2, arg3));
 

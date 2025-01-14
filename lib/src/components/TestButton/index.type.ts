@@ -1,9 +1,7 @@
 import { ReactNode } from 'react';
 
-interface ITextButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface ITestButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  /** 内容 */
   children?: ReactNode;
 }
 
-export type {
-  ITextButtonProps
-};

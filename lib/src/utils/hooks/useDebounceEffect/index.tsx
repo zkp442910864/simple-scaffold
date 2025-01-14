@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
+
+/**
+ * 基于 useEffect 封装,实现防抖效果
+ * @param effect 回调函数
+ * @param deps 触发依赖
+ * @param options 配置参数
+ */
 export const useDebounceEffect = (effect: React.EffectCallback, deps?: React.DependencyList, options?: {interval?: number, immediate?: boolean}) => {
   const [, update,] = useState({});
   const { current: data, } = useRef({

@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * 对 useState 的扩展,实现操作对象,绕过闭包的问题
+ * @param stateFn
+ * @returns
+ */
 export const useStateData = <T = unknown>(stateFn: () => T) => {
   const [val, update,] = useState({});
   const [state,] = useState(stateFn);

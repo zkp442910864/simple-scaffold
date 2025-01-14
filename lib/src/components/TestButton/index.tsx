@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { ITextButtonProps } from './index.type';
+import { ITestButtonProps } from './index.type';
+export * from './index.type';
 
-export const TestButton: FC<ITextButtonProps> = ({
+export const TestButton: FC<ITestButtonProps> = ({
   children,
   ...props
 }) => {

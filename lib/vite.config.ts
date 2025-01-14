@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import path from 'node:path';
 import { readFileSync } from 'node:fs';
+import vitePluginTypedoc from './config/vite-plugin-typedoc';
 
 const packageJson = JSON.parse(readFileSync(path.join(__dirname, './package.json'), 'utf-8')) as {peerDependencies: Record<string, string>};
 
@@ -9,6 +10,7 @@ const packageJson = JSON.parse(readFileSync(path.join(__dirname, './package.json
 export default defineConfig(({ command, mode, }) => ({
   plugins: [
     react(),
+    vitePluginTypedoc(),
   ],
   resolve: {
     alias: [

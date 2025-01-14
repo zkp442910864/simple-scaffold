@@ -13,6 +13,8 @@ dist
 dist-ssr
 *.local
 .vite
+storybook-static
+typedoc-static
 
 # Editor directories and files
 .vscode/*

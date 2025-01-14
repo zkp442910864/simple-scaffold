@@ -1,2 +1,2 @@
-export * from './modules/useDebounceEffect';
-export * from './modules/useStateData';
+export * from './useDebounceEffect';
+export * from './useStateData';
