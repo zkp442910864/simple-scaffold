@@ -84,7 +84,7 @@ jobs:
       - name: Build with Jekyll(lib)
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./lib/storybook-static
+          source: ./lib/lib/storybook-static
           destination: ./_site/lib-docs # 将内容放在 /blog 子目录下
 
       # upload
