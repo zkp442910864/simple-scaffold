@@ -1,7 +1,8 @@
 import { exec } from 'node:child_process';
-import { existsSync, globSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { Plugin } from 'vite';
+import { globSync } from 'glob';
 
 
 const watchCache: Record<string, boolean> = {};
@@ -61,7 +62,7 @@ const generateMarkDown = (pathStr: string, isWatch = false) => {
 };
 
 const firstGenerateAllMarkDown = (isWatch = false) => {
-  const pathStr = path.join(__dirname, '../../', 'src/**/index.{ts,tsx}');
+  const pathStr = path.join(__dirname, '../../', 'src/**/index.{ts,tsx}').split(path.sep).join('/');
   const paths = globSync(pathStr);
 
   paths.forEach((str) => generateMarkDown(str, isWatch));
