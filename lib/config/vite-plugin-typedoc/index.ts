@@ -53,6 +53,11 @@ const generateMarkDown = (pathStr: string, isWatch = false) => {
       console.error('vite-plugin-typedoc: ', error, stdout, stderr);
     }
   });
+
+  // 同步等待描述
+  const sharedArrayBuffer_for_sleep = new SharedArrayBuffer(4);
+  const sharedArray_for_sleep = new Int32Array(sharedArrayBuffer_for_sleep);
+  Atomics.wait(sharedArray_for_sleep, 0, 0, 300);
 };
 
 const firstGenerateAllMarkDown = (isWatch = false) => {

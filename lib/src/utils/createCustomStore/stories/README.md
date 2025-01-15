@@ -6,7 +6,7 @@
 
 | Type Parameter | Default type |
 | ------ | ------ |
-| `T` | `object` |
+| `T` *extends* `object` | `object` |
 
 ### Parameters
 
@@ -35,7 +35,7 @@
 
 | Type Parameter | Default type |
 | ------ | ------ |
-| `T` | `object` |
+| `T` *extends* `object` | `object` |
 
 ### Parameters
 
@@ -59,4 +59,4 @@
 
 | Type Parameter | Default type |
 | ------ | ------ |
-| `T` | `object` |
+| `T` *extends* `object` | `object` |
