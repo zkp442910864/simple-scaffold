@@ -16,13 +16,12 @@
     }
   },
   "scripts": {
-    "gen": "node --loader ts-node/esm ./scripts/generateTemplate.ts",
     "dev": "vite",
+    "dev:docs": "concurrently \"vite\" \"storybook dev -p 6006\"",
     "build": "tsc -b && vite build && tsc -b ./tsconfig.build.json",
-    "lint": "eslint . --fix",
-    "preview": "vite preview",
-    "dev:docs": "pnpm dev | storybook dev -p 6006",
-    "build:docs": "storybook build"
+    "build:docs": "storybook build",
+    "gen": "node --loader ts-node/esm ./scripts/generateTemplate.ts",
+    "lint": "eslint . --fix"
   },
   "peerDependencies": {
     "react": ">=19.0.0",
@@ -48,6 +47,7 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
     "enquirer": "^2.4.1",
     "eslint": "^9.18.0",
     "eslint-plugin-react-hooks": "^5.1.0",

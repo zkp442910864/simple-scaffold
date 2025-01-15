@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "cd ./example && pnpm dev",
+    "gen:tpl": "cd ./lib && pnpm gen",
     "dev:docs": "cd ./lib && pnpm dev:docs",
     "build:lib": "cd ./lib && pnpm build",
     "build:docs": "cd ./lib && pnpm build:docs"

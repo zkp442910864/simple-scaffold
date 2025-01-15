@@ -1,11 +1,11 @@
 {
   "$schema": "https://typedoc-plugin-markdown.org/schema.json",
   // "entryPoints": ["src/index.ts"],
+  "entryPoints": ["src/components/TestButton/index.tsx"],
   // "entryPoints": ["src/components/TestButton/index.tsx"],
-  // "entryPoints": ["src/components/TestButton/index.tsx"],
-  "entryPoints": [
-    "src/utils/hooks/useTest/index.ts"
-  ],
+  // "entryPoints": [
+  //   "src/utils/hooks/useTest/index.ts"
+  // ],
   "outputFileStrategy": "modules",
   "out": "./dddd",
   "cleanOutputDir": false,
@@ -14,7 +14,16 @@
   "hidePageHeader": true,
   "hideGroupHeadings": true,
   "disableSources": true,
+  // "tableColumnSettings": {
+  //   "hideSources": true,
+  // },
+  "interfacePropertiesFormat": "table",
+  "parametersFormat": "table",
+  "enumMembersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "propertiesFormat": "table",
   "plugin": [
-    "typedoc-plugin-markdown"
+    "typedoc-plugin-markdown",
+    "./config/typedoc-plugin-custom-output/index.js"
   ]
 }

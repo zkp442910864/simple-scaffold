@@ -1,0 +1,11 @@
+#storybook-docs table{
+  word-break: break-all;
+  white-space: normal;
+  table-layout: fixed;
+}
+
+#storybook-docs table code {
+  word-break: break-all;
+  white-space: normal !important;
+  color: inherit !important;
+}
