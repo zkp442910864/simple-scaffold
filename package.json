@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "cd ./example && pnpm dev",
     "gen:tpl": "cd ./lib && pnpm gen",
+    "dev": "concurrently \"pnpm dev:lib\" \"pnpm dev:web\"",
+    "dev:web": "cd ./example && pnpm dev",
+    "dev:lib": "cd ./lib && pnpm dev",
     "dev:docs": "cd ./lib && pnpm dev:docs",
     "build:lib": "cd ./lib && pnpm build",
     "build:docs": "cd ./lib && pnpm build:docs"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
