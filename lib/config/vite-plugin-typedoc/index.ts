@@ -20,8 +20,9 @@ const generateMarkDown = (pathStr: string, isWatch = false) => {
 
   if (!existsSync(storiesPath)) return;
   if (isWatch && watchCache[pathStr]) return;
+  if (dirPath.endsWith('src')) return;
 
-  console.log('vite-plugin-typedoc:handle');
+  console.log(`vite-plugin-typedoc:handle:${dirPath}`);
 
   watchCache[pathStr] = true;
   const command = [
