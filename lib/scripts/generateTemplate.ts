@@ -106,7 +106,7 @@ function updateIndexFile(baseUrl: string, templateName: string) {
 }
 
 /** 生成 hooks 模板 */
-function generateHooksTemplate({ configItem, result, }: Awaited<ReturnType<typeof getBaseResult>>) {
+function generateHooksTemplate({ configItem, result, }: Awaited<ReturnType<typeof getBaseResult>>, catalogue = 'Utils/Hooks') {
   const templateName = result.name;
   const firstUpperTplName = result.name.replace(/\w/, (val) => val.toLocaleUpperCase());;
   const baseUrl = path.join(configItem.url, templateName);
@@ -200,7 +200,7 @@ function generateHooksTemplate({ configItem, result, }: Awaited<ReturnType<typeo
         };
 
         export default {
-          title: 'Utils/Hooks/${templateName}',
+          title: '${catalogue}/${templateName}',
           component: Template,
           // More on argTypes: https://storybook.js.org/docs/api/argtypes
           argTypes: {},
@@ -339,7 +339,7 @@ function generateComponentTemplate({ configItem, result, }: Awaited<ReturnType<t
 function generateFunctionTemplate({ configItem, result, }: Awaited<ReturnType<typeof getBaseResult>>) {
   // const templateName = result.name;
   // const baseUrl = path.join(configItem.url, templateName);
-  generateHooksTemplate({ configItem, result, });
+  generateHooksTemplate({ configItem, result, }, 'Utils');
 }
 
 

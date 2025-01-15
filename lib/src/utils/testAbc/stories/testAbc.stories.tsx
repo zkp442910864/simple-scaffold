@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { test } from '..';
+import { testAbc } from '..';
 
 type Story = StoryObj<Meta>;
 
 // 具体情况,看想要什么参数进行可以受控,然后再下面args中进行配置
-const Template = (props: Parameters<typeof test>[0]) => {
+const Template = (props: Parameters<typeof testAbc>[0]) => {
 
   return (
     <div>
@@ -28,7 +28,7 @@ export const Default = Template.bind({});
 };
 
 export default {
-  title: 'Utils/test',
+  title: 'Utils/testAbc',
   component: Template,
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
