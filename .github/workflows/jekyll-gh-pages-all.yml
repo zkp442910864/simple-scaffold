@@ -61,6 +61,7 @@ jobs:
 
       - name: Build lib
         run: |
+          cd ./lib
           npm i -g pnpm
           pnpm install
           pnpm build:docs
