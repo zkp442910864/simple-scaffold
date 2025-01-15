@@ -1,3 +1,6 @@
+// export * from './index.type';
+// import type { IUseStateDataData } from './index.type';
+
 import { useEffect, useRef, useState } from 'react';
 
 /**
@@ -5,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
  * @param stateFn
  * @returns
  */
-export const useStateData = <T = unknown>(stateFn: () => T) => {
+export const useStateData = <T extends object = object>(stateFn: () => T) => {
   const [val, update,] = useState({});
   const [state,] = useState(stateFn);
   const { current: data, } = useRef({

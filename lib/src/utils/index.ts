@@ -1,2 +1,3 @@
 export * from './hooks';
-export * from './zustand';
+export * from './createCustomStore';
+export * from './test';

@@ -1,9 +1,13 @@
-import { StateCreator, createStore, create } from 'zustand';
+export * from './index.type';
+import { createStore, create } from 'zustand';
+import type { TCacheFn, TOtherData } from './index.type';
 
 /**
- * 同时支持 React 组件中使用的 useStore 和外部逻辑中访问的 store，并保持内部操作的对象一致性
+ * @description
+ * - 对 zustand 的封装
+ * - 同时支持 React 组件中使用的 useStore 和外部逻辑中访问的 store，并保持内部操作的对象一致性
  */
-export const createCustomStore = <T, >(fn: (cache: (data: T) => T, ...arg: Parameters<StateCreator<T, []>>) => T) => {
+export const createCustomStore = <T = object, >(fn: (cache: TCacheFn<T>, ...arg: TOtherData<T>) => T) => {
   let cache: T | null = null;
   const cacheFn = (data: T) => {
     if (!cache) {
@@ -17,3 +21,4 @@ export const createCustomStore = <T, >(fn: (cache: (data: T) => T, ...arg: Param
 
   return [store, useStore,] as [typeof store, typeof useStore];
 };
+

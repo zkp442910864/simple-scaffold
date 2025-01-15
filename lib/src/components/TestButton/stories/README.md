@@ -1,0 +1,317 @@
+## TestButton()
+
+> **TestButton**(`props`): `ReactNode` \| `Promise`\<`ReactNode`\>
+
+测试测试222
+
+### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`ITestButtonProps`](#itestbuttonprops) |
+
+### Returns
+
+`ReactNode` \| `Promise`\<`ReactNode`\>
+
+***
+
+## ITestButtonProps
+
+### Extends
+
+- `DetailedHTMLProps`\<`React.ButtonHTMLAttributes`\<`HTMLButtonElement`\>, `HTMLButtonElement`\>
+
+### Properties
+
+| Property | Type | Description | Overrides | Inherited from |
+| ------ | ------ | ------ | ------ | ------ |
+| <a id="about"></a> `about?` | `string` | - | - | `React.DetailedHTMLProps.about` |
+| <a id="accesskey"></a> `accessKey?` | `string` | - | - | `React.DetailedHTMLProps.accessKey` |
+| <a id="aria-activedescendant"></a> `aria-activedescendant?` | `string` | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. | - | `React.DetailedHTMLProps.aria-activedescendant` |
+| <a id="aria-atomic"></a> `aria-atomic?` | `Booleanish` | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. | - | `React.DetailedHTMLProps.aria-atomic` |
+| <a id="aria-autocomplete"></a> `aria-autocomplete?` | `"list"` \| `"none"` \| `"inline"` \| `"both"` | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. | - | `React.DetailedHTMLProps.aria-autocomplete` |
+| <a id="aria-braillelabel"></a> `aria-braillelabel?` | `string` | Defines a string value that labels the current element, which is intended to be converted into Braille. **See** aria-label. | - | `React.DetailedHTMLProps.aria-braillelabel` |
+| <a id="aria-brailleroledescription"></a> `aria-brailleroledescription?` | `string` | Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille. **See** aria-roledescription. | - | `React.DetailedHTMLProps.aria-brailleroledescription` |
+| <a id="aria-busy"></a> `aria-busy?` | `Booleanish` | - | - | `React.DetailedHTMLProps.aria-busy` |
+| <a id="aria-checked"></a> `aria-checked?` | `boolean` \| `"true"` \| `"false"` \| `"mixed"` | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. **See** - aria-pressed - aria-selected. | - | `React.DetailedHTMLProps.aria-checked` |
+| <a id="aria-colcount"></a> `aria-colcount?` | `number` | Defines the total number of columns in a table, grid, or treegrid. **See** aria-colindex. | - | `React.DetailedHTMLProps.aria-colcount` |
+| <a id="aria-colindex"></a> `aria-colindex?` | `number` | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. **See** - aria-colcount - aria-colspan. | - | `React.DetailedHTMLProps.aria-colindex` |
+| <a id="aria-colindextext"></a> `aria-colindextext?` | `string` | Defines a human readable text alternative of aria-colindex. **See** aria-rowindextext. | - | `React.DetailedHTMLProps.aria-colindextext` |
+| <a id="aria-colspan"></a> `aria-colspan?` | `number` | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. **See** - aria-colindex - aria-rowspan. | - | `React.DetailedHTMLProps.aria-colspan` |
+| <a id="aria-controls"></a> `aria-controls?` | `string` | Identifies the element (or elements) whose contents or presence are controlled by the current element. **See** aria-owns. | - | `React.DetailedHTMLProps.aria-controls` |
+| <a id="aria-current"></a> `aria-current?` | `boolean` \| `"true"` \| `"false"` \| `"page"` \| `"step"` \| `"location"` \| `"date"` \| `"time"` | Indicates the element that represents the current item within a container or set of related elements. | - | `React.DetailedHTMLProps.aria-current` |
+| <a id="aria-describedby"></a> `aria-describedby?` | `string` | Identifies the element (or elements) that describes the object. **See** aria-labelledby | - | `React.DetailedHTMLProps.aria-describedby` |
+| <a id="aria-description"></a> `aria-description?` | `string` | Defines a string value that describes or annotates the current element. **See** related aria-describedby. | - | `React.DetailedHTMLProps.aria-description` |
+| <a id="aria-details"></a> `aria-details?` | `string` | Identifies the element that provides a detailed, extended description for the object. **See** aria-describedby. | - | `React.DetailedHTMLProps.aria-details` |
+| <a id="aria-disabled"></a> `aria-disabled?` | `Booleanish` | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. **See** - aria-hidden - aria-readonly. | - | `React.DetailedHTMLProps.aria-disabled` |
+| <a id="aria-dropeffect"></a> ~~`aria-dropeffect?`~~ | `"link"` \| `"none"` \| `"copy"` \| `"execute"` \| `"move"` \| `"popup"` | Indicates what functions can be performed when a dragged object is released on the drop target. **Deprecated** in ARIA 1.1 | - | `React.DetailedHTMLProps.aria-dropeffect` |
+| <a id="aria-errormessage"></a> `aria-errormessage?` | `string` | Identifies the element that provides an error message for the object. **See** - aria-invalid - aria-describedby. | - | `React.DetailedHTMLProps.aria-errormessage` |
+| <a id="aria-expanded"></a> `aria-expanded?` | `Booleanish` | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. | - | `React.DetailedHTMLProps.aria-expanded` |
+| <a id="aria-flowto"></a> `aria-flowto?` | `string` | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. | - | `React.DetailedHTMLProps.aria-flowto` |
+| <a id="aria-grabbed"></a> ~~`aria-grabbed?`~~ | `Booleanish` | Indicates an element's "grabbed" state in a drag-and-drop operation. **Deprecated** in ARIA 1.1 | - | `React.DetailedHTMLProps.aria-grabbed` |
+| <a id="aria-haspopup"></a> `aria-haspopup?` | `boolean` \| `"true"` \| `"false"` \| `"dialog"` \| `"grid"` \| `"listbox"` \| `"menu"` \| `"tree"` | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. | - | `React.DetailedHTMLProps.aria-haspopup` |
+| <a id="aria-hidden"></a> `aria-hidden?` | `Booleanish` | Indicates whether the element is exposed to an accessibility API. **See** aria-disabled. | - | `React.DetailedHTMLProps.aria-hidden` |
+| <a id="aria-invalid"></a> `aria-invalid?` | `boolean` \| `"true"` \| `"false"` \| `"grammar"` \| `"spelling"` | Indicates the entered value does not conform to the format expected by the application. **See** aria-errormessage. | - | `React.DetailedHTMLProps.aria-invalid` |
+| <a id="aria-keyshortcuts"></a> `aria-keyshortcuts?` | `string` | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. | - | `React.DetailedHTMLProps.aria-keyshortcuts` |
+| <a id="aria-label"></a> `aria-label?` | `string` | Defines a string value that labels the current element. **See** aria-labelledby. | - | `React.DetailedHTMLProps.aria-label` |
+| <a id="aria-labelledby"></a> `aria-labelledby?` | `string` | Identifies the element (or elements) that labels the current element. **See** aria-describedby. | - | `React.DetailedHTMLProps.aria-labelledby` |
+| <a id="aria-level"></a> `aria-level?` | `number` | Defines the hierarchical level of an element within a structure. | - | `React.DetailedHTMLProps.aria-level` |
+| <a id="aria-live"></a> `aria-live?` | `"off"` \| `"assertive"` \| `"polite"` | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. | - | `React.DetailedHTMLProps.aria-live` |
+| <a id="aria-modal"></a> `aria-modal?` | `Booleanish` | Indicates whether an element is modal when displayed. | - | `React.DetailedHTMLProps.aria-modal` |
+| <a id="aria-multiline"></a> `aria-multiline?` | `Booleanish` | Indicates whether a text box accepts multiple lines of input or only a single line. | - | `React.DetailedHTMLProps.aria-multiline` |
+| <a id="aria-multiselectable"></a> `aria-multiselectable?` | `Booleanish` | Indicates that the user may select more than one item from the current selectable descendants. | - | `React.DetailedHTMLProps.aria-multiselectable` |
+| <a id="aria-orientation"></a> `aria-orientation?` | `"horizontal"` \| `"vertical"` | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. | - | `React.DetailedHTMLProps.aria-orientation` |
+| <a id="aria-owns"></a> `aria-owns?` | `string` | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. **See** aria-controls. | - | `React.DetailedHTMLProps.aria-owns` |
+| <a id="aria-placeholder"></a> `aria-placeholder?` | `string` | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. | - | `React.DetailedHTMLProps.aria-placeholder` |
+| <a id="aria-posinset"></a> `aria-posinset?` | `number` | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. **See** aria-setsize. | - | `React.DetailedHTMLProps.aria-posinset` |
+| <a id="aria-pressed"></a> `aria-pressed?` | `boolean` \| `"true"` \| `"false"` \| `"mixed"` | Indicates the current "pressed" state of toggle buttons. **See** - aria-checked - aria-selected. | - | `React.DetailedHTMLProps.aria-pressed` |
+| <a id="aria-readonly"></a> `aria-readonly?` | `Booleanish` | Indicates that the element is not editable, but is otherwise operable. **See** aria-disabled. | - | `React.DetailedHTMLProps.aria-readonly` |
+| <a id="aria-relevant"></a> `aria-relevant?` | `"all"` \| `"text"` \| `"additions"` \| `"additions removals"` \| `"additions text"` \| `"removals"` \| `"removals additions"` \| `"removals text"` \| `"text additions"` \| `"text removals"` | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. **See** aria-atomic. | - | `React.DetailedHTMLProps.aria-relevant` |
+| <a id="aria-required"></a> `aria-required?` | `Booleanish` | Indicates that user input is required on the element before a form may be submitted. | - | `React.DetailedHTMLProps.aria-required` |
+| <a id="aria-roledescription"></a> `aria-roledescription?` | `string` | Defines a human-readable, author-localized description for the role of an element. | - | `React.DetailedHTMLProps.aria-roledescription` |
+| <a id="aria-rowcount"></a> `aria-rowcount?` | `number` | Defines the total number of rows in a table, grid, or treegrid. **See** aria-rowindex. | - | `React.DetailedHTMLProps.aria-rowcount` |
+| <a id="aria-rowindex"></a> `aria-rowindex?` | `number` | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. **See** - aria-rowcount - aria-rowspan. | - | `React.DetailedHTMLProps.aria-rowindex` |
+| <a id="aria-rowindextext"></a> `aria-rowindextext?` | `string` | Defines a human readable text alternative of aria-rowindex. **See** aria-colindextext. | - | `React.DetailedHTMLProps.aria-rowindextext` |
+| <a id="aria-rowspan"></a> `aria-rowspan?` | `number` | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. **See** - aria-rowindex - aria-colspan. | - | `React.DetailedHTMLProps.aria-rowspan` |
+| <a id="aria-selected"></a> `aria-selected?` | `Booleanish` | Indicates the current "selected" state of various widgets. **See** - aria-checked - aria-pressed. | - | `React.DetailedHTMLProps.aria-selected` |
+| <a id="aria-setsize"></a> `aria-setsize?` | `number` | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. **See** aria-posinset. | - | `React.DetailedHTMLProps.aria-setsize` |
+| <a id="aria-sort"></a> `aria-sort?` | `"none"` \| `"ascending"` \| `"descending"` \| `"other"` | Indicates if items in a table or grid are sorted in ascending or descending order. | - | `React.DetailedHTMLProps.aria-sort` |
+| <a id="aria-valuemax"></a> `aria-valuemax?` | `number` | Defines the maximum allowed value for a range widget. | - | `React.DetailedHTMLProps.aria-valuemax` |
+| <a id="aria-valuemin"></a> `aria-valuemin?` | `number` | Defines the minimum allowed value for a range widget. | - | `React.DetailedHTMLProps.aria-valuemin` |
+| <a id="aria-valuenow"></a> `aria-valuenow?` | `number` | Defines the current value for a range widget. **See** aria-valuetext. | - | `React.DetailedHTMLProps.aria-valuenow` |
+| <a id="aria-valuetext"></a> `aria-valuetext?` | `string` | Defines the human readable text alternative of aria-valuenow for a range widget. | - | `React.DetailedHTMLProps.aria-valuetext` |
+| <a id="autocapitalize"></a> `autoCapitalize?` | `"off"` \| `"none"` \| `"on"` \| `"sentences"` \| `"words"` \| `"characters"` \| `string` & `object` | - | - | `React.DetailedHTMLProps.autoCapitalize` |
+| <a id="autocorrect"></a> `autoCorrect?` | `string` | - | - | `React.DetailedHTMLProps.autoCorrect` |
+| <a id="autofocus"></a> `autoFocus?` | `boolean` | - | - | `React.DetailedHTMLProps.autoFocus` |
+| <a id="autosave"></a> `autoSave?` | `string` | - | - | `React.DetailedHTMLProps.autoSave` |
+| <a id="children"></a> `children?` | `ReactNode` | 内容 | `React.DetailedHTMLProps.children` | - |
+| <a id="classname"></a> `className?` | `string` | - | - | `React.DetailedHTMLProps.className` |
+| <a id="color"></a> `color?` | `string` | - | - | `React.DetailedHTMLProps.color` |
+| <a id="content"></a> `content?` | `string` | - | - | `React.DetailedHTMLProps.content` |
+| <a id="contenteditable"></a> `contentEditable?` | `Booleanish` \| `"inherit"` \| `"plaintext-only"` | - | - | `React.DetailedHTMLProps.contentEditable` |
+| <a id="contextmenu"></a> `contextMenu?` | `string` | - | - | `React.DetailedHTMLProps.contextMenu` |
+| <a id="dangerouslysetinnerhtml"></a> `dangerouslySetInnerHTML?` | `object` | - | - | `React.DetailedHTMLProps.dangerouslySetInnerHTML` |
+| `dangerouslySetInnerHTML.__html` | `string` \| `TrustedHTML` | - | - | - |
+| <a id="datatype"></a> `datatype?` | `string` | - | - | `React.DetailedHTMLProps.datatype` |
+| <a id="defaultchecked"></a> `defaultChecked?` | `boolean` | - | - | `React.DetailedHTMLProps.defaultChecked` |
+| <a id="defaultvalue"></a> `defaultValue?` | `string` \| `number` \| readonly `string`[] | - | - | `React.DetailedHTMLProps.defaultValue` |
+| <a id="dir"></a> `dir?` | `string` | - | - | `React.DetailedHTMLProps.dir` |
+| <a id="disabled"></a> `disabled?` | `boolean` | - | - | `React.DetailedHTMLProps.disabled` |
+| <a id="draggable"></a> `draggable?` | `Booleanish` | - | - | `React.DetailedHTMLProps.draggable` |
+| <a id="enterkeyhint"></a> `enterKeyHint?` | `"search"` \| `"enter"` \| `"done"` \| `"go"` \| `"next"` \| `"previous"` \| `"send"` | - | - | `React.DetailedHTMLProps.enterKeyHint` |
+| <a id="form"></a> `form?` | `string` | - | - | `React.DetailedHTMLProps.form` |
+| <a id="formaction"></a> `formAction?` | `string` \| (`formData`) => `void` \| `Promise`\<`void`\> | - | - | `React.DetailedHTMLProps.formAction` |
+| <a id="formenctype"></a> `formEncType?` | `string` | - | - | `React.DetailedHTMLProps.formEncType` |
+| <a id="formmethod"></a> `formMethod?` | `string` | - | - | `React.DetailedHTMLProps.formMethod` |
+| <a id="formnovalidate"></a> `formNoValidate?` | `boolean` | - | - | `React.DetailedHTMLProps.formNoValidate` |
+| <a id="formtarget"></a> `formTarget?` | `string` | - | - | `React.DetailedHTMLProps.formTarget` |
+| <a id="hidden"></a> `hidden?` | `boolean` | - | - | `React.DetailedHTMLProps.hidden` |
+| <a id="id"></a> `id?` | `string` | - | - | `React.DetailedHTMLProps.id` |
+| <a id="inert"></a> `inert?` | `boolean` | **See** https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert | - | `React.DetailedHTMLProps.inert` |
+| <a id="inlist"></a> `inlist?` | `any` | - | - | `React.DetailedHTMLProps.inlist` |
+| <a id="inputmode"></a> `inputMode?` | `"search"` \| `"text"` \| `"url"` \| `"none"` \| `"tel"` \| `"email"` \| `"numeric"` \| `"decimal"` | Hints at the type of data that might be entered by the user while editing the element or its contents **See** [https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute) | - | `React.DetailedHTMLProps.inputMode` |
+| <a id="is"></a> `is?` | `string` | Specify that a standard HTML element should behave like a defined custom built-in element **See** [https://html.spec.whatwg.org/multipage/custom-elements.html#attr-is](https://html.spec.whatwg.org/multipage/custom-elements.html#attr-is) | - | `React.DetailedHTMLProps.is` |
+| <a id="itemid"></a> `itemID?` | `string` | - | - | `React.DetailedHTMLProps.itemID` |
+| <a id="itemprop"></a> `itemProp?` | `string` | - | - | `React.DetailedHTMLProps.itemProp` |
+| <a id="itemref"></a> `itemRef?` | `string` | - | - | `React.DetailedHTMLProps.itemRef` |
+| <a id="itemscope"></a> `itemScope?` | `boolean` | - | - | `React.DetailedHTMLProps.itemScope` |
+| <a id="itemtype"></a> `itemType?` | `string` | - | - | `React.DetailedHTMLProps.itemType` |
+| <a id="key"></a> `key?` | `null` \| `Key` | - | - | `React.DetailedHTMLProps.key` |
+| <a id="lang"></a> `lang?` | `string` | - | - | `React.DetailedHTMLProps.lang` |
+| <a id="name"></a> `name?` | `string` | - | - | `React.DetailedHTMLProps.name` |
+| <a id="nonce"></a> `nonce?` | `string` | - | - | `React.DetailedHTMLProps.nonce` |
+| <a id="onabort"></a> `onAbort?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAbort` |
+| <a id="onabortcapture"></a> `onAbortCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAbortCapture` |
+| <a id="onanimationend"></a> `onAnimationEnd?` | `AnimationEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAnimationEnd` |
+| <a id="onanimationendcapture"></a> `onAnimationEndCapture?` | `AnimationEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAnimationEndCapture` |
+| <a id="onanimationiteration"></a> `onAnimationIteration?` | `AnimationEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAnimationIteration` |
+| <a id="onanimationiterationcapture"></a> `onAnimationIterationCapture?` | `AnimationEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAnimationIterationCapture` |
+| <a id="onanimationstart"></a> `onAnimationStart?` | `AnimationEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAnimationStart` |
+| <a id="onanimationstartcapture"></a> `onAnimationStartCapture?` | `AnimationEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAnimationStartCapture` |
+| <a id="onauxclick"></a> `onAuxClick?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAuxClick` |
+| <a id="onauxclickcapture"></a> `onAuxClickCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onAuxClickCapture` |
+| <a id="onbeforeinput"></a> `onBeforeInput?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onBeforeInput` |
+| <a id="onbeforeinputcapture"></a> `onBeforeInputCapture?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onBeforeInputCapture` |
+| <a id="onbeforetoggle"></a> `onBeforeToggle?` | `ToggleEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onBeforeToggle` |
+| <a id="onblur"></a> `onBlur?` | `FocusEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onBlur` |
+| <a id="onblurcapture"></a> `onBlurCapture?` | `FocusEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onBlurCapture` |
+| <a id="oncanplay"></a> `onCanPlay?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCanPlay` |
+| <a id="oncanplaycapture"></a> `onCanPlayCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCanPlayCapture` |
+| <a id="oncanplaythrough"></a> `onCanPlayThrough?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCanPlayThrough` |
+| <a id="oncanplaythroughcapture"></a> `onCanPlayThroughCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCanPlayThroughCapture` |
+| <a id="onchange"></a> `onChange?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onChange` |
+| <a id="onchangecapture"></a> `onChangeCapture?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onChangeCapture` |
+| <a id="onclick"></a> `onClick?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onClick` |
+| <a id="onclickcapture"></a> `onClickCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onClickCapture` |
+| <a id="oncompositionend"></a> `onCompositionEnd?` | `CompositionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCompositionEnd` |
+| <a id="oncompositionendcapture"></a> `onCompositionEndCapture?` | `CompositionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCompositionEndCapture` |
+| <a id="oncompositionstart"></a> `onCompositionStart?` | `CompositionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCompositionStart` |
+| <a id="oncompositionstartcapture"></a> `onCompositionStartCapture?` | `CompositionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCompositionStartCapture` |
+| <a id="oncompositionupdate"></a> `onCompositionUpdate?` | `CompositionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCompositionUpdate` |
+| <a id="oncompositionupdatecapture"></a> `onCompositionUpdateCapture?` | `CompositionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCompositionUpdateCapture` |
+| <a id="oncontextmenu"></a> `onContextMenu?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onContextMenu` |
+| <a id="oncontextmenucapture"></a> `onContextMenuCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onContextMenuCapture` |
+| <a id="oncopy"></a> `onCopy?` | `ClipboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCopy` |
+| <a id="oncopycapture"></a> `onCopyCapture?` | `ClipboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCopyCapture` |
+| <a id="oncut"></a> `onCut?` | `ClipboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCut` |
+| <a id="oncutcapture"></a> `onCutCapture?` | `ClipboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onCutCapture` |
+| <a id="ondoubleclick"></a> `onDoubleClick?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDoubleClick` |
+| <a id="ondoubleclickcapture"></a> `onDoubleClickCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDoubleClickCapture` |
+| <a id="ondrag"></a> `onDrag?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDrag` |
+| <a id="ondragcapture"></a> `onDragCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragCapture` |
+| <a id="ondragend"></a> `onDragEnd?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragEnd` |
+| <a id="ondragendcapture"></a> `onDragEndCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragEndCapture` |
+| <a id="ondragenter"></a> `onDragEnter?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragEnter` |
+| <a id="ondragentercapture"></a> `onDragEnterCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragEnterCapture` |
+| <a id="ondragexit"></a> `onDragExit?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragExit` |
+| <a id="ondragexitcapture"></a> `onDragExitCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragExitCapture` |
+| <a id="ondragleave"></a> `onDragLeave?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragLeave` |
+| <a id="ondragleavecapture"></a> `onDragLeaveCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragLeaveCapture` |
+| <a id="ondragover"></a> `onDragOver?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragOver` |
+| <a id="ondragovercapture"></a> `onDragOverCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragOverCapture` |
+| <a id="ondragstart"></a> `onDragStart?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragStart` |
+| <a id="ondragstartcapture"></a> `onDragStartCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDragStartCapture` |
+| <a id="ondrop"></a> `onDrop?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDrop` |
+| <a id="ondropcapture"></a> `onDropCapture?` | `DragEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDropCapture` |
+| <a id="ondurationchange"></a> `onDurationChange?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDurationChange` |
+| <a id="ondurationchangecapture"></a> `onDurationChangeCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onDurationChangeCapture` |
+| <a id="onemptied"></a> `onEmptied?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onEmptied` |
+| <a id="onemptiedcapture"></a> `onEmptiedCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onEmptiedCapture` |
+| <a id="onencrypted"></a> `onEncrypted?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onEncrypted` |
+| <a id="onencryptedcapture"></a> `onEncryptedCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onEncryptedCapture` |
+| <a id="onended"></a> `onEnded?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onEnded` |
+| <a id="onendedcapture"></a> `onEndedCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onEndedCapture` |
+| <a id="onerror"></a> `onError?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onError` |
+| <a id="onerrorcapture"></a> `onErrorCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onErrorCapture` |
+| <a id="onfocus"></a> `onFocus?` | `FocusEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onFocus` |
+| <a id="onfocuscapture"></a> `onFocusCapture?` | `FocusEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onFocusCapture` |
+| <a id="ongotpointercapture"></a> `onGotPointerCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onGotPointerCapture` |
+| <a id="ongotpointercapturecapture"></a> `onGotPointerCaptureCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onGotPointerCaptureCapture` |
+| <a id="oninput"></a> `onInput?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onInput` |
+| <a id="oninputcapture"></a> `onInputCapture?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onInputCapture` |
+| <a id="oninvalid"></a> `onInvalid?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onInvalid` |
+| <a id="oninvalidcapture"></a> `onInvalidCapture?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onInvalidCapture` |
+| <a id="onkeydown"></a> `onKeyDown?` | `KeyboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onKeyDown` |
+| <a id="onkeydowncapture"></a> `onKeyDownCapture?` | `KeyboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onKeyDownCapture` |
+| <a id="onkeypress"></a> ~~`onKeyPress?`~~ | `KeyboardEventHandler`\<`HTMLButtonElement`\> | **Deprecated** Use `onKeyUp` or `onKeyDown` instead | - | `React.DetailedHTMLProps.onKeyPress` |
+| <a id="onkeypresscapture"></a> ~~`onKeyPressCapture?`~~ | `KeyboardEventHandler`\<`HTMLButtonElement`\> | **Deprecated** Use `onKeyUpCapture` or `onKeyDownCapture` instead | - | `React.DetailedHTMLProps.onKeyPressCapture` |
+| <a id="onkeyup"></a> `onKeyUp?` | `KeyboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onKeyUp` |
+| <a id="onkeyupcapture"></a> `onKeyUpCapture?` | `KeyboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onKeyUpCapture` |
+| <a id="onload"></a> `onLoad?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoad` |
+| <a id="onloadcapture"></a> `onLoadCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadCapture` |
+| <a id="onloadeddata"></a> `onLoadedData?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadedData` |
+| <a id="onloadeddatacapture"></a> `onLoadedDataCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadedDataCapture` |
+| <a id="onloadedmetadata"></a> `onLoadedMetadata?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadedMetadata` |
+| <a id="onloadedmetadatacapture"></a> `onLoadedMetadataCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadedMetadataCapture` |
+| <a id="onloadstart"></a> `onLoadStart?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadStart` |
+| <a id="onloadstartcapture"></a> `onLoadStartCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLoadStartCapture` |
+| <a id="onlostpointercapture"></a> `onLostPointerCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLostPointerCapture` |
+| <a id="onlostpointercapturecapture"></a> `onLostPointerCaptureCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onLostPointerCaptureCapture` |
+| <a id="onmousedown"></a> `onMouseDown?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseDown` |
+| <a id="onmousedowncapture"></a> `onMouseDownCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseDownCapture` |
+| <a id="onmouseenter"></a> `onMouseEnter?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseEnter` |
+| <a id="onmouseleave"></a> `onMouseLeave?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseLeave` |
+| <a id="onmousemove"></a> `onMouseMove?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseMove` |
+| <a id="onmousemovecapture"></a> `onMouseMoveCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseMoveCapture` |
+| <a id="onmouseout"></a> `onMouseOut?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseOut` |
+| <a id="onmouseoutcapture"></a> `onMouseOutCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseOutCapture` |
+| <a id="onmouseover"></a> `onMouseOver?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseOver` |
+| <a id="onmouseovercapture"></a> `onMouseOverCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseOverCapture` |
+| <a id="onmouseup"></a> `onMouseUp?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseUp` |
+| <a id="onmouseupcapture"></a> `onMouseUpCapture?` | `MouseEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onMouseUpCapture` |
+| <a id="onpaste"></a> `onPaste?` | `ClipboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPaste` |
+| <a id="onpastecapture"></a> `onPasteCapture?` | `ClipboardEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPasteCapture` |
+| <a id="onpause"></a> `onPause?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPause` |
+| <a id="onpausecapture"></a> `onPauseCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPauseCapture` |
+| <a id="onplay"></a> `onPlay?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPlay` |
+| <a id="onplaycapture"></a> `onPlayCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPlayCapture` |
+| <a id="onplaying"></a> `onPlaying?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPlaying` |
+| <a id="onplayingcapture"></a> `onPlayingCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPlayingCapture` |
+| <a id="onpointercancel"></a> `onPointerCancel?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerCancel` |
+| <a id="onpointercancelcapture"></a> `onPointerCancelCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerCancelCapture` |
+| <a id="onpointerdown"></a> `onPointerDown?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerDown` |
+| <a id="onpointerdowncapture"></a> `onPointerDownCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerDownCapture` |
+| <a id="onpointerenter"></a> `onPointerEnter?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerEnter` |
+| <a id="onpointerleave"></a> `onPointerLeave?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerLeave` |
+| <a id="onpointermove"></a> `onPointerMove?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerMove` |
+| <a id="onpointermovecapture"></a> `onPointerMoveCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerMoveCapture` |
+| <a id="onpointerout"></a> `onPointerOut?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerOut` |
+| <a id="onpointeroutcapture"></a> `onPointerOutCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerOutCapture` |
+| <a id="onpointerover"></a> `onPointerOver?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerOver` |
+| <a id="onpointerovercapture"></a> `onPointerOverCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerOverCapture` |
+| <a id="onpointerup"></a> `onPointerUp?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerUp` |
+| <a id="onpointerupcapture"></a> `onPointerUpCapture?` | `PointerEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onPointerUpCapture` |
+| <a id="onprogress"></a> `onProgress?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onProgress` |
+| <a id="onprogresscapture"></a> `onProgressCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onProgressCapture` |
+| <a id="onratechange"></a> `onRateChange?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onRateChange` |
+| <a id="onratechangecapture"></a> `onRateChangeCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onRateChangeCapture` |
+| <a id="onreset"></a> `onReset?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onReset` |
+| <a id="onresetcapture"></a> `onResetCapture?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onResetCapture` |
+| <a id="onresize"></a> `onResize?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onResize` |
+| <a id="onresizecapture"></a> `onResizeCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onResizeCapture` |
+| <a id="onscroll"></a> `onScroll?` | `UIEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onScroll` |
+| <a id="onscrollcapture"></a> `onScrollCapture?` | `UIEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onScrollCapture` |
+| <a id="onseeked"></a> `onSeeked?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSeeked` |
+| <a id="onseekedcapture"></a> `onSeekedCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSeekedCapture` |
+| <a id="onseeking"></a> `onSeeking?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSeeking` |
+| <a id="onseekingcapture"></a> `onSeekingCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSeekingCapture` |
+| <a id="onselect"></a> `onSelect?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSelect` |
+| <a id="onselectcapture"></a> `onSelectCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSelectCapture` |
+| <a id="onstalled"></a> `onStalled?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onStalled` |
+| <a id="onstalledcapture"></a> `onStalledCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onStalledCapture` |
+| <a id="onsubmit"></a> `onSubmit?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSubmit` |
+| <a id="onsubmitcapture"></a> `onSubmitCapture?` | `FormEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSubmitCapture` |
+| <a id="onsuspend"></a> `onSuspend?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSuspend` |
+| <a id="onsuspendcapture"></a> `onSuspendCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onSuspendCapture` |
+| <a id="ontimeupdate"></a> `onTimeUpdate?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTimeUpdate` |
+| <a id="ontimeupdatecapture"></a> `onTimeUpdateCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTimeUpdateCapture` |
+| <a id="ontoggle"></a> `onToggle?` | `ToggleEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onToggle` |
+| <a id="ontouchcancel"></a> `onTouchCancel?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchCancel` |
+| <a id="ontouchcancelcapture"></a> `onTouchCancelCapture?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchCancelCapture` |
+| <a id="ontouchend"></a> `onTouchEnd?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchEnd` |
+| <a id="ontouchendcapture"></a> `onTouchEndCapture?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchEndCapture` |
+| <a id="ontouchmove"></a> `onTouchMove?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchMove` |
+| <a id="ontouchmovecapture"></a> `onTouchMoveCapture?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchMoveCapture` |
+| <a id="ontouchstart"></a> `onTouchStart?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchStart` |
+| <a id="ontouchstartcapture"></a> `onTouchStartCapture?` | `TouchEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTouchStartCapture` |
+| <a id="ontransitioncancel"></a> `onTransitionCancel?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionCancel` |
+| <a id="ontransitioncancelcapture"></a> `onTransitionCancelCapture?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionCancelCapture` |
+| <a id="ontransitionend"></a> `onTransitionEnd?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionEnd` |
+| <a id="ontransitionendcapture"></a> `onTransitionEndCapture?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionEndCapture` |
+| <a id="ontransitionrun"></a> `onTransitionRun?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionRun` |
+| <a id="ontransitionruncapture"></a> `onTransitionRunCapture?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionRunCapture` |
+| <a id="ontransitionstart"></a> `onTransitionStart?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionStart` |
+| <a id="ontransitionstartcapture"></a> `onTransitionStartCapture?` | `TransitionEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onTransitionStartCapture` |
+| <a id="onvolumechange"></a> `onVolumeChange?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onVolumeChange` |
+| <a id="onvolumechangecapture"></a> `onVolumeChangeCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onVolumeChangeCapture` |
+| <a id="onwaiting"></a> `onWaiting?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onWaiting` |
+| <a id="onwaitingcapture"></a> `onWaitingCapture?` | `ReactEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onWaitingCapture` |
+| <a id="onwheel"></a> `onWheel?` | `WheelEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onWheel` |
+| <a id="onwheelcapture"></a> `onWheelCapture?` | `WheelEventHandler`\<`HTMLButtonElement`\> | - | - | `React.DetailedHTMLProps.onWheelCapture` |
+| <a id="popover"></a> `popover?` | `""` \| `"auto"` \| `"manual"` | - | - | `React.DetailedHTMLProps.popover` |
+| <a id="popovertarget"></a> `popoverTarget?` | `string` | - | - | `React.DetailedHTMLProps.popoverTarget` |
+| <a id="popovertargetaction"></a> `popoverTargetAction?` | `"toggle"` \| `"show"` \| `"hide"` | - | - | `React.DetailedHTMLProps.popoverTargetAction` |
+| <a id="prefix"></a> `prefix?` | `string` | - | - | `React.DetailedHTMLProps.prefix` |
+| <a id="property"></a> `property?` | `string` | - | - | `React.DetailedHTMLProps.property` |
+| <a id="radiogroup"></a> `radioGroup?` | `string` | - | - | `React.DetailedHTMLProps.radioGroup` |
+| <a id="ref"></a> `ref?` | `Ref`\<`HTMLButtonElement`\> | Allows getting a ref to the component instance. Once the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref). **See** [React Docs](https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom) | - | `React.DetailedHTMLProps.ref` |
+| <a id="rel"></a> `rel?` | `string` | - | - | `React.DetailedHTMLProps.rel` |
+| <a id="resource"></a> `resource?` | `string` | - | - | `React.DetailedHTMLProps.resource` |
+| <a id="results"></a> `results?` | `number` | - | - | `React.DetailedHTMLProps.results` |
+| <a id="rev"></a> `rev?` | `string` | - | - | `React.DetailedHTMLProps.rev` |
+| <a id="role"></a> `role?` | `AriaRole` | - | - | `React.DetailedHTMLProps.role` |
+| <a id="security"></a> `security?` | `string` | - | - | `React.DetailedHTMLProps.security` |
+| <a id="slot"></a> `slot?` | `string` | - | - | `React.DetailedHTMLProps.slot` |
+| <a id="spellcheck"></a> `spellCheck?` | `Booleanish` | - | - | `React.DetailedHTMLProps.spellCheck` |
+| <a id="style"></a> `style?` | `CSSProperties` | - | - | `React.DetailedHTMLProps.style` |
+| <a id="suppresscontenteditablewarning"></a> `suppressContentEditableWarning?` | `boolean` | - | - | `React.DetailedHTMLProps.suppressContentEditableWarning` |
+| <a id="suppresshydrationwarning"></a> `suppressHydrationWarning?` | `boolean` | - | - | `React.DetailedHTMLProps.suppressHydrationWarning` |
+| <a id="tabindex"></a> `tabIndex?` | `number` | - | - | `React.DetailedHTMLProps.tabIndex` |
+| <a id="title"></a> `title?` | `string` | - | - | `React.DetailedHTMLProps.title` |
+| <a id="translate"></a> `translate?` | `"yes"` \| `"no"` | - | - | `React.DetailedHTMLProps.translate` |
+| <a id="type"></a> `type?` | `"button"` \| `"submit"` \| `"reset"` | - | - | `React.DetailedHTMLProps.type` |
+| <a id="typeof"></a> `typeof?` | `string` | - | - | `React.DetailedHTMLProps.typeof` |
+| <a id="unselectable"></a> `unselectable?` | `"off"` \| `"on"` | - | - | `React.DetailedHTMLProps.unselectable` |
+| <a id="value"></a> `value?` | `string` \| `number` \| readonly `string`[] | - | - | `React.DetailedHTMLProps.value` |
+| <a id="vocab"></a> `vocab?` | `string` | - | - | `React.DetailedHTMLProps.vocab` |

@@ -1,0 +1,11 @@
+import { Meta, Controls, Markdown, Story, Canvas, Docs, ArgTypes } from '@storybook/blocks';
+import * as all from './TestButton.stories';
+import Readme from './README.md?raw';
+
+<Meta of={all} />
+
+<Canvas sourceState="shown"/>
+
+<ArgTypes/>
+
+<Markdown>{Readme}</Markdown>

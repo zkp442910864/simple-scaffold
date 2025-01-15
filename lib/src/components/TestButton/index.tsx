@@ -1,7 +1,10 @@
-import { FC } from 'react';
-import { ITestButtonProps } from './index.type';
 export * from './index.type';
+import { FC } from 'react';
+import type { ITestButtonProps } from './index.type';
 
+/**
+ * 测试测试222
+ */
 export const TestButton: FC<ITestButtonProps> = ({
   children,
   ...props

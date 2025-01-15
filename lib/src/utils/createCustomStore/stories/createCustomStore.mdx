@@ -1,0 +1,9 @@
+import { Meta, Controls, Markdown, Story, Canvas } from '@storybook/blocks';
+import * as all from './createCustomStore.stories';
+import Readme from './README.md?raw';
+
+<Meta of={all} />
+
+<Canvas of={all.Default} sourceState="shown" source={all.Default.source} />
+
+<Markdown>{Readme}</Markdown>
