@@ -1,8 +1,8 @@
 # React + react-router + zustand + TypeScript + Vite
 
-### 任务列表
+### <a target="__blank" href="https://zkp442910864.github.io/simple-scaffold/vite-react/#/">Examples</a>
 
-- [demo](https://zkp442910864.github.io/simple-scaffold/vite-react/#/)
+### 任务列表
 
 - [x] [状态管理zustand](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand)
 

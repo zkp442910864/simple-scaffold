@@ -31,7 +31,7 @@ const render = (props?: ICustomQiankunProps) => {
     SystemUpdateSPA.getInstance({
         // 开发环境不触发
         isDev: import.meta.env.DEV,
-        interval: 1000,
+        // interval: 1000,
         dialog: (type) => {
             confirm('qweqe' + type);
             return Promise.resolve();

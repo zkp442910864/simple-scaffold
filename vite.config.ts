@@ -35,6 +35,7 @@ export default defineConfig(({ command, mode, }) => ({
                 'react-router': { lib: true, },
                 zustand: { lib: true, },
             },
+            // minify: false,
         }),
         // 分析
         // analyzer(),
