@@ -1,4 +1,6 @@
 node_modules
-dist
-.vite
-tsconfig.tsbuildinfo
+/dist
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
+.DS_Store
