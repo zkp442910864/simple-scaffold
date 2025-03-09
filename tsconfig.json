@@ -6,6 +6,8 @@
     "esModuleInterop": true,
     "jsx": "react",
     "baseUrl": "./",
+    "types": ["@types/node", "node"],
+    "lib": ["DOM", "ESNext"],
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "test-dumi": ["src"],

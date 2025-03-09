@@ -5,4 +5,5 @@ export default defineConfig({
   themeConfig: {
     name: 'test-dumi',
   },
+  plugins: ['./config/dumi-plugins-auto-api-parse'],
 });
