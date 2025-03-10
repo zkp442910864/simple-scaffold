@@ -2,6 +2,7 @@
 import chokidar from 'chokidar';
 import { IApi } from 'dumi';
 import fs from 'fs';
+import { exec } from 'node:child_process';
 import path from 'path';
 import { whaleParse } from 'whale-component-docgen';
 
@@ -19,6 +20,7 @@ import { whaleParse } from 'whale-component-docgen';
  * - TODO: 交叉类型时候,有重复会有覆盖情况
  * - TODO: 函数类型解析不出来
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const parse = (entryUrl: string, outputUrl: string) => {
   const componentDocs = whaleParse(entryUrl, {});
   if (!componentDocs || !componentDocs.length) {
@@ -178,6 +180,65 @@ const parse = (entryUrl: string, outputUrl: string) => {
   });
 };
 
+// const tsconfigUrl = path.join(process.cwd(), './tsconfig.json');
+const generateMarkDown = (pathStr: string) => {
+  if (!pathStr.match(/index(.tsx|.ts)$/)) return;
+  const dirPath = path.dirname(pathStr);
+  const folderPath = path.join(
+    process.cwd(),
+    'node_modules',
+    '.cache',
+    'typedoc',
+  );
+  const oldFilePath = path.join(folderPath, 'README.md');
+  const newFilePath = path.join(dirPath, 'API.md');
+
+  // https://typedoc-plugin-markdown.org/docs/options/display-options
+
+  const command = [
+    'typedoc',
+    `--entryPoints "${pathStr}"`,
+    '--outputFileStrategy modules',
+    `--out "${folderPath}"`,
+    '--cleanOutputDir false',
+    '--readme none',
+    // '--hideGroupHeadings true',
+    // '--useCodeBlocks true',
+    // '--expandObjects true',
+    // '--hideBreadcrumbs true',
+    // '--expandParameters true',
+    '--hidePageTitle true',
+    '--hidePageHeader true',
+    '--disableSources true',
+    '--interfacePropertiesFormat table',
+    '--parametersFormat table',
+    '--enumMembersFormat table',
+    '--typeDeclarationFormat table',
+    '--propertiesFormat table',
+    '--plugin typedoc-plugin-markdown',
+    // `--tsconfig "${tsconfigUrl}"`
+    // `--plugin ${pluginUrl}`,
+  ];
+
+  // console.log(command.join(' '));
+
+  exec(command.join(' '), (error, stdout, stderr) => {
+    if (error) {
+      console.error('vite-plugin-typedoc: ', error, stdout, stderr);
+    }
+
+    if (fs.existsSync(oldFilePath)) {
+      if (fs.existsSync(newFilePath)) fs.unlinkSync(newFilePath);
+      fs.renameSync(oldFilePath, newFilePath);
+      // fs.rmdirSync(oldFilePath, { recursive: true });
+      console.log(`API.md 生成成功: ${newFilePath}`);
+      // if (fs.existsSync(oldFilePath)) fs.unlinkSync(oldFilePath);
+    } else {
+      console.error(`API.md 生成失败: ${newFilePath}`);
+    }
+  });
+};
+
 export default (api: IApi) => {
   // console.log('注册');
 
@@ -205,11 +266,13 @@ export default (api: IApi) => {
           const dirPath = path.dirname(filePath);
           const entry1 = path.join(dirPath, 'index.ts');
           const entry2 = path.join(dirPath, 'index.tsx');
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const output = path.join(dirPath, 'API.md');
           const entry = fs.existsSync(entry1) ? entry1 : entry2;
 
           if (fs.existsSync(entry)) {
-            parse(entry, output);
+            // parse(entry, output);
+            generateMarkDown(entry);
           } else {
             console.error(`${dirPath} 缺少 index.ts|index.tsx 入口文件`);
           }
