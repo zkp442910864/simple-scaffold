@@ -20,7 +20,8 @@
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "tt": "typedoc --entryPoints src/index.ts --plugin typedoc-plugin-markdown --outputFileStrategy modules --readme none --propertiesFormat table --enumMembersFormat table --typeDeclarationFormat table"
   },
   "commitlint": {
     "extends": [
