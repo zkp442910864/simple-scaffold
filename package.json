@@ -48,5 +48,9 @@
     "patchedDependencies": {
       "source-map@0.7.4": "patches/source-map@0.7.4.patch"
     }
-  }
+  },
+   "engines": {
+    "node": ">=18.0.0",
+    "pnpm": "9"
+  },
 }
